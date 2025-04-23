@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR form</title>
+    <style>
+        table {
+            width: 80%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        td {
+            height: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 自己做的hr form/可再改進 -->
+    <h1>個人資料表</h1>
+    <br>
+    <hr>
+    <h2>基本資料</h2>
+    <p>
+        <label for="name">中文姓名：</label>
+        <input type="text" name="" id="name">
+        /
+        <label for="engname">英文姓名：</label>
+        <input type="text" name="" id="engname">
+    </p>
+    <p>
+        <label>性別：</label>
+        <input type="radio" name="gender" id="boy">
+        <label for="boy">男性</label>
+        <input type="radio" name="gender" id="girl">
+        <label for="girl">女性</label>
+        <input type="radio" name="gender" id="other">
+        <label for="other">其他</label>
+    </p>
+    <p>
+        <label for="birthday">生日：</label>
+        <input type="date" name="birthday" id="birthday">
+        /
+        <label for="bloodtype">血型：</label>
+        <select name="" id="bloodtype">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="O">O</option>
+            <option value="AB">AB</option>
+        </select>
+    </p>
+    <p>
+        <label for="address">住址：</label>
+        <!-- 下拉式選單:行政地區? -->
+        <input type="text" name="" id="address">
+    </p>
+    <p>
+        <label for="email">E-mail: </label>
+        <input type="text" name="" id="email">
+    </p>
+    <p>
+        <label for="phonenumber">行動電話：</label>
+        <input type="text" name="" id="phonenumber">
+    </p>
+
+    <hr>
+    <h2>教育程度</h2>
+    (請填高中以上學歷)
+    <table>
+        <tr>
+            <td>教育程度</td>
+            <td>校名</td>
+            <td>科系</td>
+            <td>日夜</td>
+            <td>起訖年月</td>
+            <td>畢/肄</td>
+        </tr>
+        <tr>
+            <td>研究所</td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>大學</td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>專科</td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>高中</td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+    </table>
+
+    <hr>
+    <h2>電腦技能</h2>
+    <table>
+        <tr>
+            <td>電腦軟體、應用系統、程式語言</td>
+            <td>瞭解程度</td>
+            <td>實作經驗</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="" id="">
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">非常熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">只讀過</label>
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">有</label>
+                <input type="radio" name="" id="">
+                <label for="">沒有</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="" id="">
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">非常熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">只讀過</label>
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">有</label>
+                <input type="radio" name="" id="">
+                <label for="">沒有</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="" id="">
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">非常熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">熟悉</label>
+                <input type="radio" name="" id="">
+                <label for="">只讀過</label>
+            </td>
+            <td>
+                <input type="radio" name="" id="">
+                <label for="">有</label>
+                <input type="radio" name="" id="">
+                <label for="">沒有</label>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <h2>工作經歷</h2>
+    <table>
+        <tr>
+            <td>公司名稱</td>
+            <td>部門/職稱/工作內容</td>
+            <td>起訖年月</td>
+            <td>離職原因</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+            <td><input type="text" name="" id=""></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="提交">
+</body>
+
+</html>
