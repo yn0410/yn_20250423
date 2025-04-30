@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, tr, td{
+            border: 1px solid black;
+        }
+
+        table {
+            width: 80%;
+            text-align: center;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        .money{
+            color: lightseagreen;
+        }
+
+        .money::before{
+            content: "$";
+        }
+
+        .money::after{
+            content: "元";
+        }
+
+        tr:hover{
+            background-color: brown;
+        }
+        td:hover{
+            background-color: bisque;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 講解Pseudo class & Pseudo element -->
+    <!-- "::before" & "::after" (& :hover) -->
+    
+    <table>
+        <tr>
+            <th>產品</th>
+            <th>價格</th>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+        <tr>
+            <td>咖啡</td>
+            <td class="money">100</td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>
