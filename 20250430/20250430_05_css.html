@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinators</title>
+    <style>
+        .liu3 {
+            color: yellow;
+        }
+
+        /* .green div {
+            color: lightblue;
+        } */
+
+        /* .green > div {
+            color: green;
+        } */
+
+        /* ~ 兄弟姊妹 同一層/少用*/
+        /* .green~div {
+            color: lightblue;
+        } */
+
+        /* + 同輩後面一層 少用*/
+        .green+div {
+            color: lightpink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- CSS Combinators 組合選擇器 -->
+    <!-- 老師code -->
+    <div class="green">
+        劉備
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉封
+            <div class="liu3">
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;小劉封
+            </div>
+        </div>
+
+        <div>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉禪
+            <div class="liu3">
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;小小劉禪
+            </div>
+        </div>
+    </div>
+    <div class="blue">
+        關羽
+    </div>
+    <div class="red">
+        張飛
+    </div>
+</body>
+
+</html>
