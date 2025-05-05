@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 800px;
+            height:600px;
+            /* background-color: lightskyblue; */
+            margin: auto;
+        }
+        
+        /* CSS Attribute Selectors */
+        div[id^=box]{
+            width: 195px;
+            height: 276px;
+            background-color: bisque;
+            margin: auto;
+            background-image: url('./img/one.png');
+            background-size: 700px;
+            background-repeat: no-repeat;
+        }
+        #box1{
+            background-position-x: -17px;
+            background-position-y: -13px;
+        }
+        #box2{
+            background-position-x: -256px;
+            background-position-y: -13px;
+        }
+        #box3{
+            background-position-x: -495px;
+            background-position-y: -13px;
+
+        }
+        #box4{
+            background-position-x: -17px;
+            background-position-y: -316px;
+        }
+        #box5{        
+            background-position-x: -256px;
+            background-position-y: -316px;
+        }
+        #box6{
+            background-position-x: -495px;
+            background-position-y: -316px;
+        }
+        table,tr,td{
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 此為作業"hw-bg" -->
+    <!-- 用同一張圖片，塞入不同box(<div id="box">)去調整box大小&圖片位置，使得不同box內能顯示出同一圖片的不同部位 -->
+
+    <!-- <div class="container">
+        <div id="box1"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div id="box4"></div>
+        <div id="box5"></div>
+        <div id="box6"></div>
+    </div> -->
+
+    <div class="container">
+        <table>
+            <tr>
+                <td><div id="box1"></div></td>
+                <td><div id="box2"></div></td>
+                <td><div id="box3"></div></td>
+            </tr>
+            <tr>
+                <td><div id="box4"></div></td>
+                <td><div id="box5"></div></td>
+                <td><div id="box6"></div></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
