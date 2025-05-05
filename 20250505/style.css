@@ -1,0 +1,16 @@
+/* external css(外部CSS)把CSS獨立出去一個檔案 */
+
+/* h1{
+    color: green;
+} */
+
+.text-center{
+    width: 80%;
+    margin: auto;
+}
+.text-red{
+    color: red;
+}
+.text-right{
+    text-align: right;
+}
