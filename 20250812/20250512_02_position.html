@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .box{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+        .inner-box{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            bottom: 50px;
+            right: 10px;
+        }
+
+        /* 仿外面賣線上課程的網站 icon框框 */
+        .icon-box{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: lightyellow;
+            top: 30px;
+            left: 30px;
+            text-align: center;
+            padding-top: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 框框中的框框 -->
+    <!-- w3school的css position: absolute; -->
+    <div class="box">
+        <div class="icon-box">
+            logo
+        </div>
+        <div class="inner-box">
+
+        </div>
+    </div>
+</body>
+
+</html>
