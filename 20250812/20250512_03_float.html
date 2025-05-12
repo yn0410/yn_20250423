@@ -5,9 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* 不能理解 clear: both; 其功用... */
+        .container{
+            width: 80%;
+            height: 80vh;
+            background-color: lightpink;
+            margin: auto;
+            clear: both;
+        }
+        .box{
+            float: left;
+            width: 30%;
+            height: 33vh;
+            background-color: lightblue;
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+    </div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <span>5</span>
 
 </body>
 
