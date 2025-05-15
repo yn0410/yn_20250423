@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .container {
+            width: 100%;
+            height: 50vh;
+            margin-bottom: 10px;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .container1 {
+            background-color: lightpink;
+        }
+
+        .container2 {
+            background-color: lightsalmon;
+        }
+
+        .container3 {
+            background-color: lightblue;
+        }
+
+        .container4 {
+            background-color: lightgreen;
+        }
+
+        .item {
+            height: 80%;
+            background-color: lightgray;
+            /* border: 1px solid black; */
+        }
+
+        .item1 {
+            width: 80%;
+        }
+
+        .item21, .item22 {
+            width: 45%;
+        }
+
+        .item31, .item32, .item33 {
+            width: 30%;
+        }
+
+        .item41, .item42, .item43, .item44 {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 作業：hw-flex -->
+    <!-- 練習 一行一格/2格/3格/4格 +圖片 &導覽列(<nav>)可跳轉至各container -->
+    <h1>Flexbox 排版練習</h1>
+    <div class="container container1">
+        <div class="item item1"></div>
+    </div>
+
+    <div class="container container2">
+        <div class="item item21"></div>
+        <div class="item item22"></div>
+    </div>
+
+    <div class="container container3">
+        <div class="item item31"></div>
+        <div class="item item32"></div>
+        <div class="item item33"></div>
+    </div>
+
+    <div class="container container4">
+        <div class="item item41"></div>
+        <div class="item item42"></div>
+        <div class="item item43"></div>
+        <div class="item item44"></div>
+    </div>
+
+</body>
+
+</html>
