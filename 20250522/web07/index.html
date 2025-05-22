@@ -7,10 +7,12 @@
     <title>國立科技高中─校園社團介紹網</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        *{
+        * {
             box-sizing: border-box;
             margin: 0;
         }
+
+        /* header */
         .header {
             width: 1024px;
             height: 65px;
@@ -18,7 +20,9 @@
             margin: auto;
         }
 
+        /* container */
         .container {
+            display: flex;
             width: 1024px;
             /* 768 - 65 - 20 */
             /* "- 65" & "-65" =減65 & 負65 */
@@ -28,6 +32,22 @@
             margin: auto;
         }
 
+        /* container-left */
+        .container-left {
+            width: 215px;
+            height: 100%;
+            background-color: lightcoral;
+        }
+
+        /* container-right */
+        .container-right {
+            /* 1024 - 215 */
+            width: calc(1024px - 215px);
+            height: 100%;
+            background-color: lightyellow;
+        }
+
+        /* footer */
         .footer {
             width: 1024px;
             height: 20px;
@@ -45,7 +65,14 @@
     </header>
     <!-- container -->
     <div class="container">
-        container
+        <!-- container-left -->
+        <div class="container-left">
+            container-left
+        </div>
+        <!-- container-right -->
+        <div class="container-right">
+            container-right
+        </div>
     </div>
     <!-- footer -->
     <footer class="footer">
