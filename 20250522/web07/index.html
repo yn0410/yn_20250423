@@ -39,11 +39,39 @@
             background-color: lightcoral;
         }
 
+        /* cl-top */
+        .cl-top {
+            width: 100%;
+            height: calc(100% - 25px);
+            background-color: aquamarine;
+        }
+
+        /* cl-bottom */
+        .cl-bottom {
+            width: 100%;
+            height: 25px;
+            background-color: lightgray;
+        }
+
         /* container-right */
         .container-right {
             /* 1024 - 215 */
             width: calc(1024px - 215px);
             height: 100%;
+            background-color: lightyellow;
+        }
+
+        /* cr-top */
+        .cr-top{
+            width: 100%;
+            height: 29px;
+            background-color: lightpink;
+        }
+
+        /* cr-bottom */
+        .cr-bottom{
+            width: 100%;
+            height: calc(100% - 29px);
             background-color: lightyellow;
         }
 
@@ -67,11 +95,25 @@
     <div class="container">
         <!-- container-left -->
         <div class="container-left">
-            container-left
+            <!-- cl-top = container-left-top -->
+            <div class="cl-top">
+                cl-top
+            </div>
+            <!-- cl-bottom = container-left-bottom -->
+            <div class="cl-bottom">
+                cl-bottom
+            </div>
         </div>
         <!-- container-right -->
         <div class="container-right">
-            container-right
+            <!-- cr-top = container-right-top -->
+            <div class="cr-top">
+                cr-top
+            </div>
+            <!-- cr-bottom = container-right-bottom -->
+            <div class="cr-bottom">
+                cr-bottom
+            </div>
         </div>
     </div>
     <!-- footer -->
