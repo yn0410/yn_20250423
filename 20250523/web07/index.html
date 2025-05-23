@@ -6,14 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>國立科技高中─校園社團介紹網</title>
     <link rel="stylesheet" href="./css/style.css">
-    <style></style>
+    <style>
+        /* img置中-2 */
+        .header-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: lightblue; */
+            height: 100%;
+        }
+
+        img{
+            /* img置中-1 ->2 */
+            /* text-align: center;
+            margin: auto; */
+            width: 994px;
+            height: 60px;
+        }
+
+        marquee{
+            font-family: '標楷體';
+            font-size: 24px;
+            color: #0000FF;
+            /* background-color: aqua; */
+        }
+    </style>
 
 </head>
 
 <body>
     <!-- header -->
     <header class="header">
-        header
+        <div class="header-box">
+            <img src="./images/logo.png" alt="國立科技高中校園社團介紹網">
+        </div>
     </header>
     <!-- container -->
     <div class="container">
@@ -32,7 +58,9 @@
         <div class="container-right">
             <!-- cr-top = container-right-top -->
             <div class="cr-top">
-                cr-top
+                <marquee behavior="" direction="">
+                    歡迎光臨校園社團介紹網，參觀後請支持社團活動並熱烈參與
+                </marquee>
             </div>
             <!-- cr-bottom = container-right-bottom -->
             <!-- main.hmtl -->
