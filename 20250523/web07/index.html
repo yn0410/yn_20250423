@@ -70,25 +70,37 @@
         /* flexbox item */
         /* 組合選擇器">" 只有指向下一層 */
         /* 組合選擇器" " 指向所有後代/(很)少用 */
-        .cl-content>div, .item-link {
+        .cl-content>div,
+        .item-link {
             /* color: red; */
-            /* box沒有垂直置中，只能用padding-top跟flexbox去推成置中的樣子 */
+
             width: 200px;
             height: 35px;
+
+            color: #000000;
+            font-size: 16px;
+            font-family: '標楷體';
+
             /* background-color: lightblue; */
             background-image: url('./images/menu1.png');
+
+            /* box沒有垂直置中，只能用padding-top跟flexbox去推成置中的樣子 */
             margin-top: 10px;
             /* text-align: center; */
             padding-top: 5px;
         }
 
-        .cl-content>div:hover {
-            width: 200px;
-            height: 35px;
-            /* background-color: lightblue; */
+        .cl-content>div:hover,
+        .item-link:hover {
             background-image: url('./images/menu2.png');
-            margin-top: 10px;
-            padding-top: 5px;
+        }
+
+        .cl-bottom {
+            color: #000000;
+            font-size: 16px;
+            font-family: '標楷體';
+            text-align: center;
+
         }
     </style>
 
@@ -116,7 +128,7 @@
 
                 <!-- content -->
                 <div class="cl-content">
-                    <a href="./guitar_history.html" class="item-link">
+                    <a href="./guitar_history.html" target="myframe" class="item-link">
                         <div>吉他社</div>
                     </a>
                     <div>熱舞社</div>
@@ -128,7 +140,7 @@
             </div>
             <!-- cl-bottom = container-left-bottom -->
             <div class="cl-bottom">
-                cl-bottom
+                最近更新日期：2025/05/23
             </div>
         </div>
         <!-- container-right -->
@@ -142,7 +154,7 @@
             <!-- cr-bottom = container-right-bottom -->
             <!-- main.hmtl -->
             <div class="cr-bottom">
-                <iframe src="./main.html" frameborder="0">
+                <iframe src="./main.html" name="myframe" frameborder="0">
 
                 </iframe>
             </div>
