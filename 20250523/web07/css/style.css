@@ -1,0 +1,99 @@
+/* h1{
+    color: blue;
+} */
+
+* {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        /* header */
+        .header {
+            width: 1024px;
+            height: 65px;
+            /* background-color: lightblue; */
+            margin: auto;
+            border: 1px solid black;
+        }
+
+        /* container */
+        .container {
+            display: flex;
+            width: 1024px;
+            /* 768 - 65 - 20 */
+            /* "- 65" & "-65" =減65 & 負65 */
+            height: calc(768px - 65px - 20px);
+            /* height: 683px; */
+            /* background-color: lightpink; */
+            margin: auto;
+        }
+
+        /* container-left */
+        .container-left {
+            width: 215px;
+            height: 100%;
+            /* background-color: lightcoral; */
+        }
+
+        /* cl-top */
+        .cl-top {
+            width: 100%;
+            height: calc(100% - 25px);
+            /* background-color: aquamarine; */
+            border: 1px solid black;
+            border-top: 0;
+        }
+
+        /* cl-bottom */
+        .cl-bottom {
+            width: 100%;
+            height: 25px;
+            /* background-color: lightgray; */
+            border: 1px solid black;
+            border-top: 0;
+        }
+
+        /* container-right */
+        .container-right {
+            /* 1024 - 215 */
+            width: calc(1024px - 215px);
+            height: 100%;
+            /* background-color: lightyellow; */
+        }
+
+        /* cr-top */
+        .cr-top {
+            width: 100%;
+            height: 29px;
+            /* background-color: lightpink; */
+            border: 1px solid black;
+            border-top: 0;
+            border-left: 0;
+        }
+
+        /* cr-bottom */
+        .cr-bottom {
+            width: 100%;
+            height: calc(100% - 29px);
+            /* background-color: lightyellow; */
+            border: 1px solid black;
+            border-top: 0;
+            border-left: 0;
+        }
+
+        /* footer */
+        .footer {
+            width: 1024px;
+            height: 20px;
+            /* background-color: lightgreen; */
+            margin: auto;
+            border: 1px solid black;
+            border-top: 0;
+        }
+
+
+        iframe{
+            /* background-color: brown; */
+            width: 100%;
+            height: 100%;
+        }
