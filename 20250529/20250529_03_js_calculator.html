@@ -75,12 +75,12 @@
             console.log('num2Value typeof', typeof (num2Value));
 
             // 2-3 抓opt value
-            let optValue = opt.value; 
+            let optValue = opt.value;
             console.log('optValue', optValue);
             console.log('optValue typeof', typeof (optValue));
 
+            // 2-4 判斷opt =  '+' or '-' or '*' or '/'
             let result = num1Value + num2Value;
-
 
             if (optValue == '+') {
                 result = num1Value + num2Value;
@@ -91,14 +91,9 @@
             } else if (optValue == '/') {
                 result = num1Value / num2Value;
             }
-
-
-
-            // 2-4 result = num1 + num2
-            // let result = num1Value + num2Value;
             console.log('result', result);
 
-            // 2-4 result to resultP
+            // 2-5 result to resultP
             resultP.innerText = `num1 ${num1Value} + num2 ${num2Value} = ${result}`;
 
         });
