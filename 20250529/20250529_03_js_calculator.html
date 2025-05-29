@@ -79,6 +79,7 @@
             console.log('optValue', optValue);
             console.log('optValue typeof', typeof (optValue));
 
+<<<<<<< HEAD
             // 我的code
             // 2-4 判斷opt =  '+' or '-' or '*' or '/'
             // let result = num1Value + num2Value;
@@ -121,6 +122,24 @@
 
             // 2-5 result to resultP
             resultP.innerText = `${num1Value} ${optValue} ${num2Value} = ${result}`;
+=======
+            // 2-4 判斷opt =  '+' or '-' or '*' or '/'
+            let result = num1Value + num2Value;
+
+            if (optValue == '+') {
+                result = num1Value + num2Value;
+            } else if (optValue == '-') {
+                result = num1Value - num2Value;
+            } else if (optValue == '*') {
+                result = num1Value * num2Value;
+            } else if (optValue == '/') {
+                result = num1Value / num2Value;
+            }
+            console.log('result', result);
+
+            // 2-5 result to resultP
+            resultP.innerText = `num1 ${num1Value} + num2 ${num2Value} = ${result}`;
+>>>>>>> ec658ecc81a5378f2fcc446b6b02cb5cd8a37f56
 
         });
 
