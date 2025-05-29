@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Containers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        #box1 {
+            background-color: #3498db;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #box1 input {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 250px;
+        }
+
+        #box1 button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #2980b9;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #box1 button:hover {
+            background-color: #1f6da8;
+        }
+
+        #box2 {
+            background-color: #2ecc71;
+        }
+
+        #box3 {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 這個檔案的程式碼 是 老師用Cursor (AI code editor) 實作的"簡易四則運算計算機"程式碼 -->
+    <!-- 我只是複製貼上而已 -->
+    <div id="box1" class="container">
+        <input type="number" name="num1" placeholder="Enter number 1">
+        <input type="number" name="num2" placeholder="Enter number 2">
+        <input type="text" name="opt" placeholder="Enter operator">
+        <button onclick="calculate()">Calculate</button>
+    </div>
+    <div id="box2" class="container">Result will appear here</div>
+    <div id="box3" class="container">Box 3</div>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.querySelector('input[name="num1"]').value);
+            const num2 = parseFloat(document.querySelector('input[name="num2"]').value);
+            const opt = document.querySelector('input[name="opt"]').value;
+            const box2 = document.getElementById('box2');
+
+            if (isNaN(num1) || isNaN(num2)) {
+                box2.textContent = 'Please enter valid numbers';
+                return;
+            }
+
+            let result;
+            switch (opt) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                case 'x':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        box2.textContent = 'Cannot divide by zero';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    box2.textContent = 'Please enter a valid operator (+, -, *, /)';
+                    return;
+            }
+
+            box2.textContent = `${num1} ${opt} ${num2} = ${result}`;
+        }
+    </script>
+</body>
+
+</html>
