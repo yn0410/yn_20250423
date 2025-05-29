@@ -6,19 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #box{
+        /* #box{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        } */
+
+        .box{
             width: 300px;
             height: 300px;
             background-color: lightblue;
         }
+
         #box:hover{
             background-color: lightpink;
+        }
+
+        .bg-blue{
+            background-color: lightblue;
+        }
+
+        .bg-pink{
+            background-color: lightpink;
+
         }
     </style>
 </head>
 
 <body>
-    <div id="box">
+    <!-- <div id="box"></div> -->
+
+    <div class="box bg-blue">
 
     </div>
     <p>
@@ -32,13 +50,27 @@
 
 
         // 1 bind(綁定)
-        let box = document.getElementById('box');
-        let myBtn = document.getElementById('myBtn');
+
+        //綁定id
+        // let box = document.getElementById('box');
+
+        //綁定class
+        let box = document.querySelector('.box');
+
+        let myBtn = document.getElementById('myBtn'); //綁定id
         console.log('box',box);
         console.log('myBtn',myBtn);
         
 
         // 2 action(動作)
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn ok');
+            // change css
+            // box.style.backgroundColor = "lightgray";
+            
+            // change class
+            box.setAttribute("class", "box bg-pink");
+        })
         
     </script>
 </body>
