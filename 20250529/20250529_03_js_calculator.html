@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>計算機-加減乘除</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            <input type="number" name="" id="num1" value="10">
+        </p>
+
+        <p>
+            <input type="text" name="" id="opt" value="+">
+        </p>
+
+        <p>
+            <input type="number" name="" id="num2" value="5">
+        </p>
+
+    </div>
+    <p>
+        <button type="button" id="myBtn">計算</button>
+    </p>
+
+    <hr>
+    <p id="resultP">
+        num1 + num2 = ?
+    </p>
+
+    <script>
+        // 1 bind
+        let myBtn = document.getElementById('myBtn');
+        // console.log('myBtn', myBtn);
+
+        let num1 = document.getElementById('num1');
+        // console.log('num1', num1);
+
+        let num2 = document.getElementById('num2');
+        // console.log('num2', num2);
+
+        let resultP = document.getElementById('resultP');
+        // console.log('resultP', resultP);
+
+        let opt = document.getElementById('opt');
+        console.log('opt', opt);
+
+
+
+        // 2 action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn ok');
+
+            // console.log()顯示出來 字串是黑色 & 數字是深藍色
+
+            // 2-1 抓num1 value
+            let num1Value = Number(num1.value); //轉型
+            console.log('num1Value', num1Value);
+            console.log('num1Value typeof', typeof (num1Value));
+
+            // 2-2 抓num2 value
+            // let num2Value = num2.value;
+            let num2Value = Number(num2.value); //轉型
+            console.log('num2Value', num2Value);
+            console.log('num2Value typeof', typeof (num2Value));
+
+            // 2-3 抓opt value
+            let optValue = opt.value; 
+            console.log('optValue', optValue);
+            console.log('optValue typeof', typeof (optValue));
+
+            let result = num1Value + num2Value;
+
+
+            if (optValue == '+') {
+                result = num1Value + num2Value;
+            } else if (optValue == '-') {
+                result = num1Value - num2Value;
+            } else if (optValue == '*') {
+                result = num1Value * num2Value;
+            } else if (optValue == '/') {
+                result = num1Value / num2Value;
+            }
+
+
+
+            // 2-4 result = num1 + num2
+            // let result = num1Value + num2Value;
+            console.log('result', result);
+
+            // 2-4 result to resultP
+            resultP.innerText = `num1 ${num1Value} + num2 ${num2Value} = ${result}`;
+
+        });
+
+    </script>
+</body>
+
+</html>
