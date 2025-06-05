@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 跳分頁 功能 / w3school JS Browser BOM 的 JS Location -->
+     <p>
+        <input type="text" name="" id="myInput">
+     </p>
+    <button type="button" id="myBtn">myBtn</button>
+
+    
+    <script>
+        // 老師做的輸入字 可去字典網站查字典
+        // 老師code!!!
+        // window.location.href 與 window.location.assign() 與 window.location.replace()...不太能理解差別
+        
+        // 1.bind
+        let myInput=document.getElementById('myInput');
+        let myBtn = document.getElementById('myBtn');
+
+        // 2.action
+        myBtn.addEventListener('click', function(){
+            console.log('myBtn ok');
+
+            // let getUrl = window.location.href;
+            // console.log('getUrl', getUrl);
+
+
+            let getInput = myInput.value;
+            console.log('getInput', getInput);
+
+            // https://www.merriam-webster.com/dictionary/apple
+            let url = `https://www.merriam-webster.com/dictionary/${getInput}`;
+
+            // 可以回上一頁
+            // 1.href property
+            // window.location.href = url;
+            // 2.assign( ) method
+            window.location.assign(url);
+
+            // 不能回上一頁
+            // 3.replace() method
+            // window.location.replace(url);
+
+        });
+
+    </script>
+</body>
+</html>
