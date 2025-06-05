@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>變數(宣告)</title>
+</head>
+<body>
+    <!-- 變數(宣告) -->
+    <button type="button" id="myBtn">myBtn</button>
+    
+    <script>
+        // 不要auto(自動)-> 變數前面啥都不加的宣告
+        // 不要用var //舊版本會用
+        var name = 'kai';
+        console.log('name', name);
+
+        // let const
+        // let 宣告變數
+        // const 宣告的變數不能變 但其內容能變...
+        const myBtn = document.getElementById('myBtn');
+        // myBtn = 12345; //不可改 ->會報錯
+        myBtn.innerText = '12345'; //可改
+        console.log('myBtn', myBtn);
+        
+
+        // 老師打的
+        // 懶人包
+        /* 1.不要auto
+        2.不要var
+        3.起手全部都用let
+        4.綁定element const */
+
+        /* const 綁定element
+        element 裡面attr 都可以更動 */
+
+
+    </script>
+</body>
+</html>
