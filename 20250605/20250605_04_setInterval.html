@@ -34,11 +34,6 @@
     </div>
 
     <script>
-        //func放前面(這邊)較好
-        function sayHelloFunc(){ 
-            console.log('sayHelloFunc ok');
-        }
-
         // 1.bind
         let myBtn = document.getElementById('myBtn');
         let box = document.querySelector('.box');
@@ -48,28 +43,10 @@
             console.log('myBtn', myBtn);
             // alert('myBtn click ok');
             // window.alert('myBtn click ok');
-            // box.setAttribute('class', 'box bg-pink');
 
-
-            // 按btn過三秒後 才變粉紅色 
-
-            // timing 寫法
-            // 1.
-            /* setTimeout(function(){
-                console.log('hihi mybtn');
-                box.setAttribute('class', 'box bg-pink');
-            }, 3000); */
-            
-            // 2.
-            /* function sayHelloFunc(){ //放前面較好
-                console.log('sayHelloFunc ok');
-            } */
-            // setTimeout(sayHelloFunc, 3000);
-
-
-            // 按btn過1秒後 變粉紅色、變藍色 循環
+            // 按btn 隔1秒變粉紅色、隔1秒變藍色 循環
             // 我做出來了!!!(雖然debug有問chatgpt...)
-            let i = 0; 
+            /* let i = 0; 
             function colorFunc(){
                 // console.log('1');
                 if(i==0){
@@ -82,7 +59,22 @@
                 }
                 
             }
-            setInterval(colorFunc, 1000);
+            setInterval(colorFunc, 1000); */
+
+            //老師code
+            setInterval(function () {
+                // console.log('hello');
+                box.setAttribute('class', 'box bg-pink');
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-blue');
+
+                }, 1000);
+
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-green');
+
+                }, 2000);
+            }, 3000);
 
             
         });
