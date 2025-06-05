@@ -7,16 +7,44 @@
 </head>
 <body>
     <!-- 跳分頁 功能 / w3school JS Browser BOM 的 JS window -->
+     <p>
+        <input type="text" name="" id="myInput">
+     </p>
     <button type="button" id="myBtn">myBtn</button>
+
     <script>
         // 1.bind
+        // let myBtn = document.getElementById('myBtn');
+
+        // 2.action
+        /* myBtn.addEventListener('click', function(){
+            console.log('myBtn ok');
+            window.open(); 
+        }); */
+
+
+        // 老師做的輸入字 可去兩字典網站查字典
+        // 1.bind
+        let myInput=document.getElementById('myInput');
         let myBtn = document.getElementById('myBtn');
 
         // 2.action
         myBtn.addEventListener('click', function(){
             console.log('myBtn ok');
-            window.open(); 
+
+            let getInput = myInput.value;
+            console.log('getInput', getInput);
+
+            // https://www.merriam-webster.com/dictionary/apple
+
+            let url = `https://www.merriam-webster.com/dictionary/${getInput}`;
+            let urlChinese = `https://dictionary.cambridge.org/dictionary/english-chinese-traditional/${getInput}`
+            console.log('url', url);
+            window.open(urlChinese);
+            window.open(url);
+
         });
+
     </script>
 </body>
 </html>
