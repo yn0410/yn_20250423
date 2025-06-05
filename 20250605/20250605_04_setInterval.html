@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .bg-pink {
+            background-color: pink;
+        }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button type="button" id="myBtn">myBtn</button>
+    </div>
+    <div class="container">
+        <div class="box" id="myBox"></div>
+    </div>
+
+    <script>
+        //func放前面(這邊)較好
+        function sayHelloFunc(){ 
+            console.log('sayHelloFunc ok');
+        }
+
+        // 1.bind
+        let myBtn = document.getElementById('myBtn');
+        let box = document.querySelector('.box');
+
+        // 2.action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn', myBtn);
+            // alert('myBtn click ok');
+            // window.alert('myBtn click ok');
+            // box.setAttribute('class', 'box bg-pink');
+
+
+            // 按btn過三秒後 才變粉紅色 
+
+            // timing 寫法
+            // 1.
+            /* setTimeout(function(){
+                console.log('hihi mybtn');
+                box.setAttribute('class', 'box bg-pink');
+            }, 3000); */
+            
+            // 2.
+            /* function sayHelloFunc(){ //放前面較好
+                console.log('sayHelloFunc ok');
+            } */
+            // setTimeout(sayHelloFunc, 3000);
+
+
+            // 按btn過1秒後 變粉紅色、變藍色 循環
+            // 我做出來了!!!(雖然debug有問chatgpt...)
+            let i = 0; 
+            function colorFunc(){
+                // console.log('1');
+                if(i==0){
+                    box.setAttribute('class', 'box bg-pink');
+                    i=1;
+                }
+                else{
+                    box.setAttribute('class', 'box bg-blue');
+                    i=0;
+                }
+                
+            }
+            setInterval(colorFunc, 1000);
+
+            
+        });
+
+
+    </script>
+</body>
+</html>
