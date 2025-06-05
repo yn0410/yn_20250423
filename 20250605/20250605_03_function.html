@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<!-- 完全就是老師code/他在講解"function" -->
+    <script>
+        // 1.好寶寶
+        function good() {
+            console.log('good kai');
+        }
+
+        // 2.日期印章
+        function setTimeFun(month, day) {
+            console.log(`${month} - ${day}`);
+
+        }
+
+        // 3.販賣機
+        function buy(money, opt) {
+            $result = `${money}, ${opt}`;
+            // money - 20
+            // 可樂
+            return $result;
+        }
+        console.log('good', good);
+        setTimeFun('12', '31');
+
+        let data = buy(100, '可樂');
+        console.log('data', data);
+
+        function 洗衣服(input) {
+            let data = '洗好的衣服';
+            return data;
+        }
+
+        function 烘衣服(input) {
+            let data = '烘好的衣服';
+            return data;
+        }
+
+        let input = '髒衣服';
+        let 洗好的衣服 = 洗衣服(input);
+        let 烘好的衣服 = 烘衣服(input);
+
+        // function 烘衣服()
+
+        // function 摺衣服()
+
+
+
+    </script>
+</body>
+
+</html>
