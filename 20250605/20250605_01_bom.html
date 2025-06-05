@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <button type="button" id="myBtn">myBtn</button>
+
     <script>
         console.log('window', window);
         console.log('window typeof', typeof(window));
@@ -14,6 +17,19 @@
         console.log('document typeof', typeof(window.document)); //window.document = document
         console.log('window.console', window.console); //??沒在聽所以沒聽懂
         
+
+        // 老師code start
+        // 1.bind
+        let myBtn = document.getElementById('myBtn');
+
+        // 2.action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn', myBtn);
+            alert('myBtn click ok');
+            // window.alert('myBtn click ok');
+
+        });
+        // 老師code end
 
 
     </script>
