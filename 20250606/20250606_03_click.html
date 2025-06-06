@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        button {
+            /* background: #fbca1f; */
+            font-family: inherit;
+            padding: 0.6em 1.3em;
+            font-weight: 900;
+            font-size: 18px;
+            border: 3px solid black;
+            border-radius: 0.4em;
+            box-shadow: 0.1em 0.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: translate(-0.05em, -0.05em);
+            box-shadow: 0.15em 0.15em;
+        }
+
+        button:active {
+            transform: translate(0.05em, 0.05em);
+            box-shadow: 0.05em 0.05em;
+        }
+
+        .bg-red {
+            background-color: lightpink;
+        }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        .box {
+            width: 80%;
+            height: 70vh;
+            border: 5px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 練習題 老師版型code -->
+     <!-- 練習：三個按鈕+一個box /box 本來是lightblue色 ->按按鈕1，變成紅色；按按鈕2，變成藍色；按按鈕3，變成綠色； -->
+    <div class="container">
+        <button id="redBtn" class="bg-red" type="button">紅色</button>
+        <button id="blueBtn" class="bg-blue" type="button">藍色</button>
+        <button id="greenBtn" class="bg-green" type="button">綠色</button>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <div id="myBox" class="box">
+
+        </div>
+    </div>
+
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const redBtn = $('#redBtn');
+            const greenBtn = $('#greenBtn');
+            const blueBtn = $('#blueBtn');
+            const myBox = $('#myBox');
+            console.log('redBtn', redBtn);
+
+            // 2.action
+            redBtn.click(function () {
+                console.log('redBtn ok');
+                myBox.attr('class', 'box bg-red');
+            });
+
+            greenBtn.click(function () {
+                console.log('redBtn ok');
+                myBox.attr('class', 'box bg-green');
+            });
+
+            blueBtn.click(function () {
+                console.log('blueBtn ok');
+                myBox.attr('class', 'box bg-blue');
+            });
+        });
+    </script>
+</body>
+
+</html>
