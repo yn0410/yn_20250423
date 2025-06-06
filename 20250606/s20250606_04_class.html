@@ -103,8 +103,10 @@
                 console.log('this', this);
                 let tmpColor = $(this).attr('data-color');
                 // console.log('tmpColor', tmpColor);
-
+                let tmpRank = $(this).attr('data-rank');
                 myBox.attr('class', `box bg-${tmpColor}`);
+                // $(selector).removeClas(classNames);
+                // $(selector).addClass(`bg-${tmpColor}`);
             });
 
         });
