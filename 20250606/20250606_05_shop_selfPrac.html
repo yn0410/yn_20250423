@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物網站練習</title>
+    <style>
+        table, tr, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td{
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>購物網站練習</h1>
+        <!-- 全我自己打的 / total欄位會隨著數量改變了，但"合計"還沒做，應該要先能取出total欄位3個值才能算吧 -->
+
+        <table>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>pic</td>
+                <td>單價</td>
+                <td>數量</td>
+                <td>total</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>咖啡</td>
+                <td>pic</td>
+                <td>100</td>
+                <td>
+                    <input type="number" name="coffee-count" id="coffee-count" value="0">
+                </td>
+                <td>
+                    <p id="coffee-total">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>花茶</td>
+                <td>pic</td>
+                <td>50</td>
+                <td>
+                    <input type="number" name="tea-count" id="tea-count" value="0">
+                </td>
+                <td>
+                    <p id="tea-total">0</p>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>水</td>
+                <td>pic</td>
+                <td>150</td>
+                <td>
+                    <input type="number" name="water-count" id="water-count" value="0">
+                </td>
+                <td>
+                    <p id="water-total">0</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>合計：</p>
+        <p>(滿500元，打八折)</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1. bind
+            const coffeeCount = $('#coffee-count');
+            const teaCount = $('#tea-count');
+            const waterCount = $('#water-count');
+            console.log('coffeeCount', coffeeCount);
+            console.log('teaCount', teaCount);
+            console.log('waterCount', waterCount);
+
+            let coffeeTotal = $('#coffee-total');
+            let teaTotal = $('#tea-total');
+            let waterTotal = $('#water-total');
+            console.log('coffeeTotal', coffeeTotal);
+            console.log('teaTotal', teaTotal);
+            console.log('waterTotal', waterTotal);
+            
+
+
+            // 2. action
+            let result = 0;
+            coffeeCount.click(function () {
+                // let coffeeCountValue = $(coffeeCount).val();
+                let coffeeCountValue = Number($(coffeeCount).val());
+                console.log('coffeeCountValue', coffeeCountValue);
+                // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
+
+                result = 100 * coffeeCountValue;
+                console.log('result', result);
+                $(coffeeTotal).text(result);
+            });           
+            
+
+            teaCount.click(function () {
+                // let coffeeCountValue = $(coffeeCount).val();
+                let teaCountValue = Number($(teaCount).val());
+                console.log('teaCountValue', teaCountValue);
+                // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
+
+                result = 50 * teaCountValue;
+                console.log('result', result);
+                $(teaTotal).text(result);
+            });
+
+            waterCount.click(function () {
+                // let coffeeCountValue = $(coffeeCount).val();
+                let waterCountValue = Number($(waterCount).val());
+                console.log('waterCountValue', waterCountValue);
+                // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
+
+                result = 150 * waterCountValue;
+                console.log('result', result);
+                $(waterTotal).text(result);
+            });
+
+
+        });
+
+    </script>
+
+</body>
+</html>
