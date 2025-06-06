@@ -28,8 +28,8 @@
         <table>
             <tr>
                 <td width="5%">id</td>
-                <td width="15%">name</td>
-                <td width="30%">pic</td>
+                <td width="5%">name</td>
+                <td width="15%">pic</td>
                 <td width="5%">price</td>
                 <td width="20%">count</td>
                 <td>total</td>
@@ -46,10 +46,10 @@
                     </span>
                 </td>
                 <td>
-                    <input type="number" name="" id="" value="1">
+                    <input data-price="100" id="myCount" type="number" name="" id="" value="1">
                 </td>
                 <td>
-                    <span>
+                    <span id="myTotal">
                         100
                     </span>
                 </td>
@@ -63,8 +63,36 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        $(document).ready(function () {
+        const myCountJs = document.getElementById('myCount');
+        const myTotalJs = document.getElementById('myTotal');
 
+        // 原生js input value value / span text innerText
+        // jq input value val() / span text text()
+        // let getValue = myCountJs.value;
+        // console.log('myCountJs', myCountJs);
+        // console.log('getValue', getValue);
+        // myTotalJs.innerText = 'Hello';
+
+
+        $(document).ready(function () {
+            // 1.bind
+            const myCount = $('#myCount');
+            const myTotal = $('#myTotal');
+
+            // 2.action
+
+            myCount.change(function () {
+                console.log('myCount ok');
+                let tmpCount = Number(myCount.val());
+                let tmpPrice = Number(myCount.attr('data-price'));
+                console.log('tmpCount', tmpCount);
+                console.log('tmpPrice', tmpPrice);
+
+                let result = tmpCount * tmpPrice;
+                console.log('result', result);
+                myTotal.text(result);
+
+            });
 
         });
     </script>
