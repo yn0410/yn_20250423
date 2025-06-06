@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .bg-pink {
+            background-color: lightpink;
+        }
+        #bg-red{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        #bg-blue{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+        #bg-green{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 自己做出來的 練習題~ -->
+    <p>
+        <button type="button" id="redBtn">red</button>
+        <button type="button" id="blueBtn">blue</button>
+        <button type="button" id="greenBtn">green</button>
+    </p>
+    <!-- <div class="box"> -->
+    <div id="box">
+
+    </div>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        // 練習：三個按鈕+一個box /box 本來是lightblue色 ->按按鈕1，變成紅色；按按鈕2，變成藍色；按按鈕3，變成綠色；
+
+        // 1.bind
+        const redBtn = $('#redBtn');
+        console.log('redBtn', redBtn);
+        const blueBtn = $('#blueBtn');
+        console.log('blueBtn', blueBtn);
+        const greenBtn = $('#greenBtn');
+        console.log('greenBtn', greenBtn);
+        
+
+        const box = $('#box');
+        console.log('box', box);
+
+
+        // 2.action
+        redBtn.click(function (e) {
+            box.attr('id', 'bg-red');
+            console.log('box', box);
+        });
+        blueBtn.click(function (e) {
+            box.attr('id', 'bg-blue');
+            console.log('box', box);
+        });
+        greenBtn.click(function (e) {
+            box.attr('id', 'bg-green');
+            console.log('box', box);
+        });
+    </script>
+</body>
+
+</html>
