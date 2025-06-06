@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .bg-pink {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 老師code -->
+    <div class="box">
+
+    </div>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        // 對比原生js 與 使用jquery 的code的差異
+
+        // 1.bind
+        // const box = document.querySelector('.box');
+        const box = $('.box');
+        console.log('box', box);
+
+
+        // 2.action
+        // box.addEventListener('click', function () {
+        //     box.setAttribute('class', 'box bg-pink');
+        // })
+        box.click(function (e) {
+            // $(this).attr('class', 'box bg-pink');
+            box.attr('class', 'box bg-pink');
+        });
+
+
+    </script>
+</body>
+
+</html>
