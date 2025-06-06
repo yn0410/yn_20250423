@@ -98,36 +98,36 @@
             let result = 0;
             coffeeCount.click(function () {
                 // let coffeeCountValue = $(coffeeCount).val();
-                let coffeeCountValue = Number($(coffeeCount).val());
+                let coffeeCountValue = Number(coffeeCount.val());
                 console.log('coffeeCountValue', coffeeCountValue);
                 // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
 
                 result = 100 * coffeeCountValue;
                 console.log('result', result);
-                $(coffeeTotal).text(result);
+                coffeeTotal.text(result);
             });           
             
 
             teaCount.click(function () {
                 // let coffeeCountValue = $(coffeeCount).val();
-                let teaCountValue = Number($(teaCount).val());
+                let teaCountValue = Number(teaCount.val());
                 console.log('teaCountValue', teaCountValue);
                 // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
 
                 result = 50 * teaCountValue;
                 console.log('result', result);
-                $(teaTotal).text(result);
+                teaTotal.text(result);
             });
 
             waterCount.click(function () {
                 // let coffeeCountValue = $(coffeeCount).val();
-                let waterCountValue = Number($(waterCount).val());
+                let waterCountValue = Number(waterCount.val());
                 console.log('waterCountValue', waterCountValue);
                 // console.log('coffeeCountValue typeof', typeof (coffeeCountValue));
 
                 result = 150 * waterCountValue;
                 console.log('result', result);
-                $(waterTotal).text(result);
+                waterTotal.text(result);
             });
 
 
