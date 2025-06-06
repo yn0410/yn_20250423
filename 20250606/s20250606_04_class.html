@@ -46,6 +46,10 @@
             background-color: lightgreen;
         }
 
+        .bg-yellow {
+            background-color: lightyellow;
+        }
+
         .box {
             width: 80%;
             height: 70vh;
@@ -59,9 +63,10 @@
     <!-- 老師code -->
     <div class="container">
         <!-- +dataset => data-color="" -->
-        <button id="redBtn" class="bg-red" type="button" data-color="red">紅色</button>
-        <button id="blueBtn" class="bg-blue" type="button" data-color="blue">藍色</button>
-        <button id="greenBtn" class="bg-green" type="button" data-color="green">綠色</button>
+        <button id="redBtn" class="btn bg-red" type="button" data-rank="1" data-color="red">紅色</button>
+        <button id="blueBtn" class="btn bg-blue" type="button" data-rank="2" data-color="blue">藍色</button>
+        <button id="greenBtn" class="btn bg-green" type="button" data-rank="2" data-color="green">綠色</button>
+        <button id="yellowBtn" class="btn bg-yellow" type="button" data-rank="2" data-color="yellow">黃色</button>
     </div>
 
     <hr>
@@ -82,55 +87,26 @@
     <script>
         $(document).ready(function () {
             // 1.bind
-            const redBtn = $('#redBtn');
-            const greenBtn = $('#greenBtn');
-            const blueBtn = $('#blueBtn');
+            const btn = $('.btn');
+            // const redBtn = $('#redBtn');
+            // const greenBtn = $('#greenBtn');
+            // const blueBtn = $('#blueBtn');
             const myBox = $('#myBox');
             console.log('redBtn', redBtn);
+            console.log('btn', btn);
 
             //    redBtn = '123';
 
 
             // 2.action
-            redBtn.click(function () {
-                console.log('redBtn ok');
-                // data
-                // attr
-
-                // 原生js this
+            btn.click(function () {
                 console.log('this', this);
-                // jquery this
-                console.log('$(this)', $(this));
-                // console.log('$(this)', $('this')); //跟上一行不一樣!
-
-                // jquery obj 才可以使用jquery method
                 let tmpColor = $(this).attr('data-color');
-                // let tmpColor = $(this).data('color');
-
-                console.log('tmpColor', tmpColor);
+                // console.log('tmpColor', tmpColor);
 
                 myBox.attr('class', `box bg-${tmpColor}`);
             });
 
-            greenBtn.click(function () {
-                console.log('redBtn ok');
-                let tmpColor = $(this).attr('data-color');
-                // let tmpColor = redBtn.data('color');
-
-                console.log('tmpColor', tmpColor);
-
-                myBox.attr('class', `box bg-${tmpColor}`);
-            });
-
-            blueBtn.click(function () {
-                console.log('blueBtn ok');
-                let tmpColor = $(this).attr('data-color');
-                // let tmpColor = redBtn.data('color');
-
-                console.log('tmpColor', tmpColor);
-
-                myBox.attr('class', `box bg-${tmpColor}`);
-            });
         });
     </script>
 </body>
