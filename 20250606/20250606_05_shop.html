@@ -21,6 +21,10 @@
         img {
             border-radius: 50%;
         }
+
+        .text-red {
+            color: red;
+        }
     </style>
 
 </head>
@@ -196,7 +200,20 @@
 
                 // 顯示"總計"
                 let resultSum = sumFun();
-                originPrice.text(resultSum);
+
+                // 滿500 打八折 &有打折時，金額字體顏色變紅色
+                let endPrice = 0;
+                if (resultSum >= 500) {
+                    endPrice = resultSum * 0.8;
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', 'text-red');
+                } else {
+                    endPrice = resultSum;
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', '');
+                }
+
+
 
             });
 
