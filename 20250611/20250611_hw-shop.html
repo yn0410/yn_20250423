@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+
+        .text-red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 作業"hw-shop"美化老師教的購物網站版面 -->
+    <div class="container">
+        <h3>shop</h3>
+        <table>
+            <tr>
+                <td width="5%">id</td>
+                <td width="5%">name</td>
+                <td width="15%">pic</td>
+                <td width="5%">price</td>
+                <td width="20%">count</td>
+                <td>total</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>咖啡</td>
+                <td>
+                    <img src="https://picsum.photos/id/22/100/100" alt="">
+                </td>
+                <td>
+                    <span>
+                        100
+                    </span>
+                </td>
+                <td>
+                    <input class="counts" data-price="100" type="number" name="" id="" value="1">
+                </td>
+                <td>
+                    <span class="totals">
+                        100
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>花茶</td>
+                <td>
+                    <img src="https://picsum.photos/id/23/100/100" alt="">
+                </td>
+                <td>
+                    <span>
+                        50
+                    </span>
+                </td>
+                <td>
+                    <input class="counts" data-price="50" id="myCount" type="number" name="" id="" value="1">
+                </td>
+                <td>
+                    <span id="myTotal" class="totals">
+                        50
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>山泉水</td>
+                <td>
+                    <img src="https://picsum.photos/id/23/100/100" alt="">
+                </td>
+                <td>
+                    <span>
+                        150
+                    </span>
+                </td>
+                <td>
+                    <input class="counts" data-price="150" type="number" name="" id="" value="1">
+                </td>
+                <td>
+                    <span class="totals">
+                        150
+                    </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <span id="originPrice">300</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const myCountJs = document.getElementById('myCount');
+        const myTotalJs = document.getElementById('myTotal');
+
+        // 原生js： input value 用 value / span(&其他tag) text 用 innerText
+        // jq： input value 用 val() / span(&其他tag) text 用 text()
+        /* let getValue = myCountJs.value;
+        console.log('myCountJs', myCountJs);
+        console.log('getValue', getValue);
+        myTotalJs.innerText = 'Hello'; */
+
+
+        $(document).ready(function () {
+
+            // function 計算"總計"
+            function sumFun() {
+                // 完整查詢
+                // 全部的total 加總sum
+                // 找到我第一個total
+                // id ok
+                // console.log(tmpTotal.text());
+
+                // id -> class
+                // id 單一total
+                // class 全部的total
+                // why 重新抓一次 ??
+                // 養成好習慣 重新抓
+                let tmpTotals = $('.totals');
+                console.log('tmpTotals', tmpTotals);
+                console.log('counts', counts);
+
+
+                // json data / jq objs
+                let sum = 0;
+                $.each(tmpTotals, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+                    let tmpValue = Number($(value).text());
+                    console.log('tmpValue', tmpValue);
+                    console.log('tmpValue typeof', typeof (tmpValue));
+                    sum += tmpValue;
+                    // sum = sum + tmpValue;
+                });
+
+                console.log('sum', sum);
+                return sum;
+            }
+
+            // 1.bind
+            const counts = $('.counts');
+            const totals = $('.totals');
+            const myCount = $('#myCount');
+            const myTotal = $('#myTotal');
+            const originPrice = $('#originPrice');
+
+            // 2.action
+            counts.change(function () {
+                console.log('myCount ok');
+                let tmpCount = Number($(this).val());
+                let tmpPrice = Number($(this).attr('data-price'));
+                console.log('tmpCount', tmpCount);
+                console.log('tmpPrice', tmpPrice);
+
+                let result = tmpCount * tmpPrice;
+                console.log('result', result);
+                // totals.text(result);
+
+
+                //本來一動其中一個count 全部的total都會動到 所以要"一對一綁定"它們
+
+                // 找counts上上層 ->tr
+                // 再找到class="totals"
+
+                // parent() 往上找一層
+                // find() 往下找 &一定要找到
+                let tmpTr = $(this).parent().parent();
+                let tmpTotal = tmpTr.find('.totals');
+                console.log('tmpTr', tmpTr);
+                console.log('tmpTotal', tmpTotal);
+                tmpTotal.text(result);
+
+
+                // 顯示"總計"
+                let resultSum = sumFun();
+
+                // 滿500 打八折 &有打折時，金額字體顏色變紅色
+                let endPrice = 0;
+                if (resultSum >= 500) {
+                    endPrice = resultSum * 0.8;
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', 'text-red');
+                } else {
+                    endPrice = resultSum;
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', '');
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>
