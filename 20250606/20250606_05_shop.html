@@ -133,6 +133,7 @@
             const totals = $('.totals');
             const myCount = $('#myCount');
             const myTotal = $('#myTotal');
+            const originPrice = $('#originPrice');
 
             // 2.action
             counts.change(function () {
@@ -191,6 +192,7 @@
                 });
 
                 console.log('sum', sum);
+                originPrice.text(sum);
                 // 20250611老師code end
 
             });
