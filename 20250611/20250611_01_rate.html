@@ -22,6 +22,27 @@
         /* button {
             width: 100px;
         } */
+
+        /* 老師code */
+        table {
+            margin: auto;
+            margin-top: 10px;
+            width: 80%;
+            background-color: lightgray;
+            border-collapse: collapse;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            width: 50%;
+        }
     </style>
 </head>
 
@@ -43,7 +64,24 @@
         </p>
     </div>
 
-    <div class="container bg-pink"></div>
+    <div class="container bg-pink">
+        <h3>試算結果</h3>
+        <hr>
+        <table>
+            <tr>
+                <th>年</th>
+                <th>金額</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>20</td>
+            </tr>
+        </table>
+    </div>
 
 
     <!-- 載入jquery -->
@@ -69,7 +107,7 @@
                 console.log('moneyValue', moneyValue);
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
-                
+
             });
         });
     </script>
