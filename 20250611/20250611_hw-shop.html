@@ -74,10 +74,10 @@
                     </span>
                 </td>
                 <td>
-                    <input class="counts" data-price="50" id="myCount" type="number" name="" id="" value="1">
+                    <input class="counts" data-price="50" type="number" name="" id="" value="1">
                 </td>
                 <td>
-                    <span id="myTotal" class="totals">
+                    <span class="totals">
                         50
                     </span>
                 </td>
@@ -117,38 +117,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-        const myCountJs = document.getElementById('myCount');
-        const myTotalJs = document.getElementById('myTotal');
-
-        // 原生js： input value 用 value / span(&其他tag) text 用 innerText
-        // jq： input value 用 val() / span(&其他tag) text 用 text()
-        /* let getValue = myCountJs.value;
-        console.log('myCountJs', myCountJs);
-        console.log('getValue', getValue);
-        myTotalJs.innerText = 'Hello'; */
-
-
         $(document).ready(function () {
 
             // function 計算"總計"
             function sumFun() {
-                // 完整查詢
-                // 全部的total 加總sum
-                // 找到我第一個total
-                // id ok
-                // console.log(tmpTotal.text());
-
-                // id -> class
-                // id 單一total
-                // class 全部的total
-                // why 重新抓一次 ??
-                // 養成好習慣 重新抓
+                // 重新抓
                 let tmpTotals = $('.totals');
                 console.log('tmpTotals', tmpTotals);
                 console.log('counts', counts);
 
-
-                // json data / jq objs
                 let sum = 0;
                 $.each(tmpTotals, function (key, value) {
                     console.log('key', key);
@@ -157,7 +134,6 @@
                     console.log('tmpValue', tmpValue);
                     console.log('tmpValue typeof', typeof (tmpValue));
                     sum += tmpValue;
-                    // sum = sum + tmpValue;
                 });
 
                 console.log('sum', sum);
@@ -184,13 +160,12 @@
                 // totals.text(result);
 
 
-                //本來一動其中一個count 全部的total都會動到 所以要"一對一綁定"它們
-
+                //一對一綁定count &total
                 // 找counts上上層 ->tr
                 // 再找到class="totals"
 
-                // parent() 往上找一層
-                // find() 往下找 &一定要找到
+                // parent() =往上找一層
+                // find() =往下找 &一定要找到
                 let tmpTr = $(this).parent().parent();
                 let tmpTotal = tmpTr.find('.totals');
                 console.log('tmpTr', tmpTr);
@@ -198,7 +173,7 @@
                 tmpTotal.text(result);
 
 
-                // 顯示"總計"
+                // 顯示"總計"在table中
                 let resultSum = sumFun();
 
                 // 滿500 打八折 &有打折時，金額字體顏色變紅色
