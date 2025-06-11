@@ -17,7 +17,8 @@
             border-collapse: collapse;
             text-align: center;
         }
-        img{
+
+        img {
             border-radius: 50%;
         }
     </style>
@@ -125,8 +126,39 @@
 
         $(document).ready(function () {
 
-            // 加總的部分 下次會重新講一次
-            // code...
+            // function 計算"總計"
+            function sumFun() {
+                // 完整查詢
+                // 全部的total 加總sum
+                // 找到我第一個total
+                // id ok
+                // console.log(tmpTotal.text());
+
+                // id -> class
+                // id 單一total
+                // class 全部的total
+                // why 重新抓一次 ??
+                // 養成好習慣 重新抓
+                let tmpTotals = $('.totals');
+                console.log('tmpTotals', tmpTotals);
+                console.log('counts', counts);
+
+
+                // json data / jq objs
+                let sum = 0;
+                $.each(tmpTotals, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+                    let tmpValue = Number($(value).text());
+                    console.log('tmpValue', tmpValue);
+                    console.log('tmpValue typeof', typeof (tmpValue));
+                    sum += tmpValue;
+                    // sum = sum + tmpValue;
+                });
+
+                console.log('sum', sum);
+                return sum;
+            }
 
             // 1.bind
             const counts = $('.counts');
@@ -161,39 +193,10 @@
                 console.log('tmpTotal', tmpTotal);
                 tmpTotal.text(result);
 
-                
-                // 20250611老師code start
-                // 完整查詢
-                // 全部的total 加總sum
-                // 找到我第一個total
-                // id ok
-                console.log(tmpTotal.text());
 
-                // id -> class
-                // id 單一total
-                // class 全部的total
-                // why 重新抓一次 ??
-                // 養成好習慣 重新抓
-                let tmpTotals = $('.totals');
-                console.log('tmpTotals', tmpTotals);
-                console.log('counts', counts);
-
-
-                // json data / jq objs
-                let sum = 0;
-                $.each(tmpTotals, function (key, value) {
-                    console.log('key', key);
-                    console.log('value', value);
-                    let tmpValue = Number($(value).text());
-                    console.log('tmpValue', tmpValue);
-                    console.log('tmpValue typeof', typeof (tmpValue));
-                    sum += tmpValue;
-                    // sum = sum + tmpValue;
-                });
-
-                console.log('sum', sum);
-                originPrice.text(sum);
-                // 20250611老師code end
+                // 顯示"總計"
+                let resultSum = sumFun();
+                originPrice.text(resultSum);
 
             });
 
