@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複利計算</title>
+    <style>
+        .container {
+            width: 80%;
+            height: 90vh;
+            background-color: lightblue;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bg-pink {
+            background-color: lightpink;
+        }
+
+        /* button {
+            width: 100px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>複利計算</h3>
+        <hr>
+        <p>
+            投入(萬) &nbsp;<input type="text" name="" id="money" value="1">
+        </p>
+        <p>
+            投報(%) &nbsp;<input type="text" name="" id="rate" value="10">
+        </p>
+        <p>
+            年限(年) &nbsp;<input type="text" name="" id="year" value="10">
+        </p>
+        <p>
+            <button type="button" id="myBtn">送出</button>
+        </p>
+    </div>
+
+    <div class="container bg-pink"></div>
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1 bind
+            const money = $('#money');
+            const rate = $('#rate');
+            const year = $('#year');
+            const myBtn = $('#myBtn');
+
+            // 2 action
+            myBtn.click(function () {
+                console.log('myBtn', myBtn);
+                let moneyValue = Number(money.val());
+                let rateValue = Number(rate.val());
+                let yearValue = Number(year.val());
+                console.log('moneyValue', moneyValue);
+                console.log('rateValue', rateValue);
+                console.log('yearValue', yearValue);
+                
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
