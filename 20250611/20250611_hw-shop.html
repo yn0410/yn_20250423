@@ -4,26 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: rgb(242, 242, 242);
+            border-radius: 12px;
+            border: 1px solid rgba(209, 219, 219, 0.3);
+            width: 80%;
+            height: 500px;
+            margin: auto;
+            box-shadow: 3px 3px 15px black;
+        }
+
         table {
-            width: 100%;
+            width: 90%;
+            height: 80%;
+            margin: auto;
         }
 
         table,
         tr,
+        th,
         td {
             border: 1px solid black;
             border-collapse: collapse;
             text-align: center;
+            /* border-radius: 15px; */
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #FFAD86;
+        }
+
+        td {
+            background-color: #FFDAC8;
+        }
+
+        td:hover {
+            background-color: rgb(200, 200, 200);
         }
 
         img {
             border-radius: 50%;
+            width: 90px;
+            height: 75px;
         }
 
         .text-red {
             color: red;
+        }
+
+        #originPrice {
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .counts{
+            width: 70px;
+            height: 30px;
+            text-align: center;
+            background-color: #FFE6D9;
+            border-radius: 10px;
         }
     </style>
 
@@ -32,21 +81,21 @@
 <body>
     <!-- 作業"hw-shop"美化老師教的購物網站版面 -->
     <div class="container">
-        <h3>shop</h3>
+        <h1>Shop</h1>
         <table>
             <tr>
-                <td width="5%">id</td>
-                <td width="5%">name</td>
-                <td width="15%">pic</td>
-                <td width="5%">price</td>
-                <td width="20%">count</td>
-                <td>total</td>
+                <th style="width: 5%">編號</th>
+                <th style="width: 10%">品名</th>
+                <th style="width: 15%">圖片</th>
+                <th style="width: 10%">價錢</th>
+                <th style="width: 10%">數量</th>
+                <th style="width: 10%">金額</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>咖啡</td>
                 <td>
-                    <img src="https://picsum.photos/id/22/100/100" alt="">
+                    <img src="./img/coffee.JPG" alt="">
                 </td>
                 <td>
                     <span>
@@ -54,7 +103,7 @@
                     </span>
                 </td>
                 <td>
-                    <input class="counts" data-price="100" type="number" name="" id="" value="1">
+                    <input class="counts" data-price="100" type="number" name="" id="" value="0" min="0">
                 </td>
                 <td>
                     <span class="totals">
@@ -66,7 +115,7 @@
                 <td>2</td>
                 <td>花茶</td>
                 <td>
-                    <img src="https://picsum.photos/id/23/100/100" alt="">
+                    <img src="./img/tea.jpg" alt="">
                 </td>
                 <td>
                     <span>
@@ -74,7 +123,7 @@
                     </span>
                 </td>
                 <td>
-                    <input class="counts" data-price="50" type="number" name="" id="" value="1">
+                    <input class="counts" data-price="50" type="number" name="" id="" value="0" min="0">
                 </td>
                 <td>
                     <span class="totals">
@@ -86,7 +135,7 @@
                 <td>3</td>
                 <td>山泉水</td>
                 <td>
-                    <img src="https://picsum.photos/id/23/100/100" alt="">
+                    <img src="./img/water.jpg" alt="">
                 </td>
                 <td>
                     <span>
@@ -94,7 +143,7 @@
                     </span>
                 </td>
                 <td>
-                    <input class="counts" data-price="150" type="number" name="" id="" value="1">
+                    <input class="counts" data-price="150" type="number" name="" id="" value="0" min="0">
                 </td>
                 <td>
                     <span class="totals">
@@ -104,8 +153,8 @@
             </tr>
 
             <tr>
-                <td colspan="6">
-                    <span id="originPrice">300</span>
+                <td colspan="6" style="height: 55px;">
+                    <span id="originPrice">總計：0 元</span>
                 </td>
             </tr>
         </table>
@@ -180,11 +229,11 @@
                 let endPrice = 0;
                 if (resultSum >= 500) {
                     endPrice = resultSum * 0.8;
-                    originPrice.text(endPrice);
+                    originPrice.text("總計：" + endPrice + " 元");
                     originPrice.attr('class', 'text-red');
                 } else {
                     endPrice = resultSum;
-                    originPrice.text(endPrice);
+                    originPrice.text("總計：" + endPrice + " 元");
                     originPrice.attr('class', '');
                 }
             });
