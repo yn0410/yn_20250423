@@ -141,9 +141,33 @@
                     <td>1</td>
                     <td>10</td>
                 </tr>
+                <tr>
+                    <td>2</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>30</td>
+                </tr>
                 `;
 
-                myTable.append(tmpText);
+                let tmpResult = ``;
+
+                $.each(data, function (key, value) { 
+                    console.log('key',key);
+                    console.log('value',value);
+                    
+                    tmpResult += `
+                        <tr>
+                            <td>${value.year}</td>
+                            <td>${value.money}</td>
+                        </tr>
+                    `;
+                });
+                console.log('tmpResult',tmpResult);
+
+                // myTable.append(tmpText);
+                myTable.append(tmpResult);
 
 
 
