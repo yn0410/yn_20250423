@@ -5,9 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            margin: auto;
+            width: 80%;
+            text-align: center;
+        }
+
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 
 <body>
+    <button type="button" id="myBtn">myBtn</button>
+
+    <table id="myTable">
+        <tr>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+        </tr>
+        <tr>
+            <td>006/172025</td>
+            <td>197.2</td>
+            <td>198.3</td>
+            <td>195.2</td>
+            <td>195.6</td>
+        </tr>
+    </table>
 
     <!-- 載入jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -16,8 +49,29 @@
         </script>
 
     <!-- <img src="./data/data.json" alt=""> -->
+    <!-- 為了抓src連結(?)放到ajax的url中，而用的img tag -->
     <script>
         $(document).ready(function () {
+            // 1. bind
+            let myTable = $("#myTable");
+            let myBtn = $("#myBtn");
+
+            // 2. action
+            myBtn.click(function (e) {
+                let tmpText = `
+                    <tr>
+                        <td>006/172025</td>
+                        <td>197.2</td>
+                        <td>198.3</td>
+                        <td>195.2</td>
+                        <td>195.6</td>
+                    </tr>
+                `;
+                myTable.append(tmpText);
+
+            });
+
+
 
             let url = "./data/data.json";
             $.ajax({
@@ -27,12 +81,12 @@
                 // dataType: "dataType",
                 success: function (response) {
                     console.log("response", response);
-                    
+
                 }
             });
         });
     </script>
-    
+
 </body>
 
 </html>
