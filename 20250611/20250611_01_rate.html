@@ -51,10 +51,10 @@
         <h3>複利計算</h3>
         <hr>
         <p>
-            投入(萬) &nbsp;<input type="text" name="" id="money" value="1">
+            投入(萬) &nbsp;<input type="text" name="" id="money" value="100">
         </p>
         <p>
-            投報(%) &nbsp;<input type="text" name="" id="rate" value="10">
+            投報(%) &nbsp;<input type="text" name="" id="rate" value="8">
         </p>
         <p>
             年限(年) &nbsp;<input type="text" name="" id="year" value="10">
@@ -100,7 +100,7 @@
             const myTable = $('#myTable');
 
             // 假資料
-            let data=[
+            /* let data=[
                 {
                     'id' : 1,
                     'year' : 1,
@@ -116,9 +116,10 @@
                     'year' : 3,
                     'money' : '116.64'
                 },
-            ];
+            ]; */
 
             // 2 action
+            let sum = 0;
             myBtn.click(function () {
                 console.log('myBtn', myBtn);
                 let moneyValue = Number(money.val());
@@ -127,6 +128,23 @@
                 console.log('moneyValue', moneyValue);
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
+
+                /* let tmpYear = 0;
+                let tmpSum = 0;
+                for(tmpYear=2; tmpYear<yearValue; tmpYear++){
+                    tmpSum = moneyValue * (1+rateValue/100);
+                }
+                sum = tmpSum;
+                console.log('sum', sum); */
+
+                // data=[{},{}]
+                let data =[];
+                let tmpObj = {
+                    'id' : 1,
+                    'year' : 1,
+                    'money' : '1000.00'
+                }
+                data.push(tmpObj);
 
 
                 // 1.抓data
