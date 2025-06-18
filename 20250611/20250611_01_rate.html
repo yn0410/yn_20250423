@@ -72,14 +72,14 @@
                 <th>年</th>
                 <th>金額</th>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>1</td>
                 <td>10</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>20</td>
-            </tr>
+            </tr> -->
         </table>
     </div>
 
@@ -119,7 +119,7 @@
             ]; */
 
             // 2 action
-            let sum = 0;
+            // let sum = 0;
             myBtn.click(function () {
                 console.log('myBtn', myBtn);
                 let moneyValue = Number(money.val());
@@ -129,6 +129,21 @@
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
 
+                // 清理table內容 只留下表頭
+                let tmpTableHead = `
+                    <tr>
+                        <th>年</th>
+                        <th>金額</th>
+                    </tr>
+                `;
+                myTable.text('');
+                myTable.append(tmpTableHead);
+
+
+
+
+
+                // 我試寫的code
                 /* let tmpYear = 0;
                 let tmpSum = 0;
                 for(tmpYear=2; tmpYear<yearValue; tmpYear++){
@@ -138,23 +153,72 @@
                 console.log('sum', sum); */
 
                 // data=[{},{}]
-                let data =[];
+                /* let data =[];
                 let tmpObj = {
                     'id' : 1,
                     'year' : 1,
                     'money' : '1000.00'
                 }
-                data.push(tmpObj);
+                data.push(tmpObj); */
+
+
+                // 1. 放第一年資料
+                // 2. 放第二年資料
+                // 3. 放第三年資料
+                // x=年
+                /* let tmpObj = {
+                    'id' : x,
+                    'year' : x,
+                    'money' : '1000.00'
+                }
+                data.push(tmpObj); */
+
+
+                // foreach
+                // 放入每一年的資料
+
+                // foreach N
+                // 1. 放第N年資料
+                // foreach end
+
+                // totalYear = year
+                // totalMoney = money
+                let data = [];
+                // [{},{},...,{}] 10年 =有10個obj =10個{}
+
+                // for year 10
+                // for (let i=1; i<=10; i++) {
+                for (let i=1; i<=yearValue; i++) {
+                    console.log(`第${i}年`);
+                    let tmpYear = i;
+                    let tmpMoney = moneyValue;
+                    let tmpObj = {
+                        'id' : i,
+                        'year' : tmpYear,
+                        'money' : tmpMoney
+                    }
+                    console.log('tmpObj',tmpObj);
+                    data.push(tmpObj);
+                    
+                }
+                console.log('data',data);
+                
+
+
+
+
+
+
 
 
                 // 1.抓data
                 // 2.把data放到table 用append
                 
                 // 1.抓data
-                console.log('data', data);
+                // console.log('data', data);
                 
                 // 2.把data放到table 用append
-                let tmpText=`
+                /* let tmpText=`
                 <tr>
                     <td>1</td>
                     <td>10</td>
@@ -167,7 +231,7 @@
                     <td>3</td>
                     <td>30</td>
                 </tr>
-                `;
+                `; */
 
                 let tmpResult = ``;
 
