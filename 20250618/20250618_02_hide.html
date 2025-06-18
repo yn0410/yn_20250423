@@ -20,6 +20,7 @@
     <br>
     <button type="button" id="hideBtn">hideBtn</button>
     <button type="button" id="showBtn">showBtn</button>
+    <button type="button" id="toggleBtn">toggleBtn</button>
 
     <!-- 載入jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -33,15 +34,22 @@
             const myBox = $('#myBox');
             const hideBtn = $('#hideBtn');
             const showBtn = $('#showBtn');
+            const toggleBtn = $('#toggleBtn');
 
             // 2. action
             hideBtn.click(function (e) { 
                 myBox.hide();
+                // console.log('e',e);
                 
             });
 
             showBtn.click(function (e) { 
                 myBox.show();
+                
+            });
+
+            toggleBtn.click(function (e) { 
+                myBox.toggle();
                 
             });
         });
