@@ -33,13 +33,13 @@
             <th>Low</th>
             <th>Close</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>006/172025</td>
             <td>197.2</td>
             <td>198.3</td>
             <td>195.2</td>
             <td>195.6</td>
-        </tr>
+        </tr> -->
     </table>
 
     <!-- 載入jquery -->
@@ -58,34 +58,49 @@
 
             // 2. action
             myBtn.click(function (e) {
-                let tmpText = `
-                    <tr>
-                        <td>006/172025</td>
-                        <td>197.2</td>
-                        <td>198.3</td>
-                        <td>195.2</td>
-                        <td>195.6</td>
-                    </tr>
-                `;
-                myTable.append(tmpText);
+                // get data
+                let url = "./data/data.json";
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    // dataType: "dataType",
+                    success: function (response) {
+                        console.log("response", response);
+
+                        // 1 抓data
+                        let data = response;
+                        console.log('data', data);
+
+
+                        // 2 data foreach (=jq each)
+                        let tmpText = ``;
+                        $.each(data, function (key, value) { 
+                            console.log('key',key);
+                            console.log('value',value);
+
+                            // 3 put text
+                            tmpText += `
+                                <tr>
+                                    <td>${value.Date}</td>
+                                    <td>${value.Open}</td>
+                                    <td>${value.High}</td>
+                                    <td>${value.Low}</td>
+                                    <td>${value.Close}</td>
+                                </tr>
+                            `;
+                        });
+                        console.log('tmpText',tmpText);
+                        myTable.append(tmpText);
+
+                    }
+                });
+
+                
 
             });
 
 
-
-            let url = "./data/data.json";
-            $.ajax({
-                type: "get",
-                url: url,
-                // data: "data",
-                // dataType: "dataType",
-                success: function (response) {
-                    console.log("response", response);
-                    let data = response;
-                    console.log('data', data);
-
-                }
-            });
         });
     </script>
 
