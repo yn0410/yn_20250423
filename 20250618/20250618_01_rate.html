@@ -48,6 +48,8 @@
 </head>
 
 <body>
+    <!-- 老師還有個"s20250618_01_rate copy.html"檔案，是上次他先做完的程式碼。今天(幾乎)全部重頭講解的code，在"s20250618_01_rate.html"中(跟我這個檔案的名稱一樣) -->
+    <!-- &老師最後的動作是有把他的第n年都改成第n-1年了，最後註解掉了 -->
     <div class="container">
         <h3>複利計算</h3>
         <hr>
@@ -187,7 +189,7 @@
                 // for year 10
                 let sum = 0;
                 // for (let i=1; i<=10; i++) {
-                for (let i=1; i<=yearValue; i++) {                  
+                for (let i = 1; i <= yearValue; i++) {
                     /* console.log(`第${i}年`);
                     let tmpYear = i;
                     let tmpMoney = moneyValue;
@@ -210,42 +212,39 @@
                     // if 1
                     // else
                     let tmpObj = {};
-                    if(i==1){
+                    if (i == 1) {
                         // 第一年 sum=money
                         sum = moneyValue;
                         let tmpYear = i;
                         let tmpMoney = moneyValue;
                         tmpObj = {
-                            'id' : i,
-                            'year' : tmpYear,
-                            'money' : tmpMoney
+                            'id': i,
+                            'year': tmpYear,
+                            'money': tmpMoney
                         };
-                    }else{
+                    } else {
                         // 第n年 sum =sum*1.08
-                        let tmpRate = 1+ (rateValue/100);
+                        let tmpRate = 1 + (rateValue / 100);
                         sum = (sum * tmpRate).toFixed(2);
                         let tmpYear = i;
                         let tmpMoney = sum;
                         tmpObj = {
-                            'id' : i,
-                            'year' : tmpYear,
-                            'money' : tmpMoney
+                            'id': i,
+                            'year': tmpYear,
+                            'money': tmpMoney
                         };
                     }
                     data.push(tmpObj);
                 }
-                console.log('data',data);
-
-                
-                
+                console.log('data', data);
 
 
                 // 1.抓data
                 // 2.把data放到table 用append
-                
+
                 // 1.抓data
                 // console.log('data', data);
-                
+
                 // 2.把data放到table 用append
                 /* let tmpText=`
                 <tr>
@@ -264,10 +263,10 @@
 
                 let tmpResult = ``;
 
-                $.each(data, function (key, value) { 
-                    console.log('key',key);
-                    console.log('value',value);
-                    
+                $.each(data, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+
                     tmpResult += `
                         <tr>
                             <td>${value.year}</td>
@@ -275,16 +274,10 @@
                         </tr>
                     `;
                 });
-                console.log('tmpResult',tmpResult);
+                console.log('tmpResult', tmpResult);
 
                 // myTable.append(tmpText);
                 myTable.append(tmpResult);
-
-
-
-
-
-
             });
         });
     </script>
