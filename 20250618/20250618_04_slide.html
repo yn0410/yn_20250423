@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+        }
+        .box2{
+            width: 300px;
+            height: 500px;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box" id="myBox"></div>
+    <div class="box2" id="myBox2"></div>
+    <br>
+    <button type="button" id="slideUpBtn">slideUpBtn</button>
+    <button type="button" id="slideDownBtn">slideDownBtn</button>
+    <button type="button" id="slideToggleBtn">slideToggleBtn</button>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1. bind
+            const myBox = $('#myBox');
+            const myBox2 = $('#myBox2');
+            const slideUpBtn = $('#slideUpBtn');
+            const slideDownBtn = $('#slideDownBtn');
+            const slideToggleBtn = $('#slideToggleBtn');
+
+            // 2. action
+            slideUpBtn.click(function (e) { 
+                myBox2.slideUp();
+                // myBox.slideUp("slow");
+                //myBox.slideUp(3000); //1000毫秒 = 1秒
+                
+            });
+
+            slideDownBtn.click(function (e) { 
+                myBox2.slideDown();
+                // myBox.slideDown("slow");
+                // myBox.slideDown(3000); //1000毫秒 = 1秒
+                
+            });
+
+            slideToggleBtn.click(function (e) { 
+                myBox2.slideToggle();
+                // myBox.slideToggle("slow");
+                // myBox.slideToggle(3000); //1000毫秒 = 1秒
+                
+            });
+
+            // myBox.click(function (e) { 
+            //     myBox2.slideToggle();
+                // myBox.slideToggle("slow");
+                // myBox.slideToggle(3000); //1000毫秒 = 1秒
+                
+            // });
+
+            // myBox.hover(function (e) { 
+            //     myBox2.slideToggle();
+                // myBox.slideToggle("slow");
+                // myBox.slideToggle(3000); //1000毫秒 = 1秒
+                
+            // });
+        });
+    </script>
+
+</body>
+
+</html>
