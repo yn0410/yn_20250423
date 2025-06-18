@@ -8,11 +8,12 @@
     <style>
         .container {
             width: 80%;
-            height: 90vh;
+            /* height: 90vh; */
             background-color: lightblue;
             margin: auto;
             text-align: center;
             margin-bottom: 20px;
+            padding-bottom: 30px;
         }
 
         .bg-pink {
@@ -139,10 +140,6 @@
                 myTable.text('');
                 myTable.append(tmpTableHead);
 
-
-
-
-
                 // 我試寫的code
                 /* let tmpYear = 0;
                 let tmpSum = 0;
@@ -151,6 +148,7 @@
                 }
                 sum = tmpSum;
                 console.log('sum', sum); */
+
 
                 // data=[{},{}]
                 /* let data =[];
@@ -187,9 +185,10 @@
                 // [{},{},...,{}] 10年 =有10個obj =10個{}
 
                 // for year 10
+                let sum = 0;
                 // for (let i=1; i<=10; i++) {
-                for (let i=1; i<=yearValue; i++) {
-                    console.log(`第${i}年`);
+                for (let i=1; i<=yearValue; i++) {                  
+                    /* console.log(`第${i}年`);
                     let tmpYear = i;
                     let tmpMoney = moneyValue;
                     let tmpObj = {
@@ -198,17 +197,47 @@
                         'money' : tmpMoney
                     }
                     console.log('tmpObj',tmpObj);
+                    data.push(tmpObj); */
+
+                    // 第一年 money
+                    // 第二年 money = money*1.08
+                    // 第三年 money = money*1.08
+
+                    // 第一年 sum = money
+                    // 第二年 sum = sum*1.08
+                    // 第三年 sum = sum*1.08
+
+                    // if 1
+                    // else
+                    let tmpObj = {};
+                    if(i==1){
+                        // 第一年 sum=money
+                        sum = moneyValue;
+                        let tmpYear = i;
+                        let tmpMoney = moneyValue;
+                        tmpObj = {
+                            'id' : i,
+                            'year' : tmpYear,
+                            'money' : tmpMoney
+                        };
+                    }else{
+                        // 第n年 sum =sum*1.08
+                        let tmpRate = 1+ (rateValue/100);
+                        sum = (sum * tmpRate).toFixed(2);
+                        let tmpYear = i;
+                        let tmpMoney = sum;
+                        tmpObj = {
+                            'id' : i,
+                            'year' : tmpYear,
+                            'money' : tmpMoney
+                        };
+                    }
                     data.push(tmpObj);
-                    
                 }
                 console.log('data',data);
+
                 
-
-
-
-
-
-
+                
 
 
                 // 1.抓data
