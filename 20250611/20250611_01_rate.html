@@ -67,7 +67,7 @@
     <div class="container bg-pink">
         <h3>試算結果</h3>
         <hr>
-        <table>
+        <table id="myTable">
             <tr>
                 <th>年</th>
                 <th>金額</th>
@@ -97,6 +97,26 @@
             const rate = $('#rate');
             const year = $('#year');
             const myBtn = $('#myBtn');
+            const myTable = $('#myTable');
+
+            // 假資料
+            let data=[
+                {
+                    'id' : 1,
+                    'year' : 1,
+                    'money' : '100.00'
+                },
+                {
+                    'id' : 2,
+                    'year' : 2,
+                    'money' : '108.00'
+                },
+                {
+                    'id' : 3,
+                    'year' : 3,
+                    'money' : '116.64'
+                },
+            ];
 
             // 2 action
             myBtn.click(function () {
@@ -108,7 +128,27 @@
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
 
-                // "小提示(?)"跟不上啦...
+
+                // 1.抓data
+                // 2.把data放到table 用append
+                
+                // 1.抓data
+                console.log('data', data);
+                
+                // 2.把data放到table 用append
+                let tmpText=`
+                <tr>
+                    <td>1</td>
+                    <td>10</td>
+                </tr>
+                `;
+
+                myTable.append(tmpText);
+
+
+
+
+
 
             });
         });
