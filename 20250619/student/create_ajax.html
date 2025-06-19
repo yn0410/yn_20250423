@@ -35,11 +35,11 @@
 
             // 2.action
             // jqSubmit
-            myForm.submit(function (e) { 
-                e.preventDefault();
-                console.log('e',e);
+            myForm.submit(function (e) {
+                e.preventDefault(); // 阻止它做預設要做的事(這邊預設的事是"送出資料")
+                console.log('e', e);
                 let confirmed = confirm('是否送出?');
-                console.log('confirmed',confirmed);
+                console.log('confirmed', confirmed);
 
                 // 這段跟下面3行意思一樣
                 /* if(!confirmed){
@@ -47,25 +47,32 @@
                 }else{
                     console.log('ok!');
                 } */
-                if(!confirmed){
+                if (!confirmed) {
                     return false;
                 }
                 console.log('ok!');
-                
+
+                // ajax
+                let url = './data/store.php';
+                // let data = myForm.serialize();
+                console.log('this', this);
+                // let data = $(this).serialize();
+                let data = $(this).serializeArray();
+                console.log('data', data);
+    
+    
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response', response);
+    
+                    }
+                });
             });
 
-            let url = './data/store.php';
-
-            $.ajax({
-                type: "get",
-                url: url,
-                data: "data",
-                dataType: "json",
-                success: function (response) {
-                    console.log('response',response);
-                    
-                }
-            });
         });
     </script>
 </body>
