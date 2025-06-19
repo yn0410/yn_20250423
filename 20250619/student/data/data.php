@@ -23,5 +23,5 @@ $data = [
     ],
 ];
 
-// dd($data);
+dd($data);
 ?>
