@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易計算機-ajax</title>
+    <style>
+        .container{
+            width: 300px;
+            height: 300px;
+            /* margin: auto; */
+            border: 1px solid #DDD;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="./c03_ajaxData.php" method="get" id="myForm">
+            <p>
+                <input type="number" name="num1" id="num1" value="100">
+            </p>
+            <p>
+                <input type="text" name="opt" id="opt" value="+">
+            </p>
+            <p>
+                <input type="number" name="num2" id="num2" value="50">
+            </p>
+            <p>
+                <button type="submit" id="myBtn">計算</button>
+            </p>
+        </form>
+            <hr>
+            <p id="resultP">
+                //計算結果
+            </p>
+    </div>
+    
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1. bind
+            let num1 = $('#num1');
+            let opt = $('#opt');
+            let num2 = $('#num2');
+            let myBtn = $('#myBtn');
+            let resultP = $('#resultP');
+            const myForm = $('#myForm');
+            
+            
+            // 2. action
+            myForm.submit(function (e) {
+
+                let url = "./c03_ajaxData.php";
+                let data = $(this).serializeArray();
+                console.log('data', data);
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('ok');
+                        
+                    }
+                });
+            });
+
+
+            /* myBtn.click(function (e) { 
+                let num1Value = Number(num1.val());
+                console.log('num1Value', num1Value);
+                console.log('num1Value typeof', typeof (num1Value));
+
+                let optValue = opt.val();
+                console.log('optValue', optValue);
+                console.log('optValue typeof', typeof (optValue));
+
+                let num2Value = Number(num2.val());
+                console.log('num2Value', num2Value);
+                console.log('num2Value typeof', typeof (num2Value));
+
+              
+                let result = 0;
+                switch(optValue){
+                    case '+':
+                        result = num1Value + num2Value;
+                        break;
+                    case '-':
+                        result = num1Value - num2Value;
+                        break;
+                    case '*':
+                        result = num1Value * num2Value;
+                        break;
+                    case '/':
+                        result = num1Value / num2Value;
+                        break;
+                    default:
+                        break;
+                }
+
+               
+                resultP.text(`${num1Value} ${optValue} ${num2Value} = ${result}`);
+                
+                
+            }); */
+
+
+
+
+        });
+    </script>
+</body>
+</html>
