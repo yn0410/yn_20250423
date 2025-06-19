@@ -29,10 +29,10 @@
             <th>name</th>
         </tr>
 
-            <tr>
-                <td>1</td>
-                <td>amy</td>
-            </tr>
+        <tr>
+            <td>1</td>
+            <td>amy</td>
+        </tr>
 
 
     </table>
@@ -53,9 +53,11 @@
                 url: url,
                 // data: "data",
                 // dataType: "dataType",
+                dataType: "json",
                 success: function (response) {
                     console.log('response', response);
-                    
+                    console.log('response type of', typeof (response));
+
                 }
             });
         });

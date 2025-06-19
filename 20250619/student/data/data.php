@@ -23,5 +23,13 @@ $data = [
     ],
 ];
 
-dd($data);
+// dd($data);
+
+// array to json
+echo json_encode($data);
+
+
+// 1.php 產出 $data array
+// 2.轉換成json
+// echo json_encode($data);
 ?>
