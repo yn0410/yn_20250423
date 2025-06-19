@@ -7,7 +7,7 @@ function dd($data)
     echo "</pre>";
 }
 
-
+// 1. 假資料
 $data = [
     [
         'id' => 1,
@@ -22,6 +22,8 @@ $data = [
         'name' => 'cat',
     ],
 ];
+// 2. 真DB資料
+// ...code
 
 // dd($data);
 
