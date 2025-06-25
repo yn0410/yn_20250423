@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS5 Grid-延伸</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(240, 240, 240);
+        }
+
+        .box {
+            width: 100%;
+            /* height: 20vh; */
+            /* background-color: lightblue; */
+            margin-bottom: 10px;
+
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+
+        .box:hover {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- bs5 navbar左右不會留白 / bs5 container本身會留白!!! -->
+    <!-- w3school bs5 navbar的程式碼 -->
+    <!-- <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+
+    <!-- bs5 grid -->
+    <!-- container row col -->
+    <div class="container text-center mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="box pt-3">
+                    <!-- 1 -->
+                    <h1 style="color:navy;">不忘</h1>
+                    歌手：金玟岐<br>
+                    作詞：星爵 作曲：Hugo / Poli / All About (Jaydope, Onair)<br>
+                    編曲：Terence Teo<br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- "col"會自動均分 -->
+    <!-- col-"n" = 共12格裡，佔n格 -->
+    <!-- "col-sm-12"當視窗寬度>=576px時，會佔12格 -->
+    <!-- col / col-sm- / col-md- / col-lg- / col-xl- / col-xxl- -->
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <div class="box">
+                    <!-- 2-1 -->
+                     <!-- w3school bs5 images的responsive images -->
+                    <img src="./images/song.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="box ps-3">
+                    <!-- 2-2 -->
+                    每當你 在靠近<br>
+                    為什麼總會覺得 陌生又熟悉<br>
+                    忽然間 觸發了藏匿的回憶<br>
+                    畫面閃回 喚醒心跳<br>
+                    <br>
+                    我多怕 會忘記<br>
+                    你是我 相隨的理由<br>
+                    掌心裡的堅守<br>
+                    唯有你緊握 就能夠讓我敢<br>
+                    面對著未知的命運<br>
+                    <br>
+                    哪怕倒流時空 故事再從頭<br>
+                    我不忘你眼中 深埋的溫柔<br>
+                    愛上你 原來只要用一瞬間<br>
+                    忘掉你 偏偏卻需要永遠<br>
+                    <br>
+                    我多怕 會忘記<br>
+                    你和我 一起走過<br>
+                    一路上的波折<br>
+                    唯有你守候 就能夠讓我敢<br>
+                    逆著風也一樣執著<br>
+                    <br>
+                    哪怕倒流時空 故事再從頭<br>
+                    我不忘 你眼中深埋的溫柔<br>
+                    愛上你 原來只要用一瞬間<br>
+                    忘掉你 偏偏卻需要永遠<br>
+                    <br>
+                    真心會始終記得保留<br>
+                    那是我 別無他求的擁有<br>
+                    <br>
+                    哪怕倒流時空 故事再從頭<br>
+                    我不忘 你眼中深埋的溫柔<br>
+                    愛上你 原來只要用 一瞬間<br>
+                    忘掉你 偏偏卻需要永遠<br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <!-- 3-1 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col">
+                <div class="box">
+                    <!-- 3-2 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col">
+                <div class="box">
+                    <!-- 3-3 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <!-- 4-1 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col">
+                <div class="box">
+                    <!-- 4-2 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col">
+                <div class="box">
+                    <!-- 4-3 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+            <div class="col">
+                <div class="box">
+                    <!-- 4-4 -->
+                    <img src="./images/pc.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // jQuery methods go here...
+        });
+    </script>
+</body>
+
+</html>
