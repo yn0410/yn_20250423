@@ -14,6 +14,7 @@
             width: 100%;
             height: 20vh;
             background-color: lightblue;
+            margin-bottom: 10px;
         }
 
         .box:hover {
@@ -53,14 +54,18 @@
         </div>
     </div>
 
+    <!-- "col"會自動均分 -->
+    <!-- col-"n" = 共12格裡，佔n格 -->
+    <!-- "col-sm-12"當視窗寬度>=576px時，會佔12格 -->
+    <!-- col / col-sm- / col-md- / col-lg- / col-xl- / col-xxl- -->
     <div class="container mt-3">
         <div class="row">
-            <div class="col">
+            <div class="col col-sm-12">
                 <div class="box">
                     2-1
                 </div>
             </div>
-            <div class="col">
+            <div class="col col-sm-12">
                 <div class="box">
                     2-2
                 </div>
