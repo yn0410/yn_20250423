@@ -16,30 +16,20 @@
     <div class="container mt-3">
         <h2>Bordered Table</h2>
         <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>mobile</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="myTbody">
+                <!-- <tr>
                     <td>John</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -57,7 +47,55 @@
 
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+            // 假資料
+            let data = [
+                {
+                    id: 1,
+                    name: 'amy',
+                    mobile: '0911-111-111'
+                },
+                {
+                    id: 2,
+                    name: 'bob',
+                    mobile: '0922-222-222'
+                },
+                {
+                    id: 3,
+                    name: 'cat',
+                    mobile: '0933-333-333'
+                }
+            ]
+
+
+            // 1. bind
+            const myTbody = $('#myTbody');
+            console.log('myTbody',myTbody);
+            
+            // 2. action
+            
+            // 放單筆試試 =>ok(再去放多筆)
+            /* let tmpText = `
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            `;
+            myTbody.append(tmpText); */
+
+            // 多筆
+            let tmpText = ``;
+            $.each(data, function (key, value) { 
+                tmpText += `
+                    <tr>
+                        <td>${value.id}</td>
+                        <td>${value.name}</td>
+                        <td>${value.mobile}</td>
+                    </tr>
+                `;
+            });
+            myTbody.append(tmpText);
+
         });
     </script>
 </body>
