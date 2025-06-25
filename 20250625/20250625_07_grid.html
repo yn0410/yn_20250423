@@ -15,10 +15,32 @@
             height: 20vh;
             background-color: lightblue;
         }
+
+        .box:hover {
+            background-color: skyblue;
+        }
     </style>
 </head>
 
 <body>
+    <!-- bs5 navbar左右不會留白 / bs5 container本身會留白!!! -->
+    <!-- w3school bs5 navbar的程式碼 -->
+    <nav class="navbar navbar-expand-sm bg-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- bs5 grid -->
     <!-- container row col -->
     <div class="container text-center mt-3">
@@ -86,6 +108,96 @@
             <div class="col">
                 <div class="box">
                     4-4
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!-- 實作col1~12 -->
+    <div class="container text-center mt-3">
+        <div class="row mt-3">
+            <div class="col-1">
+                <div class="box">
+                    col-1
+                </div>
+            </div>
+            <div class="col-11">
+                <div class="box">
+                    col-11
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-2">
+                <div class="box">
+                    col-2
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="box">
+                    col-10
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-3">
+                <div class="box">
+                    col-3
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="box">
+                    col-9
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-4">
+                <div class="box">
+                    col-4
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="box">
+                    col-8
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-5">
+                <div class="box">
+                    col-5
+                </div>
+            </div>
+            <div class="col-7">
+                <div class="box">
+                    col-7
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="box">
+                    col-6
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="box">
+                    col-6
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="box">
+                    col-12
                 </div>
             </div>
         </div>
