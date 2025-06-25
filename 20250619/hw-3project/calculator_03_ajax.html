@@ -57,7 +57,7 @@
             
             // 2. action
             myForm.submit(function (e) {
-
+                e.preventDefault();
                 let url = "./c03_ajaxData.php";
                 let data = $(this).serializeArray();
                 console.log('data', data);
@@ -67,52 +67,44 @@
                     data: data,
                     dataType: "json",
                     success: function (response) {
-                        console.log('ok');
-                        
+                        // "calculator_01_js.html"的code:D
+                        console.log('response',response);
+                        let num1Value = Number(num1.val());
+                        console.log('num1Value', num1Value);
+                        console.log('num1Value typeof', typeof (num1Value));
+
+                        let optValue = opt.val();
+                        console.log('optValue', optValue);
+                        console.log('optValue typeof', typeof (optValue));
+
+                        let num2Value = Number(num2.val());
+                        console.log('num2Value', num2Value);
+                        console.log('num2Value typeof', typeof (num2Value));
+
+                        // 判斷運算元(?)並計算結果
+                        let result = 0;
+                        switch(optValue){
+                            case '+':
+                                result = num1Value + num2Value;
+                                break;
+                            case '-':
+                                result = num1Value - num2Value;
+                                break;
+                            case '*':
+                                result = num1Value * num2Value;
+                                break;
+                            case '/':
+                                result = num1Value / num2Value;
+                                break;
+                            default:
+                                break;
+                        }
+
+                        // resultP.text("~~");
+                        resultP.text(`${num1Value} ${optValue} ${num2Value} = ${result}`);
                     }
                 });
             });
-
-
-            /* myBtn.click(function (e) { 
-                let num1Value = Number(num1.val());
-                console.log('num1Value', num1Value);
-                console.log('num1Value typeof', typeof (num1Value));
-
-                let optValue = opt.val();
-                console.log('optValue', optValue);
-                console.log('optValue typeof', typeof (optValue));
-
-                let num2Value = Number(num2.val());
-                console.log('num2Value', num2Value);
-                console.log('num2Value typeof', typeof (num2Value));
-
-              
-                let result = 0;
-                switch(optValue){
-                    case '+':
-                        result = num1Value + num2Value;
-                        break;
-                    case '-':
-                        result = num1Value - num2Value;
-                        break;
-                    case '*':
-                        result = num1Value * num2Value;
-                        break;
-                    case '/':
-                        result = num1Value / num2Value;
-                        break;
-                    default:
-                        break;
-                }
-
-               
-                resultP.text(`${num1Value} ${optValue} ${num2Value} = ${result}`);
-                
-                
-            }); */
-
-
 
 
         });
