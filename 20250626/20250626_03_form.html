@@ -14,28 +14,31 @@
 <body>
     <!-- w3school 的 Bootstrap 5 Forms 的 BS5 Forms/ BS5 Select Menu / BS5 Checkboxes and Radio buttons 的code -->
     <!-- 老師有加上 "col / col-sm- / col-md- / col-lg- / col-xl- / col-xxl-" ，我還沒，因為沒跟上...(他動作好快，很難邊聽講邊跟上...) -->
-    <div class="container mt-3">
+    <div class="container">
+        <!-- name / mobile -->
         <div class="row mt-3">
-            <div class="col">
+            <div class="col-12 col-sm-6 mt-3">
                 <label for="" class="form-label">name</label>
                 <input type="text" class="form-control">
             </div>
-            <div class="col">
+            <div class="col-12 col-sm-6 mt-3">
                 <label for="" class="form-label">mobile</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control form-control-sm">
             </div>
         </div>
 
+        <!-- address -->
         <div class="row mt-3">
             <div class="col">
                 <label for="" class="form-label">address</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control form-control-lg">
             </div>
         </div>
 
+        <!-- select1 / select2 -->
         <div class="row mt-3">
             <div class="col">
-                <label for="" class="form-label">address</label>
+                <label for="" class="form-label">select1</label>
                 <select class="form-select">
                     <option>1</option>
                     <option>2</option>
@@ -44,7 +47,7 @@
                 </select>
             </div>
             <div class="col">
-                <label for="" class="form-label">address</label>
+                <label for="" class="form-label">select2</label>
                 <select class="form-select">
                     <option>1</option>
                     <option>2</option>
@@ -54,10 +57,13 @@
             </div>
         </div>
 
+        <!-- checkbox / radio -->
         <div class="row mt-3">
-            <div class="col">
+            <div class="col-12 col-sm-6">
+                <label for="" class="form-label">checkbox</label>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something"
+                        checked>
                     <label class="form-check-label" for="check1">Option 1</label>
                 </div>
                 <div class="form-check">
@@ -69,7 +75,8 @@
                     <label class="form-check-label">Option 3</label>
                 </div>
             </div>
-            <div class="col">
+            <div class="col-12 col-sm-6 mt-3">
+                <label for="" class="form-label">radio</label>
                 <div class="form-check">
                     <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1">
                     <label class="form-check-label" for="radio1">Default radio</label>
@@ -81,10 +88,22 @@
             </div>
         </div>
 
+        <!-- textarea -->
         <div class="row mt-3">
-            <!-- BS官網 的 Docs 的 Forms 的 Form control 的 第一個Example其中的Example textarea兩行code -->
-            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div class="col">
+                <!-- BS官網 的 Docs 的 Forms 的 Form control 的 第一個Example其中的Example textarea兩行code -->
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+
+        <!-- submit btn -->
+        <div class="row mt-5">
+            <div class="col">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary btn-block">Submit BTN</button>
+                </div>
+            </div>
         </div>
     </div>
 
