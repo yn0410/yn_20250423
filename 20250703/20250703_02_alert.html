@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <!-- 老師code -->
+    <!-- 老師code：點擊"Alerts"，能在下方顯示一個alert(資料寫在data變數中) -->
     <div class="container mt-3">
         <h2 class="myBtn">Alerts</h2>
         <div class="my-alert">
@@ -79,6 +79,13 @@
 
             // 2.action
             myBtn.click(function () {
+                /* console.log('data',data);
+                console.log('data typeof',typeof(data));
+                console.log('data[0]',data[0]);
+                console.log('data[0] typeof',typeof(data[0]));
+                console.log('data[0].class',data[0].class);
+                console.log('data[0].class typeof',typeof(data[0].class)); */
+                
 
                 let tmpText = `
                     <div class="alert ${data[0].class} alert-dismissible">
