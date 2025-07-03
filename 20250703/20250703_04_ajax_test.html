@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <!-- 自己try(還沒做出來)：資料放後端 &點擊"Alerts"，能在下方先清空(用empty)，再顯示多個alert(資料寫在後端data變數中，用JQ的each迴圈去跑資料出來)，才不會出現重複的多筆alert -->
+    <div class="container mt-3">
+        <h2 class="myBtn">Alerts</h2>
+        <div class="my-alert"></div>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myAlert = $('.my-alert');
+            const myBtn = $('.myBtn');
+
+
+            // 2.action
+            myBtn.click(function () {
+                myAlert.empty(); //清空<div class="my-alert">的部分
+                let data=
+                $.ajax({
+                    type: "get",
+                    url: "./mydata.php",
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        
+                    }
+                });
+
+
+
+
+
+                let tmpText = ``;
+                $.each(data, function (key, value) {
+                    tmpText += `
+                    <div class="alert ${value.class} alert-dismissible">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong>Success!</strong> ${value.text}.
+                    </div>
+                `;
+                });
+
+
+                myAlert.append(tmpText);
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
