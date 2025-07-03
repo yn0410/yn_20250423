@@ -1,0 +1,48 @@
+<!-- 告訴chatGPT：使用svg畫出一隻小鳥 -->
+<!-- 老師的 -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>可愛小鳥動畫</title>
+    <style>
+        body {
+            background-color: #fef8e4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- 小鳥身體 -->
+        <ellipse cx="100" cy="100" rx="50" ry="35" fill="#FFD966" />
+
+        <!-- 小鳥翅膀 -->
+        <path id="wing" d="M100,100 Q70,80 60,100 Q70,120 100,100" fill="#F4B400">
+            <animateTransform attributeName="transform" type="rotate" values="0 100 100; -20 100 100; 0 100 100"
+                dur="0.6s" repeatCount="indefinite" />
+        </path>
+
+        <!-- 頭 -->
+        <circle cx="130" cy="85" r="20" fill="#FFD966" />
+
+        <!-- 眼睛 -->
+        <circle cx="135" cy="80" r="3" fill="#000" />
+        <circle cx="134" cy="79" r="1" fill="#fff" />
+
+        <!-- 嘴巴 -->
+        <polygon points="150,85 160,90 150,95" fill="#FF6F00" />
+
+        <!-- 腳 -->
+        <line x1="90" y1="130" x2="85" y2="145" stroke="#A0522D" stroke-width="3" />
+        <line x1="110" y1="130" x2="115" y2="145" stroke="#A0522D" stroke-width="3" />
+    </svg>
+</body>
+
+</html>

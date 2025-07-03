@@ -18,22 +18,21 @@
             background-color: plum;
         } */
 
-        .bg-tiffany{
+        .bg-tiffany {
             background-color: #81D8D0;
         }
 
-        .bg-tiffany:hover{
+        .bg-tiffany:hover {
             background-color: #71cac1;
         }
 
-        .text-pink{
+        .text-pink {
             color: pink;
         }
 
-        .text-pink:hover{
+        .text-pink:hover {
             color: plum;
         }
-
     </style>
 </head>
 
@@ -51,6 +50,39 @@
         <button type="button" class="btn btn-dark">Dark</button>
         <button type="button" class="btn btn-light">Light</button>
         <button type="button" class="btn btn-link">Link</button>
+    </div>
+
+    <!-- 告訴chatGPT：使用svg畫出一隻小鳥 -->
+    <!-- 老師的 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- 小鳥身體 -->
+                    <ellipse cx="100" cy="100" rx="50" ry="35" fill="#FFD966" />
+
+                    <!-- 小鳥翅膀 -->
+                    <path id="wing" d="M100,100 Q70,80 60,100 Q70,120 100,100" fill="#F4B400">
+                        <animateTransform attributeName="transform" type="rotate"
+                            values="0 100 100; -20 100 100; 0 100 100" dur="0.6s" repeatCount="indefinite" />
+                    </path>
+
+                    <!-- 頭 -->
+                    <circle cx="130" cy="85" r="20" fill="#FFD966" />
+
+                    <!-- 眼睛 -->
+                    <circle cx="135" cy="80" r="3" fill="#000" />
+                    <circle cx="134" cy="79" r="1" fill="#fff" />
+
+                    <!-- 嘴巴 -->
+                    <polygon points="150,85 160,90 150,95" fill="#FF6F00" />
+
+                    <!-- 腳 -->
+                    <line x1="90" y1="130" x2="85" y2="145" stroke="#A0522D" stroke-width="3" />
+                    <line x1="110" y1="130" x2="115" y2="145" stroke="#A0522D" stroke-width="3" />
+                </svg>
+            </div>
+        </div>
     </div>
 
     <!-- w3school' Bootstrap 5 Tutorial' BS5 Colors' Text colors 的 code &改 -->
