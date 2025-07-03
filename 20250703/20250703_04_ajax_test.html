@@ -17,8 +17,28 @@
 <body>
     <!-- 自己try(還沒做出來)：資料放後端 &點擊"Alerts"，能在下方先清空(用empty)，再顯示多個alert(資料寫在後端data變數中，用JQ的each迴圈去跑資料出來)，才不會出現重複的多筆alert -->
     <div class="container mt-3">
-        <h2 class="myBtn">Alerts</h2>
-        <div class="my-alert"></div>
+        <div class="row">
+            <div class="col-12 col-sm-4">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary btn-block" id="myBtn">myBtn</button>
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="my-alert">
+
+
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="my-alert">
+
+
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
@@ -37,42 +57,34 @@
         $(document).ready(function () {
             // 1.bind
             const myAlert = $('.my-alert');
-            const myBtn = $('.myBtn');
+            const myBtn = $('#myBtn');
 
 
             // 2.action
-            myBtn.click(function () {
-                myAlert.empty(); //清空<div class="my-alert">的部分
-                let data=
+            myBtn.click(function (e) {
+                e.preventDefault();
+                
                 $.ajax({
                     type: "get",
                     url: "./mydata.php",
                     // data: "data",
                     dataType: "json",
                     success: function (response) {
-                        
+                        let data=response;
+                        myAlert.empty(); //清空<div class="my-alert">的部分
+                        let tmpText = ``;
+                        $.each(data, function (key, value) {
+                            tmpText += `
+                            <div class="alert ${value.class} alert-dismissible">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <strong>Success!</strong> ${value.text}.
+                            </div>
+                        `;
+                        });
+                        myAlert.append(tmpText);
                     }
                 });
-
-
-
-
-
-                let tmpText = ``;
-                $.each(data, function (key, value) {
-                    tmpText += `
-                    <div class="alert ${value.class} alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Success!</strong> ${value.text}.
-                    </div>
-                `;
-                });
-
-
-                myAlert.append(tmpText);
-
             });
-
         });
     </script>
 </body>
