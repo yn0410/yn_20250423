@@ -13,13 +13,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .mySpan{
+            font-size: 60px;
+            color: skyblue;
+        }
+    </style>
 </head>
 
 <body>
     <!-- w3school' Bootstrap 5 Tutorial' BS5 Tables' Striped Rows 的 code &改 -->
-    <!-- 要 + font awesome的icon -->
+    <!-- + font awesome的icon -->
     <div class="container mt-3">
-        <h2>Striped Rows</h2>
+        <h2>
+            <span class="mySpan">
+                <i class="fa-solid fa-face-smile"></i>
+            </span>
+                <i class="fa-solid fa-face-smile"></i>
+                <i class="fa-solid fa-face-smile"></i>
+            Striped Rows
+        </h2>
         <p>The .table-striped class adds zebra-stripes to a table:</p>
         <table class="table table-striped">
             <thead>
@@ -27,6 +41,7 @@
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>Email</th>
+                    <th>option</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,11 +49,28 @@
                     <td>John</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
+                    <td>
+                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
+                    </td>
                 </tr>
                 <tr>
                     <td>Mary</td>
                     <td>Moe</td>
                     <td>mary@example.com</td>
+                    <td>
+                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>
+                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
+                    </td>
                 </tr>
             </tbody>
         </table>
