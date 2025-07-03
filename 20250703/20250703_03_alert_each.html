@@ -40,7 +40,7 @@
     <script>
         $(document).ready(function () {
 
-            let msgData = [
+            let data = [
                 {
                     'id': 1,
                     'class': 'alert-info',
@@ -63,46 +63,33 @@
                 },
                 {
                     'id': 4,
-                    'class': 'alert-warning',
+                    'class': 'alert-danger',
                     'text': '期待再相逢'
                 },
-                {
-                    'id': 5,
-                    'class': 'alert-danger',
-                    'text': 'hello'
-                }
             ];
 
             // 1.bind
             const myAlert = $('.my-alert');
             const myBtn = $('.myBtn');
 
+
+
             // 2.action
             myBtn.click(function () {
-
-                let tmpText = `
-                    <div class="alert alert-success alert-dismissible">
+                myAlert.empty();
+                let tmpText = ``;
+                $.each(data, function (key, value) {
+                    tmpText += `
+                    <div class="alert ${value.class} alert-dismissible">
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Success!</strong> Hello.
+                        <strong>Success!</strong> ${value.text}.
                     </div>
-                    <div class="alert alert-info alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Info!</strong> 你好嗎.
-                    </div>
-                    <div class="alert alert-warning alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Warning!</strong> 衷心感謝.
-                    </div>
-                    <div class="alert alert-warning alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Warning!</strong> 珍重再見.
-                    </div>
-                    <div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Danger!</strong> 期待再相逢.
-            </div>
                 `;
+                });
+
+
                 myAlert.append(tmpText);
+
             });
 
         });
