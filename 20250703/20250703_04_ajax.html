@@ -16,7 +16,30 @@
 
 <body>
     <!-- 放老師code：資料放後端 &點擊"Alerts"，能在下方先清空(用empty)，再顯示多個alert(資料寫在後端data變數中，用JQ的each迴圈去跑資料出來)，才不會出現重複的多筆alert -->
-    
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-12 col-sm-4">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary btn-block" id="myBtn">myBtn</button>
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="my-alert">
+
+
+                </div>
+
+            </div>
+            <div class="col-12 col-sm-4">
+                <div class="my-alert">
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -29,6 +52,49 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myBtn = $('#myBtn');
+            const myAlert = $('.my-alert');
+
+            // 2.action
+            myBtn.click(function (e) {
+                e.preventDefault();
+
+                let url = './data.php';
+
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+
+                        let data = response;
+                        console.log('data', data);
+
+                        myAlert.empty();
+                        let tmpText = ``;
+                        $.each(data, function (key, value) {
+                            tmpText += `
+                    <div class="alert ${value.class} alert-dismissible">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong>Success!</strong> ${value.text}.
+                    </div>
+                `;
+                        });
+
+
+                        myAlert.append(tmpText);
+
+                    }
+                });
+            });
+
+        });
+    </script>
 </body>
 
 </html>
