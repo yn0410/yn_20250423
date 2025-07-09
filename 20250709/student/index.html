@@ -62,7 +62,14 @@
                     <td width="15%">amy</td>
                     <td width="30%">0911-111-111</td>
                     <td>
+                        <!-- Button to Open the Modal / 在modal中編輯 -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit">
+                            <i class="fa-regular fa-pen-to-square"></i> modal
+                        </button>
+                        <!-- 換頁 編輯 -->
                         <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        
                         <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
                     </td>
                 </tr>
@@ -88,7 +95,7 @@
         </table>
     </div>
 
-    <!-- The Modal -->
+    <!-- The add Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -103,6 +110,57 @@
                     <!-- Modal body -->
                     <div class="modal-body">
                         <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="name">Name:</label>
+                                        <input type="name" class="form-control" id="name" placeholder="Enter name"
+                                            name="name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="name">Name:</label>
+                                        <input type="name" class="form-control" id="name" placeholder="Enter name"
+                                            name="name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- The edit Modal -->
+    <div class="modal" id="myModalEdit">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form action="/action_page.php">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Edit form</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="name">ID:</label>
+                                    <p>1</p>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col">
                                     <div class="mb-3 mt-3">
