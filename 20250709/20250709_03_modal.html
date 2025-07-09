@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+
+            position: relative;
+        }
+
+        .myModal{
+            display: none;
+        }
+
+        .close-btn{
+            width: 15px;
+            height: 25px;
+            border: 1px solid red;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 自己實作Modal -->
+    
+    <!-- modal btn -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid">
+                    <button id="myBtn" type="button" class="btn btn-primary btn-block">my Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal -->
+    <div class="container myModal">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="box">
+                <div class="absolute close-btn">X</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myBtn = $('#myBtn');
+            const myModal = $('.myModal');
+            const closeBtn = $('.close-btn');
+
+            // 2. action
+            // click & hover
+            myBtn.click(function (e) { 
+                console.log('myBtn ok');
+                myModal.toggle();
+                
+            });
+
+            /* myBtn.hover(function (e) { 
+                console.log('myBtn ok');
+                myModal.toggle();
+                
+            }); */
+
+            // 按X 關掉它
+            closeBtn.click(function (e) { 
+                myModal.hide();
+                
+            });
+
+        });
+    </script>
+</body>
+
+</html>
