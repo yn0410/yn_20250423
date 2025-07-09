@@ -63,7 +63,7 @@
                     <td width="30%">0911-111-111</td>
                     <td>
                         <!-- Button to Open the Modal / 在modal中編輯 -->
-                        <button type="button" class="btn btn-primary" data-id="1" data-bs-toggle="modal"
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-id="1" data-bs-toggle="modal"
                             data-bs-target="#myModalEdit">
                             <i class="fa-regular fa-pen-to-square"></i> modal
                         </button>
@@ -78,7 +78,14 @@
                     <td>bob</td>
                     <td>0922-222-222</td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <!-- Button to Open the Modal / 在modal中編輯 -->
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-id="2" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit">
+                            <i class="fa-regular fa-pen-to-square"></i> modal
+                        </button>
+                        <!-- 換頁 編輯 -->
+                        <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        
                         <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
                     </td>
                 </tr>
@@ -87,7 +94,14 @@
                     <td>cat</td>
                     <td>0933-333-333</td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <!-- Button to Open the Modal / 在modal中編輯 -->
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-id="3" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit">
+                            <i class="fa-regular fa-pen-to-square"></i> modal
+                        </button>
+                        <!-- 換頁 編輯 -->
+                        <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        
                         <a href="" class="btn btn-danger"><i class="fa-regular fa-trash-can"></i></a>
                     </td>
                 </tr>
@@ -158,7 +172,9 @@
                             <div class="row">
                                 <div class="col">
                                     <label for="name">ID:</label>
-                                    <p>1</p>
+                                    <p>
+                                        <span id="myID">1</span>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -182,6 +198,8 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <input type="hidden" class="form-control hidden-ID" id="" name="hiddenID" value="">
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
@@ -207,7 +225,30 @@
 
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+            // 1. bind
+            const editModalBtn = $(".edit-modal-btn");
+            // console.log('editModalBtn',editModalBtn);
+            const myID = $("#myID");
+            const hiddenID = $(".hidden-ID");
+
+
+            // 2.action
+            editModalBtn.click(function (e) { 
+                // e.preventDefault();
+                // console.log('editModalBtn',editModalBtn);
+                console.log('this',this);
+
+                let tmpText=$(this).attr('data-id');
+                console.log('tmpText',tmpText);
+
+                // "編輯表單"裡的id
+                myID.text(tmpText);
+                // form的hidden input
+                hiddenID.val(tmpText);
+                
+            });
+
+
         });
     </script>
 </body>
