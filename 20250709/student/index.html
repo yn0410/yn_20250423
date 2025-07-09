@@ -15,7 +15,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        .mySpan{
+        .mySpan {
             font-size: 60px;
             color: skyblue;
         }
@@ -24,7 +24,7 @@
 
 <body>
     <!-- "20250709_04_table.html"複製過來改名的 &改 -->
-    
+
     <!-- w3school' Bootstrap 5 Tutorial' BS5 Tables' Striped Rows 的 code &改 -->
     <!-- + font awesome的icon -->
     <div class="container mt-3">
@@ -32,15 +32,20 @@
             <span class="mySpan">
                 <i class="fa-solid fa-face-smile"></i>
             </span>
-                <i class="fa-solid fa-face-smile"></i>
-                <i class="fa-solid fa-face-smile"></i>
-                <i class="fa-solid fa-paw mySpan"></i>
+            <i class="fa-solid fa-face-smile"></i>
+            <i class="fa-solid fa-face-smile"></i>
+            <i class="fa-solid fa-paw mySpan"></i>
             Striped Rows
         </h2>
         <p>The .table-striped class adds zebra-stripes to a table:</p>
 
         <div class="div text-end">
-            <a href="./create.html"class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+            <!-- Button to Open the Modal / 在modal中新增 -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                + modal
+            </button>
+            <!-- 換頁 新增 -->
+            <a href="./create.html" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
         </div>
         <table class="table table-striped">
             <thead>
@@ -81,6 +86,51 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <form action="/action_page.php">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create form</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="name">Name:</label>
+                                        <input type="name" class="form-control" id="name" placeholder="Enter name"
+                                            name="name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="name">Name:</label>
+                                        <input type="name" class="form-control" id="name" placeholder="Enter name"
+                                            name="name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
 
 
