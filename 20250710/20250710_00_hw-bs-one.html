@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            /* background: linear-gradient(to bottom, #fddb92, #d1fdff); */
+            /* background: linear-gradient(to bottom, #ace0f9, #fff1eb); */
+            background: linear-gradient(to bottom, #70e1f5, #ffd194);
+        }
+
+        .bd {
+            /* 框線 */
+            border: 1px solid gray;
+            border-radius: 15px;
+            padding: 20px;
+            /* 陰影 */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .box1 {
+            width: 35%;
+            height: 45vh;
+            background-color: #82e4df88;
+            margin: auto;
+            /* overflow-y: auto 可以在需要時出現捲動條 */
+            overflow-y: auto;
+        }
+
+        .box2 {
+            width: 100%;
+            height: 45vh;
+            /* background-color: lightpink; */
+        }
+
+        #box2 {
+            background-color: rgba(224, 224, 224, 0.5);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .box3 {
+            width: 100%;
+            /* height: 80vh; */
+            /* background-color: lightgreen; */
+        }
+
+        .box3>img {
+            /* 框線 */
+            border: 1px solid gray;
+            border-radius: 15px;
+            /* 陰影 */
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .box1:hover,
+        #box2:hover,
+        .box3:hover {
+            /* 放大5% */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 原檔="20250702_05_hw-bs-one.html" -->
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- logo -->
+            <a class="navbar-brand" href="javascript:void(0)">🌏</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box1">🧮計算機</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box2">📍地圖</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#box3">🖼️圖片</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-warning" type="button">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- NavBar end -->
+
+    <!-- Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://picsum.photos/id/10/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/13/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/16/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/126/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/176/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/178/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="https://picsum.photos/id/182/1920/500" alt="" class="d-block" style="width:100%">
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <!-- Carousel end -->
+
+    <!-- container1 -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <div class="box1 text-center bd" id="box1">
+                    <h3>簡易計算機</h3>
+                    <!-- "20250619/hw-3project/calculator_01_js.html"程式碼 去改的 -->
+                    <hr>
+                    <div class="form-group">
+                        <input type="number" class="form-control mb-1" name="num1" id="num1" value="100">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-1" name="opt" id="opt" value="+">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control mb-1" name="num2" id="num2" value="50">
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-primary w-100" id="myBtn">計算</button>
+                    <hr>
+                    <p id="resultP" class="mt-4">
+                        //計算結果
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container1 end -->
+
+    <!-- container2 -->
+    <div class="container mt-5" id="box2">
+        <div class="row bd">
+            <div class="col-12 col-sm-5">
+                <div class="box2">
+                    <h3>📍勞動部勞動力發展署北基宜花金馬分署泰山職業訓練場 位置：</h3>
+                </div>
+            </div>
+            <div class="col-12 col-sm-7">
+                <div class="box2 text-center">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7036499832957!2d121.41693531158565!3d25.04412927771732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a7bec9ad74b1%3A0xa639904a89f26435!2z5Yue5YuV6YOo5Yue5YuV5Yqb55m85bGV572y5YyX5Z-65a6c6Iqx6YeR6aas5YiG572y5rOw5bGx6IG35qWt6KiT57e05aC0!5e0!3m2!1szh-TW!2stw!4v1751434158758!5m2!1szh-TW!2stw"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container2 end -->
+
+    <!-- container3 -->
+    <div class="container" id="box3">
+        <div class="row">
+            <div class="col-12 col-sm-3 mt-5">
+                <div class="box3">
+                    <img src="https://picsum.photos/id/71/800/600" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 mt-5">
+                <div class="box3">
+                    <img src="https://picsum.photos/id/93/800/600" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 mt-5">
+                <div class="box3">
+                    <img src="https://picsum.photos/id/106/800/600" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-12 col-sm-3 mt-5">
+                <div class="box3">
+                    <img src="https://picsum.photos/id/109/800/600" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container3 end -->
+
+    <!-- footer -->
+    <footer class="bg-light mt-5">
+        <div class="container p-4">
+            <p class="text-center text-muted mb-0">&copy; footer</p>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // "20250619/hw-3project/calculator_01_js.html"程式碼
+            // 1. bind
+            let num1 = $('#num1');
+            let opt = $('#opt');
+            let num2 = $('#num2');
+            let myBtn = $('#myBtn');
+            let resultP = $('#resultP');
+
+
+            // 2. action
+            myBtn.click(function (e) {
+                let num1Value = Number(num1.val());
+                console.log('num1Value', num1Value);
+                console.log('num1Value typeof', typeof (num1Value));
+
+                let optValue = opt.val();
+                console.log('optValue', optValue);
+                console.log('optValue typeof', typeof (optValue));
+
+                let num2Value = Number(num2.val());
+                console.log('num2Value', num2Value);
+                console.log('num2Value typeof', typeof (num2Value));
+
+                // 判斷運算元(?)並計算結果
+                let result = 0;
+                switch (optValue) {
+                    case '+':
+                        result = num1Value + num2Value;
+                        break;
+                    case '-':
+                        result = num1Value - num2Value;
+                        break;
+                    case '*':
+                        result = num1Value * num2Value;
+                        break;
+                    case '/':
+                        result = num1Value / num2Value;
+                        break;
+                    default:
+                        break;
+                }
+
+                // resultP.text("~~");
+                resultP.text(`${num1Value} ${optValue} ${num2Value} = ${result}`);
+            });
+        });
+    </script>
+</body>
+
+</html>
