@@ -42,21 +42,25 @@
         // 1.bind
         let myArr = [30000, 40000, 50000, 60000];
         // console.log("myArr", myArr);
-        let newArr = [];
+        let tmpArr = [];
 
 
         // 2.action
         // 原生
         let sum = 0;
         myArr.forEach(function(value, key) {
+            let tmpValue = 0;
+            let bonus = 5000;
+            let newBonus = 10000;
             if(value < 50000){
-                value += 10000;
+                tmpValue = value + bonus + newBonus;
+            }else{
+                tmpValue = value + bonus;
             }
-            value += 5000;
-            sum += value;
-            newArr.push(value);
+            tmpArr.push(tmpValue);
+            sum += tmpValue;
         });
-        console.log("newArr", newArr);
+        console.log("tmpArr", tmpArr);
         console.log("sum", sum);
         
 
