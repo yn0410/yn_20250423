@@ -9,21 +9,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            /* 深藍背景 */
+            background-color: #0d1b2a;
+            color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            background-color: #1b263b;
+            color: #f8f9fa;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #84caff;
+            /* 淺藍強調 */
+            border-bottom: 1px solid #415a77;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-text p {
+            margin-bottom: 5px;
+        }
+
+        .ipa {
+            font-style: italic;
+            color: #a9c4e2;
+        }
+
+        .example_en {
+            color: #ffd580;
+        }
+
+        .example_zh {
+            color: #b6d7a8;
+        }
+
+        .my-row {
+            padding-bottom: 3rem;
+        }
+    </style>
 </head>
 
 <body>
     <!-- 把json data放入bs5 -->
     <div class="container">
         <div class="row my-row">
-            <!-- <div class="col-12 col-sm-4 mt-3">
-                <div class="box">
-                    <p class="word-id">id: 7</p>
-                    <p class="word">word: available</p>
-                    <p class="ipa">ipa: /əˈveɪ.lə.bəl/</p>
-                    <p class="meaning_zh">meaning_zh: 可用的；可得到的</p>
-                    <p class="example_en">example_en: This service is available 24 hours a day.</p>
-                    <p class="example_zh">example_zh: 這項服務是全天候可用的</p>
-                    <hr>
+            <!-- <div class="col-12 col-sm-6 col-lg-4 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">7. available</h4>
+                        <div class="card-text">
+                            <p  class="ipa">ipa: /əˈveɪ.lə.bəl/</p>
+                            <p  class="meaning_zh">meaning_zh: 可用的；可得到的</p>
+                            <p  class="example_en">example_en: This service is available 24 hours a day.</p>
+                            <p  class="example_zh">example_zh: 這項服務是全天候可用的</p>
+                        </div>
+                    </div>
                 </div>
             </div> -->
         </div>
@@ -51,27 +106,28 @@
             const myRow = $('.my-row');
 
             // 2.action
-            data.forEach(function(value, key) {
-                console.log('key', key);
-                console.log('value', value);
+            data.forEach(function (value, key) {
+                // console.log('key', key);
+                // console.log('value', value);
 
                 let tmpText = `
-                <div class="col-12 col-sm-4 mt-3">
-                    <div class="box">
-                        <p class="word-id">${value.id}</p>
-                        <p class="word">${value.word}</p>
-                        <p class="ipa">${value.ipa}</p>
-                        <p class="meaning_zh">${value.meaning_zh}</p>
-                        <p class="example_en">${value.example_en}</p>
-                        <p class="example_zh">${value.example_zh}</p>
-                        <hr>
+                <div class="col-12 col-sm-6 col-lg-4 mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">${value.id}. ${value.word}</h4>
+                            <div class="card-text">
+                                <p class="ipa">音標：${value.ipa}</p>
+                                <p class="meaning_zh">單字翻譯：${value.meaning_zh}</p>
+                                <p class="example_en">例句：${value.example_en}</p>
+                                <p class="example_zh">例句翻譯：${value.example_zh}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 `;
                 myRow.append(tmpText);
             });
-
-
+            
         });
     </script>
 </body>
