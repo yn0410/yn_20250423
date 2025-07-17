@@ -60,11 +60,19 @@
 
         // 2.action
 
+        // A.一般function, this代表點選的物件
         /* myBtn.addEventListener('click', function () {
             console.log('click ok');
         }); */
+
+        // B.箭頭function, this代表外層物件(window or undefined)
+        // 如果要用的話
+        // 1.用原本 一般function
+        // 2.myBtn外部綁定好了
         myBtn.addEventListener('click', () => {
             console.log('click ok');
+            console.log('this', this);
+            console.log('myBtn', myBtn);
         });
 
     </script>
