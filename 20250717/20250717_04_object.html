@@ -48,12 +48,19 @@
             'fly': function () {
                 console.log('fly this', this);
                 console.log(`${this.name} fly ok`);
+                let result = `${this.name} fly ok`;
+                return result;
             }
         }
 
         console.log('myObj', myObj);
         myObj.run();
         myObj.fly();
+
+        console.log("");
+
+        let getResult = myObj.fly();
+        console.log('getResult', getResult);
 
     </script>
 </body>
