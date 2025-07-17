@@ -14,8 +14,17 @@ function dd($data)
     echo "</pre>";
 }
 
+interface Money{ //克金 所以叫Money
+    public function fly();
+}
 
-class Car
+interface Money100{
+    public function swim();
+}
+
+
+// 可掛多個interface
+class Car implements Money,Money100
 {
 
     // porperties(物件導向 變數)
@@ -28,6 +37,38 @@ class Car
     {
         echo "$this->color 的 $this->name 正在跑";
     }
+
+
+    // interface
+    function fly()
+    {
+        echo "$this->color 的 $this->name 正在飛<br>";
+    }
+
+    function swim()
+    {
+        echo "$this->color 的 $this->name 正在游泳<br>";
+    }
+}
+
+class Car2 implements Money100
+{
+
+    // porperties
+    public $name;
+    public $color;
+
+
+    // methods
+    function run()
+    {
+        echo "$this->color 的 $this->name 正在跑<br>";
+    }
+ 
+    function swim()
+    {
+        echo "$this->color 的 $this->name 正在游泳<br>";
+    }
 }
 
 
@@ -36,6 +77,7 @@ $car = new Car();
 $car->name = '小汽車';
 $car->color = '紅色';
 $car->run();
+$car->fly();
 
 $tank = new Car();
 $tank->name = '坦克車';
