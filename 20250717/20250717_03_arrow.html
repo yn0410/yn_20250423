@@ -12,6 +12,16 @@
 </head>
 
 <body>
+    <!-- 老師的程式碼 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button id="myBtn" type="button" class="btn btn-primary">myBtn</button>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -42,6 +52,20 @@
         console.log("sumVar", sumVar);
         console.log("sumVar typeof", typeof(sumVar));
         
+        console.log("");
+
+        // 1.bind
+        const myBtn = document.getElementById("myBtn");
+        console.log('myBtn', myBtn);
+
+        // 2.action
+
+        /* myBtn.addEventListener('click', function () {
+            console.log('click ok');
+        }); */
+        myBtn.addEventListener('click', () => {
+            console.log('click ok');
+        });
 
     </script>
 </body>
