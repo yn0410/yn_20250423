@@ -12,7 +12,7 @@
     <style>
         .container{
             width: 80%;
-            height: 80vh;
+            height: 90vh;
             background-color: bisque;
         }
 
@@ -45,14 +45,16 @@
 <body>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-3 bd">
-                <span>倒數計時：60s</span>
+            <div class="col-3 text-center">
+                <p>倒數計時</p>
+                <span id="time" class="text-info display-3">60</span>
             </div>
             <div class="col-6 text-center">
                 <h2>投籃大賽</h2>
             </div>
-            <div class="col-3 bd">
-                最高分數：0
+            <div class="col-3 text-center">
+                <span style="line-height:100px;">最高分數：</span>
+                <span id="maxScore">0</span>
             </div>
         </div>
         <hr>
@@ -102,6 +104,12 @@
         let score = 0;
         let maxScore = 0;
         const scoreSpan = document.getElementById("score");
+        const maxScoreSpan = document.getElementById("maxScore");
+        let startTime = 60;
+        const timeSpan = document.getElementById("time");
+        let counter = 1;
+        let timer = 0;
+        
 
         console.log('startBtn',startBtn);
         console.log('shotBtn',shotBtn);
@@ -112,26 +120,79 @@
         
 
         // 2.action
+
+        // 開始 BTN
         startBtn.addEventListener('click', function(){
             console.log('startBtn click ok');
             // 按下"開始"後，隱藏"開始"鈕，"投籃"按鈕才顯示出來
             this.setAttribute('class', 'btn btn-success me-5 hide-btn');
             shotBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
-            
+
+            timeSpan.innerHTML = startTime;
+
+            // 倒數計時
+            counter = 1;
+            timer = setInterval(() => {
+                console.log("計數：" + counter);
+                counter++;
+
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                if(startTime<30){
+                    timeSpan.setAttribute('class', 'text-danger display-3');
+                }
+
+                if (startTime == 0) {
+                    clearInterval(timer); // 停止重複執行
+                    console.log("已停止定時器！");
+                    if(maxScore < score){
+                        maxScore = score;
+                        maxScoreSpan.innerHTML = maxScore;
+                    }
+
+                    // 歸零
+                    score = 0;
+                    scoreSpan.innerHTML = score;
+
+                    shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+                    startBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
+                }
+            }, 1000);
+
         });
+
+        // 投籃 BTN
         shotBtn.addEventListener('click', function(){
             console.log('shotBtn click ok');
             // 加分
-            score += 2;
+            if(startTime>30){
+                score += 2;
+            }else{
+                score += 3;
+            }
             scoreSpan.innerHTML = score;
             
         });
+
+        // 停止 BTN
         stopBtn.addEventListener('click', function(){
             console.log('stopBtn click ok');
+
+            if(maxScore < score){
+                maxScore = score;
+                maxScoreSpan.innerHTML = maxScore;
+            }
 
             // 歸零
             score = 0;
             scoreSpan.innerHTML = score;
+
+            clearInterval(timer); // 停止重複執行
+            console.log("已停止定時器！");
+            startTime = 60;
+
+            shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+            startBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
             
         });
 
