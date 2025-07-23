@@ -111,9 +111,9 @@
         let timer = 0;
         
 
-        console.log('startBtn',startBtn);
+        /* console.log('startBtn',startBtn);
         console.log('shotBtn',shotBtn);
-        console.log('stopBtn',stopBtn);
+        console.log('stopBtn',stopBtn); */
 
         // shotBtn hide (一開始先隱藏'投籃'按鈕)
         shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
@@ -123,7 +123,7 @@
 
         // 開始 BTN
         startBtn.addEventListener('click', function(){
-            console.log('startBtn click ok');
+            // console.log('startBtn click ok');
             // 按下"開始"後，隱藏"開始"鈕，"投籃"按鈕才顯示出來
             this.setAttribute('class', 'btn btn-success me-5 hide-btn');
             shotBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
@@ -133,7 +133,7 @@
             // 倒數計時
             counter = 1;
             timer = setInterval(() => {
-                console.log("計數：" + counter);
+                // console.log("計數：" + counter);
                 counter++;
 
                 startTime--;
@@ -144,7 +144,7 @@
 
                 if (startTime == 0) {
                     clearInterval(timer); // 停止重複執行
-                    console.log("已停止定時器！");
+                    console.log("已停止計時器！");
                     if(maxScore < score){
                         maxScore = score;
                         maxScoreSpan.innerHTML = maxScore;
@@ -163,7 +163,7 @@
 
         // 投籃 BTN
         shotBtn.addEventListener('click', function(){
-            console.log('shotBtn click ok');
+            // console.log('shotBtn click ok');
             // 加分
             if(startTime>30){
                 score += 2;
@@ -176,7 +176,7 @@
 
         // 停止 BTN
         stopBtn.addEventListener('click', function(){
-            console.log('stopBtn click ok');
+            // console.log('stopBtn click ok');
 
             if(maxScore < score){
                 maxScore = score;
@@ -188,7 +188,7 @@
             scoreSpan.innerHTML = score;
 
             clearInterval(timer); // 停止重複執行
-            console.log("已停止定時器！");
+            console.log("已停止計時器！");
             startTime = 60;
 
             shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
