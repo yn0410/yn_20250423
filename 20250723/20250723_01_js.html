@@ -31,6 +31,14 @@
             border: 1px solid gray;
         }
 
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
+
     </style>
 </head>
 
@@ -62,8 +70,9 @@
         <hr>
         <div class="row">
             <div class="col text-center">
-                <button type="button" class="btn btn-warning me-5">開始</button>
-                <button type="button" class="btn btn-warning">停止</button>
+                <button id="startBtn" type="button" class="btn btn-warning me-5">開始</button>
+                <button id="shotBtn" type="button" class="btn btn-success me-5">投籃</button>
+                <button id="stopBtn" type="button" class="btn btn-danger">停止</button>
             </div>
         </div>
     </div>
@@ -85,6 +94,35 @@
         </script>
 
     <script>
+        // 1.bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+
+        console.log('startBtn',startBtn);
+        console.log('shotBtn',shotBtn);
+        console.log('stopBtn',stopBtn);
+
+        // shotBtn hide
+        shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+        
+
+        // 2.action
+        startBtn.addEventListener('click', function(){
+            console.log('startBtn click ok');
+            this.setAttribute('class', 'btn btn-success me-5 hide-btn');
+            shotBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
+            
+        });
+        shotBtn.addEventListener('click', function(){
+            console.log('shotBtn click ok');
+            
+        });
+        stopBtn.addEventListener('click', function(){
+            console.log('stopBtn click ok');
+            
+        });
+
         $(document).ready(function () {
             // jQuery methods go here...
         });
