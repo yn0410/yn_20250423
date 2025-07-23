@@ -61,7 +61,8 @@
                 img
             </div>
             <div class="col text-center">
-                目前分數
+                <p>目前分數</p>
+                <span id="score">0</span>
             </div>
             <div class="col-3 text-center class-img">
                 img
@@ -98,6 +99,9 @@
         const startBtn = document.getElementById("startBtn");
         const shotBtn = document.getElementById("shotBtn");
         const stopBtn = document.getElementById("stopBtn");
+        let score = 0;
+        let maxScore = 0;
+        const scoreSpan = document.getElementById("score");
 
         console.log('startBtn',startBtn);
         console.log('shotBtn',shotBtn);
@@ -117,10 +121,17 @@
         });
         shotBtn.addEventListener('click', function(){
             console.log('shotBtn click ok');
+            // 加分
+            score += 2;
+            scoreSpan.innerHTML = score;
             
         });
         stopBtn.addEventListener('click', function(){
             console.log('stopBtn click ok');
+
+            // 歸零
+            score = 0;
+            scoreSpan.innerHTML = score;
             
         });
 
