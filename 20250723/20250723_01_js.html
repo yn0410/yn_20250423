@@ -103,13 +103,14 @@
         console.log('shotBtn',shotBtn);
         console.log('stopBtn',stopBtn);
 
-        // shotBtn hide
+        // shotBtn hide (一開始先隱藏'投籃'按鈕)
         shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
         
 
         // 2.action
         startBtn.addEventListener('click', function(){
             console.log('startBtn click ok');
+            // 按下"開始"後，隱藏"開始"鈕，"投籃"按鈕才顯示出來
             this.setAttribute('class', 'btn btn-success me-5 hide-btn');
             shotBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
             
