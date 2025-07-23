@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃機 小遊戲</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container{
+            width: 80%;
+            height: 80vh;
+            background-color: bisque;
+        }
+
+        .row2{
+            height: 70%;
+        }
+        .class-img{
+            /* height: 60%; */
+            border: 1px solid gray;
+            border-radius: 15px;
+        }
+        button{
+            width: 15%;
+        }
+        .bd{
+            border: 1px solid gray;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-3 bd">
+                <span>倒數計時：60s</span>
+            </div>
+            <div class="col-6 text-center">
+                <h2>投籃大賽</h2>
+            </div>
+            <div class="col-3 bd">
+                最高分數：0
+            </div>
+        </div>
+        <hr>
+        <div class="row row2">
+            <div class="col-3 text-center class-img">
+                img
+            </div>
+            <div class="col text-center">
+                目前分數
+            </div>
+            <div class="col-3 text-center class-img">
+                img
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" class="btn btn-warning me-5">開始</button>
+                <button type="button" class="btn btn-warning">停止</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // jQuery methods go here...
+        });
+    </script>
+</body>
+
+</html>
