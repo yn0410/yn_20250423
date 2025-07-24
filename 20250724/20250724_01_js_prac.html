@@ -12,7 +12,6 @@
     <style>
         .container{
             width: 80%;
-            /* height: 90vh; */
             background-color: bisque;
             padding-bottom: 5%;
         }
@@ -21,9 +20,6 @@
             height: 70%;
         }
         .class-img{
-            /* height: 60%; */
-            /* border: 1px solid gray; */
-            border-radius: 15px;
             font-size: 72px;
         }
         button{
@@ -84,9 +80,6 @@
 
 
 
-
-
-
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
         integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
@@ -121,22 +114,27 @@
         shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
 
 
-        // 待改
-        localStorage.setItem('maxScore', 1);
+        // localStorage 存 最高分數
+        // localStorage.setItem('maxScore', 0);
+        // console.log('maxScore', maxScore);
+        // console.log('maxScore typeof', typeof(maxScore));
         let getMaxScore = Number(localStorage.getItem('maxScore'));
-        console.log('getMaxScore', getMaxScore);
-        console.log('getMaxScore typeof', typeof(getMaxScore));
+        // console.log('getMaxScore', getMaxScore);
+        // console.log('getMaxScore typeof', typeof(getMaxScore));
         if(getMaxScore){
             maxScore = getMaxScore;
         }
-        console.log('maxScore', maxScore);
-        console.log('maxScore typeof', typeof(maxScore));
+        // console.log('maxScore', maxScore);
+        // console.log('maxScore typeof', typeof(maxScore));
+        maxScoreSpan.innerHTML = maxScore;
         
 
         // 2.action
 
         // 開始 BTN
         startBtn.addEventListener('click', function(){
+            // console.log('maxScore', maxScore);
+
             // console.log('startBtn click ok');
             // 按下"開始"後，隱藏"開始"鈕，"投籃"按鈕才顯示出來
             this.setAttribute('class', 'btn btn-success me-5 hide-btn');
@@ -158,14 +156,18 @@
                 }
 
                 if (startTime == 0) {
+                    // 停止計時
                     clearInterval(timer); // 停止重複執行
-                    console.log("已停止計時器！");
+                    // console.log("已停止計時器！");
+
+                    // 判斷 最高分數
                     if(maxScore < score){
                         maxScore = score;
+                        localStorage.setItem('maxScore', maxScore);
                         maxScoreSpan.innerHTML = maxScore;
                     }
 
-                    // 歸零
+                    // 目前分數 歸零
                     score = 0;
                     scoreSpan.innerHTML = score;
 
@@ -193,19 +195,22 @@
         stopBtn.addEventListener('click', function(){
             // console.log('stopBtn click ok');
 
+            // 停止計時
+            clearInterval(timer); // 停止重複執行
+            // console.log("已停止計時器！");
+
+            // 判斷 最高分數
             if(maxScore < score){
                 maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
                 maxScoreSpan.innerHTML = maxScore;
             }
 
-            // 歸零
+            // 目前分數 歸零
             score = 0;
             scoreSpan.innerHTML = score;
 
-            clearInterval(timer); // 停止重複執行
-            console.log("已停止計時器！");
-            
-
+            // shotBtn hide & startBtn show
             shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
             startBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
             
@@ -214,6 +219,7 @@
         $(document).ready(function () {
             // jQuery methods go here...
         });
+        // localStorage.clear();
     </script>
 </body>
 
