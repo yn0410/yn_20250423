@@ -180,6 +180,14 @@
             score = 0;
             scoreSpan.innerHTML = score;
 
+            // stop timer
+            clearInterval(myInterval);
+            timeSpan.innerHTML=startTime;
+            timeSpan.setAttribute('class', 'text-info display-3')
+            // shotBtn hideBtn
+            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+            // startBtn showBtn
+            startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 show-btn');
         });
 
         $(document).ready(function () {
