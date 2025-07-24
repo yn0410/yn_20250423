@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        img {
+            width: 100%;
+            height: 60vh;
+        }
+
+        button {
+            width: 20%;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 老師昨天寫的code -->
+    <div class="container">
+        <div class="row">
+            <div class="col-2 text-center">
+                <span class="text-info display-3" id="time"></span>
+            </div>
+            <div class="col-8 text-center">
+                投籃大賽
+                <hr>
+            </div>
+            <div class="col-2">
+                <span>最高分數:</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-2">
+                <img src="./images/ball_left.png" alt="">
+            </div>
+            <div class="col-8 text-center">
+                <span id="score">100</span>
+            </div>
+            <div class="col-2">
+                <img src="./images/ball.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <hr>
+        <div class="row">
+            <div class="col text-center">
+                <button id="startBtn" type="button" class="btn btn-primary class-btn me-5">開始</button>
+                <button id="shotBtn" type="button" class="btn btn-success class-btn me-5">投籃</button>
+                <button id="stopBtn" type="button" class="btn btn-danger class-btn">停止</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const scoreSpan = document.getElementById("score");
+        const timeSpan = document.getElementById("time");
+        let score = 0;
+        let startTime = 10;
+        let bonusTime = 5;
+
+        let myInterval = null;
+
+        console.log('startBtn', startBtn);
+        console.log('shotBtn', shotBtn);
+        console.log('stopBtn', stopBtn);
+
+        // shotBtn hideBtn
+        shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+
+
+
+        // action
+        startBtn.addEventListener('click', function () {
+            console.log('startBtn click ok');
+            this.setAttribute('class', 'btn btn-primary class-btn me-5 hide-btn ');
+            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 show-btn');
+
+
+            myInterval = setInterval(() => {
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                if (startTime < 1) {
+                    clearInterval(myInterval);
+                }
+                if (startTime < bonusTime) {
+                    timeSpan.setAttribute('class', 'text-danger display-3')
+                }
+
+                
+
+            }, 1000);
+
+        });
+        shotBtn.addEventListener('click', function () {
+            console.log('shotBtn click ok');
+            // 加分
+
+            if (startTime < 1) {
+                return false;
+            }
+
+            if (startTime > bonusTime) {
+                score += 2;
+            } else {
+                score += 3;
+            }
+
+            scoreSpan.innerHTML = score;
+
+
+        });
+        stopBtn.addEventListener('click', function () {
+            console.log('stopBtn click ok');
+
+            score = 0;
+            scoreSpan.innerHTML = score;
+
+        });
+
+        $(document).ready(function () {
+
+        });
+    </script>
+</body>
+
+</html>
