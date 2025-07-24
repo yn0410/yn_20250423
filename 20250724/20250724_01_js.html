@@ -102,7 +102,7 @@
         let bonusTime = 5;
         let maxScore = 0;
 
-        localStorage.setItem('maxScore', 123);
+        // localStorage.setItem('maxScore', 1);
         let getMaxScore = Number(localStorage.getItem('maxScore'));
         console.log('getMaxScore', getMaxScore);
         console.log('getMaxScore typeof', typeof(getMaxScore));
@@ -163,6 +163,14 @@
             }
 
             scoreSpan.innerHTML = score;
+
+            // 最高分數 計算
+            // 儲存
+            if(score > maxScore){
+                maxScore = score;
+                localStorage.setItem('maxScore',maxScore);
+                maxScoreSpan.innerHTML = maxScore;
+            }
 
 
         });
