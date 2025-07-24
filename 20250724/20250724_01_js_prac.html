@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃機 小遊戲</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container{
+            width: 80%;
+            /* height: 90vh; */
+            background-color: bisque;
+            padding-bottom: 5%;
+        }
+
+        .row2{
+            height: 70%;
+        }
+        .class-img{
+            /* height: 60%; */
+            /* border: 1px solid gray; */
+            border-radius: 15px;
+            font-size: 72px;
+        }
+        button{
+            width: 15%;
+        }
+        .bd{
+            border: 1px solid gray;
+        }
+
+        .hide-btn {
+            display: none;
+        }
+
+        .show-btn {
+            display: inline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-3 text-center">
+                <p>倒數計時</p>
+                <span id="time" class="text-info display-4">60</span>
+            </div>
+            <div class="col-6 text-center">
+                <h2>投籃大賽</h2>
+            </div>
+            <div class="col-3 text-center">
+                <span style="line-height:100px;">最高分數：</span>
+                <span id="maxScore">0</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-3 text-center class-img">
+                🗑️
+            </div>
+            <div class="col text-center">
+                <p>目前分數</p>
+                <span id="score">0</span>
+            </div>
+            <div class="col-3 text-center class-img">
+                ⛹️
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col text-center">
+                <button id="startBtn" type="button" class="btn btn-warning me-5">開始</button>
+                <button id="shotBtn" type="button" class="btn btn-success me-5">投籃</button>
+                <button id="stopBtn" type="button" class="btn btn-danger">停止</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        // 1.bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        let score = 0;
+        let maxScore = 0;
+        const scoreSpan = document.getElementById("score");
+        const maxScoreSpan = document.getElementById("maxScore");
+        let startTime = 60;
+        const timeSpan = document.getElementById("time");
+        let counter = 1;
+        let timer = 0;
+        
+
+        /* console.log('startBtn',startBtn);
+        console.log('shotBtn',shotBtn);
+        console.log('stopBtn',stopBtn); */
+
+        // shotBtn hide (一開始先隱藏'投籃'按鈕)
+        shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+
+
+        // 待改
+        localStorage.setItem('maxScore', 1);
+        let getMaxScore = Number(localStorage.getItem('maxScore'));
+        console.log('getMaxScore', getMaxScore);
+        console.log('getMaxScore typeof', typeof(getMaxScore));
+        if(getMaxScore){
+            maxScore = getMaxScore;
+        }
+        console.log('maxScore', maxScore);
+        console.log('maxScore typeof', typeof(maxScore));
+        
+
+        // 2.action
+
+        // 開始 BTN
+        startBtn.addEventListener('click', function(){
+            // console.log('startBtn click ok');
+            // 按下"開始"後，隱藏"開始"鈕，"投籃"按鈕才顯示出來
+            this.setAttribute('class', 'btn btn-success me-5 hide-btn');
+            shotBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
+
+            startTime = 60;
+            timeSpan.innerHTML = startTime;
+
+            // 倒數計時
+            counter = 1;
+            timer = setInterval(() => {
+                // console.log("計數：" + counter);
+                counter++;
+
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                if(startTime<30){
+                    timeSpan.setAttribute('class', 'text-danger display-4');
+                }
+
+                if (startTime == 0) {
+                    clearInterval(timer); // 停止重複執行
+                    console.log("已停止計時器！");
+                    if(maxScore < score){
+                        maxScore = score;
+                        maxScoreSpan.innerHTML = maxScore;
+                    }
+
+                    // 歸零
+                    score = 0;
+                    scoreSpan.innerHTML = score;
+
+                    shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+                    startBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
+                }
+            }, 1000);
+
+        });
+
+        // 投籃 BTN
+        shotBtn.addEventListener('click', function(){
+            // console.log('shotBtn click ok');
+            // 加分
+            if(startTime>30){
+                score += 2;
+            }else{
+                score += 3;
+            }
+            scoreSpan.innerHTML = score;
+            
+        });
+
+        // 停止 BTN
+        stopBtn.addEventListener('click', function(){
+            // console.log('stopBtn click ok');
+
+            if(maxScore < score){
+                maxScore = score;
+                maxScoreSpan.innerHTML = maxScore;
+            }
+
+            // 歸零
+            score = 0;
+            scoreSpan.innerHTML = score;
+
+            clearInterval(timer); // 停止重複執行
+            console.log("已停止計時器！");
+            
+
+            shotBtn.setAttribute('class', 'btn btn-success me-5 hide-btn');
+            startBtn.setAttribute('class', 'btn btn-success me-5 show-btn');
+            
+        });
+
+        $(document).ready(function () {
+            // jQuery methods go here...
+        });
+    </script>
+</body>
+
+</html>
