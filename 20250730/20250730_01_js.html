@@ -12,6 +12,13 @@
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="myBtn">myBtn</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -26,7 +33,30 @@
 
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+            // 1.bind
+            // 原生js
+            const myBtnJS = document.getElementById("myBtn");
+            console.log('myBtnJS', myBtnJS);
+            // console.log('myBtnJS typeof',typeof(myBtnJS));
+
+            // JQ
+            const myBtn = $("#myBtn");
+            console.log('myBtn', myBtn);
+            // console.log('myBtn typeof',typeof(myBtn));
+
+            // 2.action
+            // jquery method 只可以用在jq obj
+            myBtn.click(function (e) { 
+                e.preventDefault();
+                console.log('myBtn click ok');
+                
+                
+            });
+            
+
+
+
+            
         });
     </script>
 </body>
