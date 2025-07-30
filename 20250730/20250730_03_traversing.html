@@ -13,9 +13,9 @@
 
 <body>
     <!-- w3school' jquery traversing' jquery traversing的示意架構圖 -->
-    <!-- w3school' jquery traversing' jquery ancestors -->
+    <!-- w3school' jquery traversing' jquery ancestors & descendants -->
     <!-- 老師code -->
-    <div>
+    <div id="myDiv">
         <ul>
             <li id="li1">
                 <span id="mySpan">mySpan</span>
@@ -24,6 +24,8 @@
                 <b></b>
             </li>
         </ul>
+        <input type="text" class="name-class">
+        <input type="text" class="price-class">
     </div>
 
 
@@ -48,12 +50,21 @@
             // parent()
             const mySpan = $('#mySpan');
             console.log('mySpan', mySpan);
+            const myDiv = $('#myDiv');
             const mySpanParent = mySpan.parent(); //li
             const mySpanParent2 = mySpan.parent().parent(); //ul
 
+            // 少用
             const mySpanParents = mySpan.parents(); 
             const mySpanParentsUntil = mySpan.parentsUntil("div"); 
 
+            // div + find
+            const divFindUl = myDiv.find('ul');
+            const divFindPrice = myDiv.find('.price-class');
+            const divFindName= myDiv.find('.name-class');
+            console.log('divFindUl', divFindUl);
+            console.log('divFindPrice', divFindPrice);
+            console.log('divFindName', divFindName);
 
             console.log('mySpanParent', mySpanParent);
             console.log('mySpanParent2', mySpanParent2);
