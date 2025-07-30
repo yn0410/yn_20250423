@@ -36,7 +36,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="box" id="myBox2">
+                <div class="box">
                     <button type="button" id="yellowBtn" class="btn btn-warning btn-class" data-color="bg-warning">
                         yellow
                     </button>
@@ -45,7 +45,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="box" id="myBox3">
+                <div class="box">
                     <button type="button" id="greenBtn" class="btn btn-success btn-class" data-color="bg-success">
                         green
                     </button>
@@ -72,10 +72,8 @@
     <script>
         $(document).ready(function () {
             // 1.bind
-
-            // parent()
-            const myBox1 = $('#myBox1');
-            console.log('myBox1', myBox1);
+            // const myBox1 = $('#myBox1'); // 沒使用到
+            // console.log('myBox1', myBox1);
             const redBtn = $('#redBtn');
             const yellowBtn = $('#yellowBtn');
             const greenBtn = $('#greenBtn');
