@@ -50,8 +50,15 @@
             console.log('mySpan', mySpan);
             const mySpanParent = mySpan.parent(); //li
             const mySpanParent2 = mySpan.parent().parent(); //ul
+
+            const mySpanParents = mySpan.parents(); 
+            const mySpanParentsUntil = mySpan.parentsUntil("div"); 
+
+
             console.log('mySpanParent', mySpanParent);
             console.log('mySpanParent2', mySpanParent2);
+            console.log('mySpanParents', mySpanParents);
+            console.log('mySpanParentsUntil', mySpanParentsUntil);
 
 
             // 2.action
