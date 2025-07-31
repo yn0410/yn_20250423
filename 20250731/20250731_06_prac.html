@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box{
+            width: 100%;
+            height: 400px;
+            background-color: lightblue;
+            padding-top: 5%;
+        }
+        .img{
+            width: 300px;
+            height: 200px;
+            background-color: lightpink;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- w3school' jquery References' jquery HTML/CSS' append() & prepend() & insertAfter() & insertBefore() -->
+    <!-- 我自己打的 -->
+    
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="box">
+                    <div class="img">img1</div>
+                    <br><br>
+                    <p class="" data-price="9000">10000</p>
+                    <p class="text-danger">9000</p>
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="box">
+                    <div class="img">img2</div>
+                    <br><br>
+                    <p class="" data-price="17000">20000</p>
+                    <p class="text-danger">17000</p>
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="box">
+                    <div class="img">img3</div>
+                    <br><br>
+                    <p class="" data-price="22000">30000</p>
+                    <p class="text-danger">22000</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myP = $("p");
+            console.log('myP', myP);
+
+            // 2.action
+            myP.click(function (e) { 
+                e.preventDefault();
+                
+            });
+
+            // append 放最後面
+            let contentAppend = `
+            <p>
+                append Lorem ipsum dolor sit amet.
+            </p>
+            `;
+            myDiv.append(contentAppend);
+
+            // prepend 放最前面
+            let contentPrepend = `
+            <p>
+                prepend Lorem ipsum dolor sit amet.
+            </p>
+            `;
+            myDiv.prepend(contentPrepend);
+
+
+            // try insertAfter() & insertBefore()
+            /* $(target).insertAfter(selector);
+            $(target).insertBefore(selector); */
+
+
+        });
+    </script>
+</body>
+
+</html>
