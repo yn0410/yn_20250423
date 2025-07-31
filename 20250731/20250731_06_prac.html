@@ -131,21 +131,29 @@
         $(document).ready(function () {
             // 1.bind
             const myP = $("p");
-            console.log('myP', myP);
+            // console.log('myP', myP);
             const myDiv = $(".myDiv");
-            console.log('myDiv', myDiv);
+            // console.log('myDiv', myDiv);
 
             // 2.action
             myP.click(function (e) {
                 e.preventDefault();
+                // console.log('this', this);
                 let tmpPrice = $(this).attr("data-price");
-                console.log('this', this);
-                console.log('tmpPrice', tmpPrice);
+                // console.log('tmpPrice', tmpPrice);
+
+                // 是否已有"驚喜優惠價" 有就return false
+                let thisNext = $(this).next();
+                // console.log('tmpNext', thisNext);
+                if(thisNext.length>0){
+                    return false;
+                }
+
                 let tmpText = `<p class="text-danger">驚喜優惠價：$${tmpPrice}</p>`;
-                console.log('tmpText', tmpText);
+                // console.log('tmpText', tmpText);
 
                 let thisParent = $(this).parent();
-                console.log('thisParent', thisParent);
+                // console.log('thisParent', thisParent);
 
                 thisParent.append(tmpText);
                 $(this).attr('class', 'dec');
