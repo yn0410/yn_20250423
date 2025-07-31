@@ -10,7 +10,7 @@
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .box{
+        /* .box{
             width: 100%;
             height: 400px;
             background-color: lightblue;
@@ -24,6 +24,54 @@
         }
         .dec{
             text-decoration: line-through;
+        } */
+        /* chatGPT美化 */
+        body {
+            background-color: #f9f7fc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .box {
+            width: 100%;
+            height: 430px;
+            background-color: #E6E6FA; /* 淺紫 */
+            padding-top: 5%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .dec {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 18px;
+        }
+
+        .text-danger {
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        p {
+            cursor: pointer;
+        }
+
+        img {
+            width: 300px;
+            margin: auto;
+            border-radius: 30px;
+            border: 15px solid #d8bfd8;
         }
     </style>
 </head>
@@ -33,31 +81,31 @@
     <!-- w3school' jquery References' jquery HTML/CSS' append() & prepend() & insertAfter() & insertBefore() -->
     <!-- 我自己打的 -->
     <!-- 原價10000, 20000, 30000 / click數字 / 驚喜優惠價9000, 17000, 20000 -->
-    
+
     <div class="container text-center">
         <div class="row">
             <div class="col mt-3">
                 <div class="box myDiv">
-                    <div class="img">img1</div>
-                    <br><br>
+                    <img src="./image/13.jpg" alt="">
+                    <br><br><br><br>
                     <p class="" data-price="9000">$10000</p>
                     <!-- <p class="text-danger">9000</p> -->
                 </div>
-                
+
             </div>
             <div class="col mt-3">
                 <div class="box myDiv">
-                    <div class="img">img2</div>
-                    <br><br>
+                    <img src="./image/17.jpg" alt="">
+                    <br><br><br><br>
                     <p class="" data-price="17000">$20000</p>
                     <!-- <p class="text-danger">17000</p> -->
                 </div>
-                
+
             </div>
             <div class="col mt-3">
                 <div class="box myDiv">
-                    <div class="img">img3</div>
-                    <br><br>
+                    <img src="./image/29.jpg" alt="">
+                    <br><br><br><br>
                     <p class="" data-price="22000">$30000</p>
                     <!-- <p class="text-danger">22000</p> -->
                 </div>
@@ -88,27 +136,20 @@
             console.log('myDiv', myDiv);
 
             // 2.action
-            myP.click(function (e) { 
+            myP.click(function (e) {
                 e.preventDefault();
                 let tmpPrice = $(this).attr("data-price");
                 console.log('this', this);
                 console.log('tmpPrice', tmpPrice);
                 let tmpText = `<p class="text-danger">驚喜優惠價：$${tmpPrice}</p>`;
                 console.log('tmpText', tmpText);
-                
+
                 let thisParent = $(this).parent();
                 console.log('thisParent', thisParent);
 
                 thisParent.append(tmpText);
                 $(this).attr('class', 'dec');
             });
-
-
-            // try insertAfter() & insertBefore()
-            /* $(target).insertAfter(selector);
-            $(target).insertBefore(selector); */
-
-
         });
     </script>
 </body>
