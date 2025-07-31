@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- "20250730_03_traversing.html"的code改的 -->
+    <!-- 解釋為什麼不喜歡用children()，較喜歡用find() -->
+
+    <!-- w3school' jquery traversing' jquery traversing的示意架構圖 -->
+    <!-- w3school' jquery traversing' jquery ancestors & descendants -->
+    <!-- 老師code -->
+    
+    <div id="myDiv">
+        <ul>
+            <li id="li1">
+                <span id="mySpan">mySpan</span>
+            </li>
+            <li id="li2">
+                <b></b>
+            </li>
+        </ul>
+        <input type="text" class="name-class">
+        <input type="text" class="price-class">
+    </div>
+
+    <div class="container">
+        <!-- parent parent , row -->
+        <div class="row">
+            <!-- row find('.price') -->
+            <!-- row find('.count') -->
+            <!-- row find('.totla') -->
+            <div class="col">
+                <input class="price-class" value="100" type="text" name="" id="">
+            </div>
+            <div class="col">
+                <!-- 動count -->
+                <input type="number" name="" value="2" class="conut-class" id="">
+            </div>
+            <div class="col">
+                <input type="text" name="" value="200" class="total-class" id="">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+
+            // parent()
+            const mySpan = $('#mySpan');
+            const myDiv = $('#myDiv');
+            console.log('mySpan', mySpan)
+            const mySpanParent = mySpan.parent();
+            const mySpanParent2 = mySpan.parent().parent();
+            const myDivChildren = myDiv.children();
+            console.log('myDivChildren', myDivChildren);
+
+
+            // 少用
+            const mySpanParents = mySpan.parents();
+            const mySpanParentsUntil = mySpan.parentsUntil('div');
+
+
+            // div + find
+
+            const divFindUl = myDiv.find('ul');
+            const divFindPrice = myDiv.find('.price-class');
+            const divFindName = myDiv.find('.name-class');
+            console.log('divFindUl', divFindUl);
+            console.log('divFindPrice', divFindPrice);
+            console.log('divFindName', divFindName);
+
+
+            console.log('mySpanParent', mySpanParent);
+            console.log('mySpanParent2', mySpanParent2);
+            console.log('mySpanParents', mySpanParents);
+            console.log('mySpanParentsUntil', mySpanParentsUntil);
+
+
+
+
+            // 2.action
+            // mySpan click
+            mySpan.click(function (e) {
+                e.preventDefault();
+                console.log('mySpan click ok');
+                console.log('this', this);
+                let thisParent = $(this).parent();
+                console.log('thisParent', thisParent);
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
