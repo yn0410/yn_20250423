@@ -12,23 +12,22 @@
 </head>
 
 <body>
-    <!-- w3school' jquery traversing' jquery filtering' first() & last() & eq() -->
-    <!-- 少用eq()，多用class -->
+    <!-- w3school' jquery traversing' jquery filtering' jQuery Traversing Reference' closest() -->
+    <!-- 或是w3school' jquery References' jquery traversing' closest() -->
+    <!-- closest() = 最靠近的parent -->
     <!-- 老師code -->
     <h1>Welcome to My Homepage</h1>
 
-    <p>My name is Donald (index 0).</p>
-    <p>Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p>change Donald Duck (index 1).</p>
-    <p class="greenP">I live in Duckburg (index 2).</p>
-    <p>My best friend is Mickey (index 3).</p>
+    <div>
+        <ul>
+            <li>
+                <p>My name is Donald.</p>
+            </li>
+            <li>
+                <p>Lorem ipsum dolor sit amet con.</p>
+            </li>
+        </ul>
+    </div>
 
 
 
@@ -52,20 +51,20 @@
             const myPFirst = myP.first();
             console.log('myPFirst', myPFirst);
 
-            const myPLast = myP.last();
-            console.log('myPLast', myPLast);
+            const myPFirstParent = myPFirst.parent();
+            console.log('myPFirstParent', myPFirstParent);
 
-            const myPEq2 = myP.eq(2);
-            console.log('myPEq2', myPEq2);
+            const myPFirstParentParent = myPFirst.parent().parent();
+            console.log('myPFirstParentParent', myPFirstParentParent);
 
-            const greenP = $('.greenP');
-            console.log('greenP', greenP);
+            const myPFirstClosestUl = myPFirst.closest('ul');
+            console.log('myPFirstClosestUl', myPFirstClosestUl);
 
             // 2.action
             myPFirst.attr('class', 'text-primary');
-            myPLast.attr('class', 'text-danger');
+            // myPLast.attr('class', 'text-danger');
             // myPEq2.attr('class', 'text-success');
-            greenP.attr('class', 'text-success');
+            // greenP.attr('class', 'text-success');
 
         });
     </script>
