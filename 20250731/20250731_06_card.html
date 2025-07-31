@@ -36,7 +36,8 @@
                         <h4 class="card-title">John Doe</h4>
                         <p class="card-text">Some example text some example text. John Doe is an architect and engineer
                         </p>
-                        <a href="#" class="btn btn-primary myA" data-price="9000">10000</a>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="9000">10000</a> -->
+                        <span class="myA" data-price="9000">原價 10000</span>
                     </div>
                 </div>
             </div>
@@ -48,7 +49,8 @@
                         <h4 class="card-title">John Doe</h4>
                         <p class="card-text">Some example text some example text. John Doe is an architect and engineer
                         </p>
-                        <a href="#" class="btn btn-primary myA" data-price="15000">20000</a>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="15000">20000</a> -->
+                        <span class="myA" data-price="15000">原價 20000</span>
                     </div>
                 </div>
             </div>
@@ -60,7 +62,8 @@
                         <h4 class="card-title">John Doe</h4>
                         <p class="card-text">Some example text some example text. John Doe is an architect and engineer
                         </p>
-                        <a href="#" class="btn btn-primary myA" data-price="22000">30000</a>
+                        <!-- <a href="#" class="btn btn-primary myA" data-price="22000">30000</a> -->
+                        <span class="myA" data-price="22000">原價 30000</span>
                     </div>
                 </div>
             </div>
@@ -101,14 +104,23 @@
             // 2.action
             // 按下myA .....
             myA.click(function (e) {
+
+                // 是否已有button
+                let thisNext = $(this).next();
+                console.log('thisNext', thisNext);
+                if (thisNext.length > 0) {
+                    return false;
+                }
+
                 console.log('this', this);
                 let getPrice = $(this).attr('data-price');
                 console.log('getPrice', getPrice);
 
-                $(this).attr('class', 'btn btn-primary myA my-del')
+                $(this).attr('class', 'myA my-del')
                 // $(this).text(getPrice);
 
                 let content = `
+                <br><br>
                 <a href="#" class="btn btn-primary myA my-font">${getPrice}</a>
                 `;
 
