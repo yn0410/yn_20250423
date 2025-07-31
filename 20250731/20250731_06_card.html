@@ -10,10 +10,13 @@
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .my-font {
+            font-size: x-large;
+            color: red;
+        }
+
         .my-del {
             text-decoration: line-through;
-            color: red;
-            font-size: x-large;
         }
     </style>
 </head>
@@ -34,7 +37,6 @@
                         <p class="card-text">Some example text some example text. John Doe is an architect and engineer
                         </p>
                         <a href="#" class="btn btn-primary myA" data-price="9000">10000</a>
-                        <br>
                     </div>
                 </div>
             </div>
@@ -80,6 +82,15 @@
 
     <script>
         $(document).ready(function () {
+            let data = [
+                {
+                    id: 1,
+                    name: '20',
+                    origin_price: '10000',
+                    bonus_price: '9000'
+                },
+            ];
+
             // btn btn-primary myA
             // btn btn-primary myA my-del
 
@@ -95,7 +106,16 @@
                 console.log('getPrice', getPrice);
 
                 $(this).attr('class', 'btn btn-primary myA my-del')
-                $(this).text(getPrice);
+                // $(this).text(getPrice);
+
+                let content = `
+                <a href="#" class="btn btn-primary myA my-font">${getPrice}</a>
+                `;
+
+                // parent
+                let thisParent = $(this).parent();
+                console.log('thisParent', thisParent);
+                thisParent.append(content);
             });
         });
     </script>
