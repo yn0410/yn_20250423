@@ -13,10 +13,26 @@
 
 <body>
     <!-- w3school' jquery References' jquery HTML/CSS' append() & prepend() & insertAfter() & insertBefore() -->
+    <!-- appendTo() & prependTo() & after() & before() -->
     <!-- 老師code -->
     <h1>Welcome to My Homepage</h1>
 
-    <h1>Welcome to My Homepage</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="appendBtn">append</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="prependBtn">prepend</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="insertBeforeBtn">insertBefore</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary" id="insertAfterBtn">insertAfter</button>
+            </div>
+        </div>
+    </div>
 
     <div id="myDiv">
         <p>
@@ -50,7 +66,14 @@
         $(document).ready(function () {
             // 1.bind
             const myDiv = $("#myDiv");
-            console.log('myDiv', myDiv);
+
+            // append prepend 往內增加
+            const appendBtn = $("#appendBtn");
+            const prependBtn = $("#prependBtn");
+
+            // insert siblings
+            const insertBeforeBtn = $("#insertBeforeBtn");
+            const insertAfterBtn = $("#insertAfterBtn");
 
             // 2.action
 
@@ -60,7 +83,7 @@
                 append Lorem ipsum dolor sit amet.
             </p>
             `;
-            myDiv.append(contentAppend);
+            // myDiv.append(contentAppend);
 
             // prepend 放最前面
             let contentPrepend = `
@@ -68,12 +91,76 @@
                 prepend Lorem ipsum dolor sit amet.
             </p>
             `;
+            // myDiv.prepend(contentPrepend);
+
+
+            // insertBefore , insertAfter
+            let contentInsertBefore = `
+            <p>
+            insertBefore . Lorem ipsum dolor sit amet.
+            </p>
+            `;
+
+            let conentInsertAfter = `
+            <p>
+            insertAfter . Lorem ipsum dolor sit amet.
+            </p>
+            `;
+            // myDiv.insertBefore(contentInsertBefore);
+            // myDiv.insertAfter(conentInsertAfter);
+
+            appendBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.append(contentAppend);
+
+                $(contentAppend).appendTo(myDiv);
+
+            });
+
+            prependBtn.click(function (e) {
+                e.preventDefault();
+                myDiv.prepend(contentPrepend);
+
+            });
+
+            insertBeforeBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.insertBefore(contentInsertBefore);
+                $(contentInsertBefore).insertBefore(myDiv);
+                // $(selector).before(content);
+
+            });
+
+            insertAfterBtn.click(function (e) {
+                e.preventDefault();
+                // myDiv.insertAfter(conentInsertAfter);
+                $(conentInsertAfter).insertAfter(myDiv)
+                // $(selector).after(content);
+
+            });
+
+
+            /* 
+            以下為老師筆記
+             */
+            // 1.
+            // 往內
+            // append
+            // prepend
+            // 兄弟姊妹
+            // before
+            // after
             myDiv.prepend(contentPrepend);
 
 
-            // try insertAfter() & insertBefore()
-            /* $(target).insertAfter(selector);
-            $(target).insertBefore(selector); */
+            // 2.
+            // 往內
+            // appendTo
+            // prependTo
+            // 兄弟姊妹
+            // insertBefore
+            // insertAfter
+            $(contentPrepend).prependTo(myDiv);
 
 
         });
