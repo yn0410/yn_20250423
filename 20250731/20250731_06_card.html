@@ -10,16 +10,60 @@
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        
+        .my-del {
+            text-decoration: line-through;
+            color: red;
+            font-size: x-large;
+        }
     </style>
 </head>
 
 <body>
-    <!-- 作業名稱："hw-jquery-append" -->
-    <!-- w3school' jquery References' jquery HTML/CSS' append() & prepend() & insertAfter() & insertBefore() -->
     <!-- 老師code -->
+    <!-- (作業名稱："hw-jquery-append") -->
+    <!-- w3school' jquery References' jquery HTML/CSS' append() & prepend() & insertAfter() & insertBefore() -->
     <!-- 原價10000, 20000, 30000 / click數字 / 驚喜優惠價9000, 17000, 20000 -->
-
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/20/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary myA" data-price="9000">10000</a>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/21/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary myA" data-price="15000">20000</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="https://picsum.photos/id/22/400/300" alt="Card image"
+                        style="width:100%">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer
+                        </p>
+                        <a href="#" class="btn btn-primary myA" data-price="22000">30000</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -36,10 +80,23 @@
 
     <script>
         $(document).ready(function () {
+            // btn btn-primary myA
+            // btn btn-primary myA my-del
+
             // 1.bind
-            
+            const myA = $(".myA");
+            console.log('myA', myA);
+
             // 2.action
-            
+            // 按下myA .....
+            myA.click(function (e) {
+                console.log('this', this);
+                let getPrice = $(this).attr('data-price');
+                console.log('getPrice', getPrice);
+
+                $(this).attr('class', 'btn btn-primary myA my-del')
+                $(this).text(getPrice);
+            });
         });
     </script>
 </body>
