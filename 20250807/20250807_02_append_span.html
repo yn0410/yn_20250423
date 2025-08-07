@@ -13,7 +13,26 @@
 
 <body>
     <!-- JQ clone() => 先再講一遍append() + span -->
-    
+    <!-- 照老師code打的 -->
+    <div class="container">
+        <div class="row myRow1">
+            <div class="col-4 mt-5">
+                <span class="mySpan text-primary">
+                    Lorem ipsum dolor sit amet.
+                </span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row myRow2">
+            <div class="col-4 mt-5">
+                <span class="mySpan text-success">
+                    Lorem ipsum dolor sit amet.
+                </span>
+            </div>
+        </div>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -29,10 +48,28 @@
     <script>
         $(document).ready(function () {
             // 1.bind
-            
+            const mySpan = $(".mySpan");
 
 
             // 2.action
+            let appendCount = 0;
+            mySpan.click(function (e) { 
+                e.preventDefault();
+                console.log('mySpan click ok');
+
+                appendCount++;
+                // this = mySpan
+                let tmpRow = $(this).parent().parent();
+                console.log('tmpRow',tmpRow);
+                
+                let content = `
+                <div class="col-4 mt-5">
+                    Lorem ${appendCount} ipsum dolor sit amet.
+                </div>
+                `;
+                tmpRow.append(content);
+                
+            });
 
         });
     </script>
