@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- w3school' BS5 Tutorial' BS5 Table' Bordered Table的code -->
+    <!-- +JQ clone() -->
+    <!-- 照老師code打的 -->
+    <div class="container mt-3">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>mobile</th>
+                    <th>option</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <tr>
+                    <td>1</td>
+                    <td>Amy</td>
+                    <td>0911-111-111</td>
+                    <td>
+                        <button type="button" class="btn btn-warning editBtn">edit</button>
+                        <button type="button" class="btn btn-danger delBtn">del</button>
+                        <button type="button" class="btn btn-primary cloneBtn">clone</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>0922-222-222</td>
+                    <td>
+                        <button type="button" class="btn btn-warning editBtn">edit</button>
+                        <button type="button" class="btn btn-danger delBtn">del</button>
+                        <button type="button" class="btn btn-primary cloneBtn">clone</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Cat</td>
+                    <td>0933-333-333</td>
+                    <td>
+                        <button type="button" class="btn btn-warning editBtn">edit</button>
+                        <button type="button" class="btn btn-danger delBtn">del</button>
+                        <button type="button" class="btn btn-primary cloneBtn">clone</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const cloneBtn = $(".cloneBtn");
+            const myTable = $("#myTbody");
+
+
+            // 2.action
+            cloneBtn.click(function (e) {
+                e.preventDefault();
+                console.log('cloneBtn click ok');
+                
+                let tmpTr = $(this).closest('tr');
+                console.log('tmpTr', tmpTr);
+                // clone(true) event ok => 可copy event(?)
+                tmpTr.clone(true).appendTo(myTable);
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
