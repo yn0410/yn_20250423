@@ -13,6 +13,7 @@
 
 <body>
     <!-- JQ clone() => 先再講一遍append() + span -->
+    <!-- click() 改成on("click", ...) -->
     <!-- 照老師code打的 -->
     <div class="container">
         <div class="row myRow1">
@@ -53,30 +54,33 @@
 
             // 2.action
             let appendCount = 0;
-            mySpan.click(function (e) { 
-                e.preventDefault();
+
+
+            /* 老師的筆記
+            // https://www.w3schools.com/Jquery/event_on.asp (w3schools jq on method)
+            // https://chatgpt.com/share/68943839-ff38-800a-9404-184ea2448220 (老師問chatgpt的對話)
+            // jq click() 無法event copy
+            // jq on() 可以event copy 
+            */
+
+            $(".container").on('click', '.mySpan', function () {
                 console.log('mySpan click ok');
 
                 appendCount++;
-                // this = mySpan
-                let tmpRow = $(this).parent().parent();
+
+                // 找到 .mySpan 的上上層 .row
+                let tmpRow = $(this).closest('.row');
                 console.log('tmpRow',tmpRow);
                 
+                // 動態新增一個 col 內含新的 mySpan
                 let content = `
-                <div class="col-4 mt-5">
-                    <span class="mySpan">
-                        Lorem${appendCount} ipsum dolor sit amet.
-                    </span>
-                </div>
+                    <div class="col-4 mt-5">
+                        <span class="mySpan">
+                            Lorem${appendCount} ipsum dolor sit amet.
+                        </span>
+                    </div>
                 `;
                 tmpRow.append(content);
-
-                // append出來的要再用一次click()
-                mySpan = $('.mySpan');
-                mySpan.click(function (e) {
-                    console.log('new mySpan click ok');
-
-                });
                 
             });
 
