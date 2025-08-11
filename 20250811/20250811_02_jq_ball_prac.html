@@ -260,9 +260,13 @@
 
             // 2.action
             // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
+           /* js
             shotBtn.setAttribute('class', 'btn hide-btn');
             resetBtn.setAttribute('class', 'btn hide-btn');
-            stopBtn.setAttribute('class', 'btn hide-btn');
+            stopBtn.setAttribute('class', 'btn hide-btn'); */
+            shotBtn.attr('class', 'btn hide-btn'); //jq
+            resetBtn.attr('class', 'btn hide-btn'); //jq
+            stopBtn.attr('class', 'btn hide-btn'); //jq
 
 
             // localStorage 存 最高分數
@@ -275,7 +279,8 @@
             }
             // console.log('maxScore', maxScore);
             // console.log('maxScore typeof', typeof(maxScore));
-            maxScoreSpan.innerHTML = maxScore;
+            // maxScoreSpan.innerHTML = maxScore; //js
+            maxScoreSpan.html(maxScore); //jq
 
 
             // jqclick
@@ -289,16 +294,21 @@
 
                 // console.log('startBtn click ok');
                 // 按下"開始"後，隱藏"開始"鈕，"投籃" & "停止"按鈕才顯示出來
-                this.setAttribute('class', 'btn hide-btn');
+                /* this.setAttribute('class', 'btn hide-btn');
                 shotBtn.setAttribute('class', 'btn show-btn');
-                stopBtn.setAttribute('class', 'btn show-btn');
+                stopBtn.setAttribute('class', 'btn show-btn'); */ //js
+                $(this).attr('class', 'btn hide-btn'); //jq
+                shotBtn.attr('class', 'btn show-btn'); //jq
+                stopBtn.attr('class', 'btn show-btn'); //jq
 
                 // 倒數計時
                 timer = setInterval(() => {
                     startTime--;
-                    timeSpan.innerHTML = startTime;
+                    // timeSpan.innerHTML = startTime; //js
+                    timeSpan.html(startTime); //jq
                     if (startTime <= 30) {
-                        timeSpan.setAttribute('class', 'text-danger display-4');
+                        // timeSpan.setAttribute('class', 'text-danger display-4'); //js
+                        timeSpan.attr('class', 'text-danger display-4'); //jq
                     }
 
                     // 時間到
@@ -310,15 +320,19 @@
                         if (maxScore < score) {
                             maxScore = score;
                             localStorage.setItem('maxScore', maxScore);
-                            maxScoreSpan.innerHTML = maxScore;
+                            // maxScoreSpan.innerHTML = maxScore; //js
+                            maxScoreSpan.html(maxScore); //jq
                         }
 
                         // shotBtn hide
-                        shotBtn.setAttribute('class', 'btn hide-btn');
+                        // shotBtn.setAttribute('class', 'btn hide-btn'); //js
+                        shotBtn.attr('class', 'btn hide-btn'); //jq
 
                         // stopBtn hide & resetBtn show
-                        stopBtn.setAttribute('class', 'btn hide-btn');
-                        resetBtn.setAttribute('class', 'btn show-btn');
+                        // stopBtn.setAttribute('class', 'btn hide-btn'); //js
+                        stopBtn.attr('class', 'btn hide-btn'); //jq
+                        // resetBtn.setAttribute('class', 'btn show-btn'); //js
+                        resetBtn.attr('class', 'btn show-btn'); //jq
                     }
                 }, 1000);
                 
@@ -333,7 +347,8 @@
                 } else {
                     score += 3;
                 }
-                scoreSpan.innerHTML = score;
+                // scoreSpan.innerHTML = score;
+                scoreSpan.html(score);
                 
             });
 
@@ -342,8 +357,10 @@
                 // console.log('stopBtn click ok');
 
                 // stopBtn hide & resetBtn show
-                stopBtn.setAttribute('class', 'btn hide-btn');
-                resetBtn.setAttribute('class', 'btn show-btn');
+                // stopBtn.setAttribute('class', 'btn hide-btn');
+                // resetBtn.setAttribute('class', 'btn show-btn');
+                stopBtn.attr('class', 'btn hide-btn');
+                resetBtn.attr('class', 'btn show-btn');
 
                 // 停止計時
                 clearInterval(timer); // 停止重複執行
@@ -352,10 +369,12 @@
                 if (maxScore < score) {
                     maxScore = score;
                     localStorage.setItem('maxScore', maxScore);
-                    maxScoreSpan.innerHTML = maxScore;
+                    // maxScoreSpan.innerHTML = maxScore;
+                    maxScoreSpan.html(maxScore);
                 }
 
-                shotBtn.setAttribute('class', 'btn hide-btn');
+                // shotBtn.setAttribute('class', 'btn hide-btn');
+                shotBtn.attr('class', 'btn hide-btn');
                     
             });
 
@@ -363,19 +382,25 @@
                 e.preventDefault();
                 // 重置倒計時 時間
                 startTime = 60;
-                timeSpan.innerHTML = startTime;
-                timeSpan.setAttribute('class', 'text-info display-4');
+                // timeSpan.innerHTML = startTime;
+                timeSpan.html(startTime);
+                // timeSpan.setAttribute('class', 'text-info display-4');
+                timeSpan.attr('class', 'text-info display-4');
 
                 // 目前分數 歸零
                 score = 0;
-                scoreSpan.innerHTML = score;
+                // scoreSpan.innerHTML = score;
+                scoreSpan.html(score);
         
                 // shotBtn hide & startBtn show
-                shotBtn.setAttribute('class', 'btn hide-btn');
-                startBtn.setAttribute('class', 'btn show-btn');
+                // shotBtn.setAttribute('class', 'btn hide-btn');
+                // startBtn.setAttribute('class', 'btn show-btn');
+                shotBtn.attr('class', 'btn hide-btn');
+                startBtn.attr('class', 'btn show-btn');
 
                 // resetBtn hide
-                resetBtn.setAttribute('class', 'btn hide-btn');
+                // resetBtn.setAttribute('class', 'btn hide-btn');
+                resetBtn.attr('class', 'btn hide-btn');
             });
 
 
