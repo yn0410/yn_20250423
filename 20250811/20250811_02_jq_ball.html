@@ -203,14 +203,14 @@
                     score += 3;
                 }
 
-                scoreSpan.innerHTML = score;
+                scoreSpan.html(score);
 
                 // 最高分數 計算
                 // 儲存
                 if(score > maxScore){
                     maxScore = score;
                     localStorage.setItem('maxScore',maxScore);
-                    maxScoreSpan.innerHTML = maxScore;
+                    maxScoreSpan.html(maxScore);
                 }
                 
             });
@@ -220,16 +220,17 @@
                 console.log('stopBtn click ok');
 
                 score = 0;
-                scoreSpan.innerHTML = score;
+                scoreSpan.html(score);
 
                 // stop timer
                 clearInterval(myInterval);
-                timeSpan.innerHTML=startTime;
-                timeSpan.setAttribute('class', 'text-info display-3')
+                startTime = 10;
+                timeSpan.html(startTime);
+                timeSpan.attr('class', 'text-info display-3')
                 // shotBtn hideBtn
-                shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+                shotBtn.attr('class', 'btn btn-success class-btn me-5 hide-btn');
                 // startBtn showBtn
-                startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 show-btn');
+                startBtn.attr('class', 'btn btn-primary class-btn me-5 show-btn');
                 
             });
 
