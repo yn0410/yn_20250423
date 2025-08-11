@@ -92,107 +92,149 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // bind
-        const startBtn = document.getElementById("startBtn");
-        const shotBtn = document.getElementById("shotBtn");
-        const stopBtn = document.getElementById("stopBtn");
-        const scoreSpan = document.getElementById("score");
-        const timeSpan = document.getElementById("time");
-        const maxScoreSpan = document.getElementById("maxScore");
-        let score = 0;
-        let startTime = 10;
-        let bonusTime = 5;
-        let maxScore = 0;
-
-        // localStorage.setItem('maxScore', 1);
-        let getMaxScore = Number(localStorage.getItem('maxScore'));
-        console.log('getMaxScore', getMaxScore);
-        console.log('getMaxScore typeof', typeof(getMaxScore));
-        if(getMaxScore){
-            maxScore = getMaxScore;
-        }
-        console.log('maxScore', maxScore);
-        console.log('maxScore typeof', typeof(maxScore));
-
-
-        let myInterval = null;
-
-        console.log('startBtn', startBtn);
-        console.log('shotBtn', shotBtn);
-        console.log('stopBtn', stopBtn);
-
-        // set maxScoreSpan
-        maxScoreSpan.innerHTML = maxScore;
-
-
-        // shotBtn hideBtn
-        shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
-
+        // const startBtn = document.getElementById("startBtn");
+        // const shotBtn = document.getElementById("shotBtn");
+        // const stopBtn = document.getElementById("stopBtn");
+        // const scoreSpan = document.getElementById("score");
+        // const timeSpan = document.getElementById("time");
+        // const maxScoreSpan = document.getElementById("maxScore");
 
 
         // action
         startBtn.addEventListener('click', function () {
-            console.log('startBtn click ok');
-            this.setAttribute('class', 'btn btn-primary class-btn me-5 hide-btn ');
-            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 show-btn');
-
-
-            myInterval = setInterval(() => {
-                startTime--;
-                timeSpan.innerHTML = startTime;
-                if (startTime < 1) {
-                    clearInterval(myInterval);
-                }
-                if (startTime < bonusTime) {
-                    timeSpan.setAttribute('class', 'text-danger display-3')
-                }
-
-            }, 1000);
+            
 
         });
         shotBtn.addEventListener('click', function () {
-            console.log('shotBtn click ok');
-            // 加分
-
-            if (startTime < 1) {
-                return false;
-            }
-
-            if (startTime > bonusTime) {
-                score += 2;
-            } else {
-                score += 3;
-            }
-
-            scoreSpan.innerHTML = score;
-
-            // 最高分數 計算
-            // 儲存
-            if(score > maxScore){
-                maxScore = score;
-                localStorage.setItem('maxScore',maxScore);
-                maxScoreSpan.innerHTML = maxScore;
-            }
+            
 
 
         });
         stopBtn.addEventListener('click', function () {
-            console.log('stopBtn click ok');
-
-            score = 0;
-            scoreSpan.innerHTML = score;
-
-            // stop timer
-            clearInterval(myInterval);
-            timeSpan.innerHTML=startTime;
-            timeSpan.setAttribute('class', 'text-info display-3')
-            // shotBtn hideBtn
-            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
-            // startBtn showBtn
-            startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 show-btn');
+            
         });
 
-        $(document).ready(function () {
 
+
+
+        $(document).ready(function () {
+            // jq start
+
+            // 1.bind
+            const startBtn = $("#startBtn");
+            const shotBtn = $("#shotBtn");
+            const stopBtn = $("#stopBtn");
+            const scoreSpan = $("#score");
+            const timeSpan = $("#time");
+            const maxScoreSpan = $("#maxScore");
+
+            let score = 0;
+            let startTime = 10;
+            let bonusTime = 5;
+            let maxScore = 0;
+
+
+            // 2.action
+            // localStorage.setItem('maxScore', 1);
+            let getMaxScore = Number(localStorage.getItem('maxScore'));
+            console.log('getMaxScore', getMaxScore);
+            console.log('getMaxScore typeof', typeof(getMaxScore));
+            if(getMaxScore){
+                maxScore = getMaxScore;
+            }
+            console.log('maxScore', maxScore);
+            console.log('maxScore typeof', typeof(maxScore));
+
+
+            let myInterval = null;
+
+            console.log('startBtn', startBtn);
+            console.log('shotBtn', shotBtn);
+            console.log('stopBtn', stopBtn);
+
+            // set maxScoreSpan
+            // maxScoreSpan.innerHTML = maxScore; //js
+            maxScoreSpan.html(maxScore); //jq
+
+
+            // shotBtn hideBtn
+            // shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn'); //js
+            shotBtn.attr('class', 'btn btn-success class-btn me-5 hide-btn'); //jq
+
+
+
+            startBtn.click(function (e) { 
+                e.preventDefault();
+                console.log('startBtn click ok');
+                // this.setAttribute('class', 'btn btn-primary class-btn me-5 hide-btn '); //js
+                $(this).attr('class', 'btn btn-primary class-btn me-5 hide-btn '); //jq
+                // shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 show-btn'); //js
+                shotBtn.attr('class', 'btn btn-success class-btn me-5 show-btn'); //jq
+
+
+                myInterval = setInterval(() => {
+                    startTime--;
+                    // timeSpan.innerHTML = startTime; //js
+                    timeSpan.html(startTime); //jq
+                    if (startTime < 1) {
+                        clearInterval(myInterval);
+                    }
+                    if (startTime < bonusTime) {
+                        // timeSpan.setAttribute('class', 'text-danger display-3'); //js
+                        timeSpan.attr('class', 'text-danger display-3'); //jq
+                    }
+
+                }, 1000);
+                
+            });
+
+            shotBtn.click(function (e) { 
+                e.preventDefault();
+                console.log('shotBtn click ok');
+                // 加分
+
+                if (startTime < 1) {
+                    return false;
+                }
+
+                if (startTime > bonusTime) {
+                    score += 2;
+                } else {
+                    score += 3;
+                }
+
+                scoreSpan.innerHTML = score;
+
+                // 最高分數 計算
+                // 儲存
+                if(score > maxScore){
+                    maxScore = score;
+                    localStorage.setItem('maxScore',maxScore);
+                    maxScoreSpan.innerHTML = maxScore;
+                }
+                
+            });
+
+            stopBtn.click(function (e) { 
+                e.preventDefault();
+                console.log('stopBtn click ok');
+
+                score = 0;
+                scoreSpan.innerHTML = score;
+
+                // stop timer
+                clearInterval(myInterval);
+                timeSpan.innerHTML=startTime;
+                timeSpan.setAttribute('class', 'text-info display-3')
+                // shotBtn hideBtn
+                shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+                // startBtn showBtn
+                startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 show-btn');
+                
+            });
+
+
+            // jq end
         });
     </script>
 </body>
