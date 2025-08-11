@@ -204,19 +204,15 @@
         const shotBtn = document.getElementById("shotBtn");
         const stopBtn = document.getElementById("stopBtn");
         const resetBtn = document.getElementById("resetBtn");
-        let score = 0;
-        let maxScore = 0;
         const scoreSpan = document.getElementById("score");
         const maxScoreSpan = document.getElementById("maxScore");
-        let startTime = 60;
         const timeSpan = document.getElementById("time");
+        let score = 0;
+        let maxScore = 0;
+        let startTime = 60;
         let counter = 1;
         let timer = 0;
 
-
-        /* console.log('startBtn',startBtn);
-        console.log('shotBtn',shotBtn);
-        console.log('stopBtn',stopBtn); */
 
         // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
         shotBtn.setAttribute('class', 'btn hide-btn');
@@ -226,8 +222,6 @@
 
         // localStorage 存 最高分數
         // localStorage.setItem('maxScore', 0);
-        // console.log('maxScore', maxScore);
-        // console.log('maxScore typeof', typeof(maxScore));
         let getMaxScore = Number(localStorage.getItem('maxScore'));
         // console.log('getMaxScore', getMaxScore);
         // console.log('getMaxScore typeof', typeof(getMaxScore));
@@ -251,15 +245,8 @@
             shotBtn.setAttribute('class', 'btn show-btn');
             stopBtn.setAttribute('class', 'btn show-btn');
 
-            // startTime = 60;
-            // timeSpan.innerHTML = startTime;
-
             // 倒數計時
-            // counter = 1;
             timer = setInterval(() => {
-                // console.log("計數：" + counter);
-                // counter++;
-
                 startTime--;
                 timeSpan.innerHTML = startTime;
                 if (startTime <= 30) {
@@ -270,7 +257,6 @@
                 if (startTime == 0) {
                     // 停止計時
                     clearInterval(timer); // 停止重複執行
-                    // console.log("已停止計時器！");
 
                     // 判斷 最高分數
                     if (maxScore < score) {
@@ -313,7 +299,6 @@
 
             // 停止計時
             clearInterval(timer); // 停止重複執行
-            // console.log("已停止計時器！");
 
             // 判斷 最高分數
             if (maxScore < score) {
@@ -348,8 +333,21 @@
         });
 
         $(document).ready(function () {
-            // jQuery methods go here...
+            // jq start
+            // 1.action
+
+
+            // 2.bind
+            // jqclick
+            /* $(selector).click(function (e) { 
+                e.preventDefault();
+                
+            }); */
+
+
+            // jq end
         });
+
         // localStorage.clear();
     </script>
 </body>
