@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃機 小遊戲</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />        
+    <style>
+        /* 這段是chatGPT幫我美化的css */
+        body {
+            background: #fff6f0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #4b2e2e;
+            font-size:18px;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 80%;
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #d2691e;
+        }
+
+        hr {
+            border-top: 2px dashed #ffa726;
+        }
+
+        .class-img {
+            font-size: 96px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            font-weight: bold;
+            font-size: 18px;
+            padding: 10px 20px;
+            transition: 0.3s ease-in-out;
+            border-radius: 8px;
+        }
+
+        #startBtn {
+            background-color: #ffb74d;
+            border-color: #ffb74d;
+            color: white;
+        }
+
+        #shotBtn {
+            background-color: #66bb6a;
+            border-color: #66bb6a;
+            color: white;
+        }
+
+        #stopBtn{
+            background-color: #ef5350;
+            border-color: #ef5350;
+            color: white;
+        }
+
+        #resetBtn {
+            background-color: #9e9c9f;
+            border-color: #9e9c9f;
+            color: white;
+        }
+
+        #startBtn:hover,
+        #shotBtn:hover,
+        #stopBtn:hover,
+        #resetBtn:hover {
+            opacity: 0.8;
+        }
+
+        #score,
+        #maxScore,
+        #time {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* 當倒數時間進入危險區域時（例如小於30秒），套用紅色字 + pulse 動畫 */
+        #time.text-danger {
+            /* 使用 pulse 動畫，每次持續 1 秒，重複31次 */
+            animation: pulse 1s 31;
+        }
+
+        /* 定義一個名為 pulse 的動畫，用來讓元素有「放大 → 縮小 → 再放大」的動態效果 */
+        @keyframes pulse {
+
+            /* 動畫開始時（0%）：元素是原始大小與完全不透明 */
+            0% {
+                /* 大小為 100%（無縮放） */
+                transform: scale(1);
+                /* 完全不透明 */
+                opacity: 1;
+            }
+
+            /* 動畫中間時（50%）：元素稍微放大並變得半透明 */
+            50% {
+                /* 放大到 110% */
+                transform: scale(1.1);
+                /* 稍微變透明，強調動畫感 */
+                opacity: 0.7;
+            }
+
+            /* 動畫結束時（100%）：元素回到原始大小與不透明狀態 */
+            100% {
+                /* 回復到原來大小 */
+                transform: scale(1);
+                /* 回復為完全不透明 */
+                opacity: 1;
+            }
+        }
+
+        .hide-btn {
+            display: none !important;
+        }
+
+        .show-btn {
+            display: inline !important;
+        }
+
+        .bd {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 複製"20250724_01_js_prac.html"="20250811_01_js_prac.html"，要來改成jq -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">投籃大賽🏀</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-5 text-center mt-2">
+                <p>倒數計時</p>
+                <span id="time" class="text-info display-4">60</span>
+            </div>
+            <div class="col-md-2 text-center"></div>
+            <div class="col-12 col-md-5 text-center mt-2">
+                <p>最高分數</p>
+                <span id="maxScore" class="display-4">0</span>
+            </div>
+        </div>
+        <hr>
+        <div class="row"  style="height: 250px;">
+            <div class="col-5 col-md-3 text-center class-img">
+                🗑️
+            </div>
+            <div class="col-2 col-md-6 text-center mt-4">
+                <p>目前分數</p>
+                <span id="score">0</span>
+            </div>
+            <div class="col-5 col-md-3 text-center class-img">
+                ⛹️
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12 col-md-6 text-center mt-3">
+                <button id="startBtn" type="button" class="btn">開始</button>
+                <button id="shotBtn" type="button" class="btn">投籃</button>
+            </div>
+            <div class="col-12 col-md-6 text-center mt-3">
+                <button id="stopBtn" type="button" class="btn">停止</button>
+                <button id="resetBtn" type="button" class="btn">重置</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        // 1.bind
+        const startBtn = document.getElementById("startBtn");
+        const shotBtn = document.getElementById("shotBtn");
+        const stopBtn = document.getElementById("stopBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        let score = 0;
+        let maxScore = 0;
+        const scoreSpan = document.getElementById("score");
+        const maxScoreSpan = document.getElementById("maxScore");
+        let startTime = 60;
+        const timeSpan = document.getElementById("time");
+        let counter = 1;
+        let timer = 0;
+
+
+        /* console.log('startBtn',startBtn);
+        console.log('shotBtn',shotBtn);
+        console.log('stopBtn',stopBtn); */
+
+        // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
+        shotBtn.setAttribute('class', 'btn hide-btn');
+        resetBtn.setAttribute('class', 'btn hide-btn');
+        stopBtn.setAttribute('class', 'btn hide-btn');
+
+
+        // localStorage 存 最高分數
+        // localStorage.setItem('maxScore', 0);
+        // console.log('maxScore', maxScore);
+        // console.log('maxScore typeof', typeof(maxScore));
+        let getMaxScore = Number(localStorage.getItem('maxScore'));
+        // console.log('getMaxScore', getMaxScore);
+        // console.log('getMaxScore typeof', typeof(getMaxScore));
+        if (getMaxScore) {
+            maxScore = getMaxScore;
+        }
+        // console.log('maxScore', maxScore);
+        // console.log('maxScore typeof', typeof(maxScore));
+        maxScoreSpan.innerHTML = maxScore;
+
+
+        // 2.action
+
+        // 開始 BTN
+        startBtn.addEventListener('click', function () {
+            // console.log('maxScore', maxScore);
+
+            // console.log('startBtn click ok');
+            // 按下"開始"後，隱藏"開始"鈕，"投籃" & "停止"按鈕才顯示出來
+            this.setAttribute('class', 'btn hide-btn');
+            shotBtn.setAttribute('class', 'btn show-btn');
+            stopBtn.setAttribute('class', 'btn show-btn');
+
+            // startTime = 60;
+            // timeSpan.innerHTML = startTime;
+
+            // 倒數計時
+            // counter = 1;
+            timer = setInterval(() => {
+                // console.log("計數：" + counter);
+                // counter++;
+
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                if (startTime <= 30) {
+                    timeSpan.setAttribute('class', 'text-danger display-4');
+                }
+
+                // 時間到
+                if (startTime == 0) {
+                    // 停止計時
+                    clearInterval(timer); // 停止重複執行
+                    // console.log("已停止計時器！");
+
+                    // 判斷 最高分數
+                    if (maxScore < score) {
+                        maxScore = score;
+                        localStorage.setItem('maxScore', maxScore);
+                        maxScoreSpan.innerHTML = maxScore;
+                    }
+
+                    // shotBtn hide
+                    shotBtn.setAttribute('class', 'btn hide-btn');
+
+                    // stopBtn hide & resetBtn show
+                    stopBtn.setAttribute('class', 'btn hide-btn');
+                    resetBtn.setAttribute('class', 'btn show-btn');
+                }
+            }, 1000);
+
+        });
+
+        // 投籃 BTN
+        shotBtn.addEventListener('click', function () {
+            // console.log('shotBtn click ok');
+            // 加分
+            if (startTime > 30) {
+                score += 2;
+            } else {
+                score += 3;
+            }
+            scoreSpan.innerHTML = score;
+
+        });
+
+        // 停止 BTN
+        stopBtn.addEventListener('click', function () {
+            // console.log('stopBtn click ok');
+
+            // stopBtn hide & resetBtn show
+            stopBtn.setAttribute('class', 'btn hide-btn');
+            resetBtn.setAttribute('class', 'btn show-btn');
+
+            // 停止計時
+            clearInterval(timer); // 停止重複執行
+            // console.log("已停止計時器！");
+
+            // 判斷 最高分數
+            if (maxScore < score) {
+                maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
+                maxScoreSpan.innerHTML = maxScore;
+            }
+
+            shotBtn.setAttribute('class', 'btn hide-btn');
+            
+        });
+        
+        // 重置 BTN
+        resetBtn.addEventListener('click', function (){
+
+            // 重置倒計時 時間
+            startTime = 60;
+            timeSpan.innerHTML = startTime;
+            timeSpan.setAttribute('class', 'text-info display-4');
+
+            // 目前分數 歸零
+            score = 0;
+            scoreSpan.innerHTML = score;
+    
+            // shotBtn hide & startBtn show
+            shotBtn.setAttribute('class', 'btn hide-btn');
+            startBtn.setAttribute('class', 'btn show-btn');
+
+            // resetBtn hide
+            resetBtn.setAttribute('class', 'btn hide-btn');
+
+        });
+
+        $(document).ready(function () {
+            // jQuery methods go here...
+        });
+        // localStorage.clear();
+    </script>
+</body>
+
+</html>
