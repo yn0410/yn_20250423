@@ -140,7 +140,8 @@
 </head>
 
 <body>
-    <!-- 複製"20250724_01_js_prac.html"="20250811_01_js_prac.html"，要來改成jq -->
+    <!-- 把"20250811_02_jq_ball_prac.html"中的註解、不必要的行數刪掉 -->
+    <!-- (此檔為"20250724_01_js_prac.html"="20250811_01_js_prac.html"的jq版本) -->
     <!-- 這是我的"投籃機"小遊戲code -->
     <div class="container mt-4">
         <div class="row">
@@ -198,57 +199,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
-    <script>
-        // 1.bind
-        // const startBtn = document.getElementById("startBtn");
-        // const shotBtn = document.getElementById("shotBtn");
-        // const stopBtn = document.getElementById("stopBtn");
-        // const resetBtn = document.getElementById("resetBtn");
-        // const scoreSpan = document.getElementById("score");
-        // const maxScoreSpan = document.getElementById("maxScore");
-        // const timeSpan = document.getElementById("time");
-
-
-        // 2.action
-
-        // 開始 BTN
-        startBtn.addEventListener('click', function () {
-            
-
-        });
-
-        // 投籃 BTN
-        shotBtn.addEventListener('click', function () {
-            
-
-        });
-
-        // 停止 BTN
-        stopBtn.addEventListener('click', function () {
-            
-            
-        });
-        
-        // 重置 BTN
-        resetBtn.addEventListener('click', function (){
-
-
-        });
-
-
-
-
-        // js to jq
-
-        // 1 (innerHTML => html)
-        // maxScoreSpan.innerHTML = maxScore; //js
-        // maxScoreSpan.html(maxScore); //jq
-
-        // 2 (setAttribute => attr)
-        // stopBtn.setAttribute('class', 'btn hide-btn'); //js
-        // stopBtn.attr('class', 'btn hide-btn'); //jq
-
-        
+    <script>        
         $(document).ready(function () {
             // jq start
             // 1.bind
@@ -270,13 +221,9 @@
 
             // 2.action
             // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
-           /* js
-            shotBtn.setAttribute('class', 'btn hide-btn');
-            resetBtn.setAttribute('class', 'btn hide-btn');
-            stopBtn.setAttribute('class', 'btn hide-btn'); */
-            shotBtn.attr('class', 'btn hide-btn'); //jq
-            resetBtn.attr('class', 'btn hide-btn'); //jq
-            stopBtn.attr('class', 'btn hide-btn'); //jq
+            shotBtn.attr('class', 'btn hide-btn');
+            resetBtn.attr('class', 'btn hide-btn');
+            stopBtn.attr('class', 'btn hide-btn');
 
 
             // localStorage 存 最高分數
@@ -289,8 +236,7 @@
             }
             // console.log('maxScore', maxScore);
             // console.log('maxScore typeof', typeof(maxScore));
-            // maxScoreSpan.innerHTML = maxScore; //js
-            maxScoreSpan.html(maxScore); //jq
+            maxScoreSpan.html(maxScore);
 
 
             // jqclick
@@ -304,21 +250,16 @@
 
                 // console.log('startBtn click ok');
                 // 按下"開始"後，隱藏"開始"鈕，"投籃" & "停止"按鈕才顯示出來
-                /* this.setAttribute('class', 'btn hide-btn');
-                shotBtn.setAttribute('class', 'btn show-btn');
-                stopBtn.setAttribute('class', 'btn show-btn'); */ //js
-                $(this).attr('class', 'btn hide-btn'); //jq
-                shotBtn.attr('class', 'btn show-btn'); //jq
-                stopBtn.attr('class', 'btn show-btn'); //jq
+                $(this).attr('class', 'btn hide-btn');
+                shotBtn.attr('class', 'btn show-btn');
+                stopBtn.attr('class', 'btn show-btn');
 
                 // 倒數計時
                 timer = setInterval(() => {
                     startTime--;
-                    // timeSpan.innerHTML = startTime; //js
-                    timeSpan.html(startTime); //jq
+                    timeSpan.html(startTime);
                     if (startTime <= 30) {
-                        // timeSpan.setAttribute('class', 'text-danger display-4'); //js
-                        timeSpan.attr('class', 'text-danger display-4'); //jq
+                        timeSpan.attr('class', 'text-danger display-4');
                     }
 
                     // 時間到
@@ -330,19 +271,15 @@
                         if (maxScore < score) {
                             maxScore = score;
                             localStorage.setItem('maxScore', maxScore);
-                            // maxScoreSpan.innerHTML = maxScore; //js
-                            maxScoreSpan.html(maxScore); //jq
+                            maxScoreSpan.html(maxScore);
                         }
 
                         // shotBtn hide
-                        // shotBtn.setAttribute('class', 'btn hide-btn'); //js
-                        shotBtn.attr('class', 'btn hide-btn'); //jq
+                        shotBtn.attr('class', 'btn hide-btn');
 
                         // stopBtn hide & resetBtn show
-                        // stopBtn.setAttribute('class', 'btn hide-btn'); //js
-                        stopBtn.attr('class', 'btn hide-btn'); //jq
-                        // resetBtn.setAttribute('class', 'btn show-btn'); //js
-                        resetBtn.attr('class', 'btn show-btn'); //jq
+                        stopBtn.attr('class', 'btn hide-btn');
+                        resetBtn.attr('class', 'btn show-btn');
                     }
                 }, 1000);
                 
@@ -357,7 +294,6 @@
                 } else {
                     score += 3;
                 }
-                // scoreSpan.innerHTML = score;
                 scoreSpan.html(score);
                 
             });
@@ -367,8 +303,6 @@
                 // console.log('stopBtn click ok');
 
                 // stopBtn hide & resetBtn show
-                // stopBtn.setAttribute('class', 'btn hide-btn');
-                // resetBtn.setAttribute('class', 'btn show-btn');
                 stopBtn.attr('class', 'btn hide-btn');
                 resetBtn.attr('class', 'btn show-btn');
 
@@ -379,11 +313,9 @@
                 if (maxScore < score) {
                     maxScore = score;
                     localStorage.setItem('maxScore', maxScore);
-                    // maxScoreSpan.innerHTML = maxScore;
                     maxScoreSpan.html(maxScore);
                 }
 
-                // shotBtn.setAttribute('class', 'btn hide-btn');
                 shotBtn.attr('class', 'btn hide-btn');
                     
             });
@@ -392,24 +324,18 @@
                 e.preventDefault();
                 // 重置倒計時 時間
                 startTime = 60;
-                // timeSpan.innerHTML = startTime;
                 timeSpan.html(startTime);
-                // timeSpan.setAttribute('class', 'text-info display-4');
                 timeSpan.attr('class', 'text-info display-4');
 
                 // 目前分數 歸零
                 score = 0;
-                // scoreSpan.innerHTML = score;
                 scoreSpan.html(score);
         
                 // shotBtn hide & startBtn show
-                // shotBtn.setAttribute('class', 'btn hide-btn');
-                // startBtn.setAttribute('class', 'btn show-btn');
                 shotBtn.attr('class', 'btn hide-btn');
                 startBtn.attr('class', 'btn show-btn');
 
                 // resetBtn hide
-                // resetBtn.setAttribute('class', 'btn hide-btn');
                 resetBtn.attr('class', 'btn hide-btn');
             });
 
