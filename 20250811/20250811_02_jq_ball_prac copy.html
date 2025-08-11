@@ -76,6 +76,13 @@
             color: white;
         }
 
+        #clearMaxScoreBtn {
+            background-color: #8d6e63;
+            border-color: #8d6e63;
+            color: white;
+        }
+
+
         #startBtn:hover,
         #shotBtn:hover,
         #stopBtn:hover,
@@ -184,6 +191,7 @@
             <div class="col-12 col-md-6 text-center mt-3">
                 <button id="stopBtn" type="button" class="btn">停止</button>
                 <button id="resetBtn" type="button" class="btn">重置</button>
+                <!-- <button id="clearMaxScoreBtn" type="button" class="btn">重置最高分</button> -->
             </div>
         </div>
     </div>
@@ -209,6 +217,8 @@
             const shotBtn = $("#shotBtn");
             const stopBtn = $("#stopBtn");
             const resetBtn = $("#resetBtn");
+            // const clearMaxScoreBtn = $("#clearMaxScoreBtn");
+
             const scoreSpan = $("#score");
             const maxScoreSpan = $("#maxScore");
             const timeSpan = $("#time");
@@ -239,6 +249,13 @@
             // console.log('maxScore', maxScore);
             // console.log('maxScore typeof', typeof(maxScore));
             maxScoreSpan.html(maxScore);
+
+
+            /* if(maxScore==0){
+                clearMaxScoreBtn.attr('class', 'btn hide-btn');
+            }else{
+                clearMaxScoreBtn.attr('class', 'btn show-btn');
+            } */
 
 
             // jqclick
@@ -347,11 +364,24 @@
             });
 
 
+            /* 
+            // 清除最高分按鈕
+            clearMaxScoreBtn.click(function (e) {
+                e.preventDefault();
+
+                // 清除 localStorage 中的 maxScore
+                localStorage.removeItem('maxScore');
+                // localStorage.clear();
+
+                // 將 maxScore 歸零
+                maxScore = 0;
+                maxScoreSpan.html(maxScore);
+            }); */
+
 
             // jq end
         });
 
-        // localStorage.clear();
     </script>
 </body>
 
