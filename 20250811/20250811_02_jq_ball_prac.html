@@ -200,149 +200,184 @@
 
     <script>
         // 1.bind
-        const startBtn = document.getElementById("startBtn");
-        const shotBtn = document.getElementById("shotBtn");
-        const stopBtn = document.getElementById("stopBtn");
-        const resetBtn = document.getElementById("resetBtn");
-        const scoreSpan = document.getElementById("score");
-        const maxScoreSpan = document.getElementById("maxScore");
-        const timeSpan = document.getElementById("time");
-        let score = 0;
-        let maxScore = 0;
-        let startTime = 60;
-        let counter = 1;
-        let timer = 0;
-
-
-        // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
-        shotBtn.setAttribute('class', 'btn hide-btn');
-        resetBtn.setAttribute('class', 'btn hide-btn');
-        stopBtn.setAttribute('class', 'btn hide-btn');
-
-
-        // localStorage 存 最高分數
-        // localStorage.setItem('maxScore', 0);
-        let getMaxScore = Number(localStorage.getItem('maxScore'));
-        // console.log('getMaxScore', getMaxScore);
-        // console.log('getMaxScore typeof', typeof(getMaxScore));
-        if (getMaxScore) {
-            maxScore = getMaxScore;
-        }
-        // console.log('maxScore', maxScore);
-        // console.log('maxScore typeof', typeof(maxScore));
-        maxScoreSpan.innerHTML = maxScore;
+        // const startBtn = document.getElementById("startBtn");
+        // const shotBtn = document.getElementById("shotBtn");
+        // const stopBtn = document.getElementById("stopBtn");
+        // const resetBtn = document.getElementById("resetBtn");
+        // const scoreSpan = document.getElementById("score");
+        // const maxScoreSpan = document.getElementById("maxScore");
+        // const timeSpan = document.getElementById("time");
 
 
         // 2.action
 
         // 開始 BTN
         startBtn.addEventListener('click', function () {
-            // console.log('maxScore', maxScore);
-
-            // console.log('startBtn click ok');
-            // 按下"開始"後，隱藏"開始"鈕，"投籃" & "停止"按鈕才顯示出來
-            this.setAttribute('class', 'btn hide-btn');
-            shotBtn.setAttribute('class', 'btn show-btn');
-            stopBtn.setAttribute('class', 'btn show-btn');
-
-            // 倒數計時
-            timer = setInterval(() => {
-                startTime--;
-                timeSpan.innerHTML = startTime;
-                if (startTime <= 30) {
-                    timeSpan.setAttribute('class', 'text-danger display-4');
-                }
-
-                // 時間到
-                if (startTime == 0) {
-                    // 停止計時
-                    clearInterval(timer); // 停止重複執行
-
-                    // 判斷 最高分數
-                    if (maxScore < score) {
-                        maxScore = score;
-                        localStorage.setItem('maxScore', maxScore);
-                        maxScoreSpan.innerHTML = maxScore;
-                    }
-
-                    // shotBtn hide
-                    shotBtn.setAttribute('class', 'btn hide-btn');
-
-                    // stopBtn hide & resetBtn show
-                    stopBtn.setAttribute('class', 'btn hide-btn');
-                    resetBtn.setAttribute('class', 'btn show-btn');
-                }
-            }, 1000);
+            
 
         });
 
         // 投籃 BTN
         shotBtn.addEventListener('click', function () {
-            // console.log('shotBtn click ok');
-            // 加分
-            if (startTime > 30) {
-                score += 2;
-            } else {
-                score += 3;
-            }
-            scoreSpan.innerHTML = score;
+            
 
         });
 
         // 停止 BTN
         stopBtn.addEventListener('click', function () {
-            // console.log('stopBtn click ok');
-
-            // stopBtn hide & resetBtn show
-            stopBtn.setAttribute('class', 'btn hide-btn');
-            resetBtn.setAttribute('class', 'btn show-btn');
-
-            // 停止計時
-            clearInterval(timer); // 停止重複執行
-
-            // 判斷 最高分數
-            if (maxScore < score) {
-                maxScore = score;
-                localStorage.setItem('maxScore', maxScore);
-                maxScoreSpan.innerHTML = maxScore;
-            }
-
-            shotBtn.setAttribute('class', 'btn hide-btn');
+            
             
         });
         
         // 重置 BTN
         resetBtn.addEventListener('click', function (){
 
-            // 重置倒計時 時間
-            startTime = 60;
-            timeSpan.innerHTML = startTime;
-            timeSpan.setAttribute('class', 'text-info display-4');
-
-            // 目前分數 歸零
-            score = 0;
-            scoreSpan.innerHTML = score;
-    
-            // shotBtn hide & startBtn show
-            shotBtn.setAttribute('class', 'btn hide-btn');
-            startBtn.setAttribute('class', 'btn show-btn');
-
-            // resetBtn hide
-            resetBtn.setAttribute('class', 'btn hide-btn');
+            
 
         });
 
+
+
+
         $(document).ready(function () {
             // jq start
-            // 1.action
+            // 1.bind
+            const startBtn = $("#startBtn");
+            const shotBtn = $("#shotBtn");
+            const stopBtn = $("#stopBtn");
+            const resetBtn = $("#resetBtn");
+            const scoreSpan = $("#score");
+            const maxScoreSpan = $("#maxScore");
+            const timeSpan = $("#time");
+
+            let score = 0;
+            let maxScore = 0;
+            let startTime = 60;
+            let counter = 1;
+            let timer = 0;
 
 
-            // 2.bind
+
+            // 2.action
+            // shotBtn hide (一開始先隱藏'投籃'&'重置'&'停止'按鈕)
+            shotBtn.setAttribute('class', 'btn hide-btn');
+            resetBtn.setAttribute('class', 'btn hide-btn');
+            stopBtn.setAttribute('class', 'btn hide-btn');
+
+
+            // localStorage 存 最高分數
+            // localStorage.setItem('maxScore', 0);
+            let getMaxScore = Number(localStorage.getItem('maxScore'));
+            // console.log('getMaxScore', getMaxScore);
+            // console.log('getMaxScore typeof', typeof(getMaxScore));
+            if (getMaxScore) {
+                maxScore = getMaxScore;
+            }
+            // console.log('maxScore', maxScore);
+            // console.log('maxScore typeof', typeof(maxScore));
+            maxScoreSpan.innerHTML = maxScore;
+
+
             // jqclick
             /* $(selector).click(function (e) { 
                 e.preventDefault();
                 
             }); */
+            startBtn.click(function (e) { 
+                e.preventDefault();
+                // console.log('maxScore', maxScore);
+
+                // console.log('startBtn click ok');
+                // 按下"開始"後，隱藏"開始"鈕，"投籃" & "停止"按鈕才顯示出來
+                this.setAttribute('class', 'btn hide-btn');
+                shotBtn.setAttribute('class', 'btn show-btn');
+                stopBtn.setAttribute('class', 'btn show-btn');
+
+                // 倒數計時
+                timer = setInterval(() => {
+                    startTime--;
+                    timeSpan.innerHTML = startTime;
+                    if (startTime <= 30) {
+                        timeSpan.setAttribute('class', 'text-danger display-4');
+                    }
+
+                    // 時間到
+                    if (startTime == 0) {
+                        // 停止計時
+                        clearInterval(timer); // 停止重複執行
+
+                        // 判斷 最高分數
+                        if (maxScore < score) {
+                            maxScore = score;
+                            localStorage.setItem('maxScore', maxScore);
+                            maxScoreSpan.innerHTML = maxScore;
+                        }
+
+                        // shotBtn hide
+                        shotBtn.setAttribute('class', 'btn hide-btn');
+
+                        // stopBtn hide & resetBtn show
+                        stopBtn.setAttribute('class', 'btn hide-btn');
+                        resetBtn.setAttribute('class', 'btn show-btn');
+                    }
+                }, 1000);
+                
+            });
+
+            shotBtn.click(function (e) { 
+                e.preventDefault();
+                // console.log('shotBtn click ok');
+                // 加分
+                if (startTime > 30) {
+                    score += 2;
+                } else {
+                    score += 3;
+                }
+                scoreSpan.innerHTML = score;
+                
+            });
+
+            stopBtn.click(function (e) { 
+                e.preventDefault();
+                // console.log('stopBtn click ok');
+
+                // stopBtn hide & resetBtn show
+                stopBtn.setAttribute('class', 'btn hide-btn');
+                resetBtn.setAttribute('class', 'btn show-btn');
+
+                // 停止計時
+                clearInterval(timer); // 停止重複執行
+
+                // 判斷 最高分數
+                if (maxScore < score) {
+                    maxScore = score;
+                    localStorage.setItem('maxScore', maxScore);
+                    maxScoreSpan.innerHTML = maxScore;
+                }
+
+                shotBtn.setAttribute('class', 'btn hide-btn');
+                    
+            });
+
+            resetBtn.click(function (e) { 
+                e.preventDefault();
+                // 重置倒計時 時間
+                startTime = 60;
+                timeSpan.innerHTML = startTime;
+                timeSpan.setAttribute('class', 'text-info display-4');
+
+                // 目前分數 歸零
+                score = 0;
+                scoreSpan.innerHTML = score;
+        
+                // shotBtn hide & startBtn show
+                shotBtn.setAttribute('class', 'btn hide-btn');
+                startBtn.setAttribute('class', 'btn show-btn');
+
+                // resetBtn hide
+                resetBtn.setAttribute('class', 'btn hide-btn');
+            });
+
 
 
             // jq end
