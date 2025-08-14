@@ -12,9 +12,34 @@
 </head>
 
 <body>
-    <!-- 照老師的code做：用Bootstrap 5 table -->
+    <!-- 照老師的做：
+     用Bootstrap 5 table(w3school' bs5 tutorial' bs5 tables' bordered table的code) -->
 
-    
+    <div class="container mt-3">
+        <h2>氣象預報 36 小時資料</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>縣市</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>嘉義縣</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>新北市</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>嘉義市</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -34,38 +59,58 @@
 
     <script>
         $(document).ready(function () {
-            
+            // 1.bind
             let pwd = pw; //pw是在沒有上傳的資料夾"pw"中的"pw.js"的變數，存"氣象API授權碼"
-            console.log('pwd',pwd);
-            
+            console.log('pwd', pwd);
+            const myTbody = $("#myTbody");
+
+
+            // 2.action
             // 氣象API
-            let id=1;
-            let url =`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+            // let id = 1;
+            let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
             $.ajax({
                 type: "get",
                 url: url,
                 // data: "data",
                 dataType: "json",
                 success: function (response) {
-                    console.log('response',response);
+                    console.log('response', response);
                     // console.log('response.records.location',response.records.location);
+                    let data = response.records.location;
+                    // console.log('data', data);
+                    
 
-                    let content = ``;
-                    $.each(response.records.location, function (key, value) { 
-                        // console.log('id',id);
+                    // let content = ``;
+                    let tmpText = ``;
+                    $.each(data, function (key, value) {
+
+                        // 用id
+                        /* 
+                        console.log('id',id);
                         content += `
                             <tr>
                                 <td>${id}</td>
                                 <td>${value.locationName}</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>0</td>
                             </tr>
                         `;
                         id++;
+                         */
+
+                       // 用key
+                        tmpText += `
+                            <tr>
+                                <td>${key+1}</td>
+                                <td>${value.locationName}</td>
+                            </tr>
+                        `;
+                        
                     });
 
                     // console.log('content', content);
+                    // console.log('tmpText', tmpText);
+                    // myTbody.append(content);
+                    myTbody.append(tmpText);
 
                 }
             });
