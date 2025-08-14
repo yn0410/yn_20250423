@@ -22,9 +22,15 @@
                 <tr>
                     <th>id</th>
                     <th>縣市</th>
-                    <th>8/14 12.~18.</th>
-                    <th>8/14 18.~ 8/15 6.</th>
-                    <th>8/15 6.~18.</th>
+                    <th>
+                        <span id="startTime12Span">8/14 12.~18.</span>
+                    </th>
+                    <th>
+                        <span id="startTime24Span">8/14 18.~ 8/15 6.</span>
+                    </th>
+                    <th>
+                        <span id="startTime36Span">8/15 6.~18.</span>
+                    </th>
                 </tr>
             </thead>
             <tbody id="myTbody">
@@ -75,6 +81,9 @@
             let pwd = pw; //pw是在沒有上傳的資料夾"pw"中的"pw.js"的變數，存"氣象API授權碼"
             // console.log('pwd', pwd);
             const myTbody = $("#myTbody");
+            let startTime12Span = $("#startTime12Span");
+            let startTime24Span = $("#startTime24Span");
+            let startTime36Span = $("#startTime36Span");
 
 
             // 2.action
@@ -121,6 +130,86 @@
 
                     // let content = ``;
                     let tmpText = ``;
+
+                    // wx startTime
+                    let startTime12 = data[0].weatherElement[0].time[0].startTime;
+                    let startTime24 = data[0].weatherElement[0].time[1].startTime;
+                    let startTime36 = data[0].weatherElement[0].time[2].startTime;
+
+                    // change time word
+                    startTime12Span.text(startTime12);
+                    startTime24Span.text(startTime24);
+                    startTime36Span.text(startTime36);
+
+                    // 145~209 =老師code start
+                    let date12 = new Date(startTime12);
+                    let getDayDate12 = date12.getHours();
+                    console.log('date12', date12);
+                    console.log('getDayDate12', getDayDate12);
+
+                    let date24 = new Date(startTime24);
+                    let getDayDate24 = date24.getHours();
+                    console.log('date24', date24);
+                    console.log('getDayDate24', getDayDate24);
+
+                    let date36 = new Date(startTime36);
+                    let getDayDate36 = date36.getHours();
+                    console.log('date36', date36);
+                    console.log('getDayDate36', getDayDate36);
+
+
+                    let day12String = 'day';
+                    let day24String = 'day';
+                    let day36String = 'day';
+
+
+                    // getDayDate12
+                    switch (getDayDate12) {
+                        case 6:
+                            day12String = 'day';
+                            break;
+                        case 12:
+                            day12String = 'day';
+                            break;
+                        case 18:
+                            day12String = 'night';
+                            break;
+                        default:
+                            break;
+                    }
+
+                    // getDayDate24
+                    switch (getDayDate24) {
+                        case 6:
+                            day24String = 'day';
+                            break;
+                        case 12:
+                            day24String = 'day';
+                            break;
+                        case 18:
+                            day24String = 'night';
+                            break;
+                        default:
+                            break;
+                    }
+
+                    // getDayDate36
+                    switch (getDayDate36) {
+                        case 6:
+                            day36String = 'day';
+                            break;
+                        case 12:
+                            day36String = 'day';
+                            break;
+                        case 18:
+                            day36String = 'night';
+                            break;
+                        default:
+                            break;
+                    }
+                    // 145~209 =老師code end
+
+
                     $.each(data, function (key, value) {
                         // console.log('value', value);
 
@@ -171,9 +260,9 @@
                             <tr>
                                 <td>${key+1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${minT12} ~ ${maxT12} &deg;C / ${wx12} <img src="./day/${wxValue12}.svg" alt=""></td>
-                                <td>${minT24} ~ ${maxT24} &deg;C / ${wx24} <img src="./day/${wxValue24}.svg" alt=""></td>
-                                <td>${minT36} ~ ${maxT36} &deg;C / ${wx36} <img src="./day/${wxValue36}.svg" alt=""></td>
+                                <td>${minT12} ~ ${maxT12} &deg;C / ${wx12} <img src="./${day12String}/${wxValue12}.svg" alt=""></td>
+                                <td>${minT24} ~ ${maxT24} &deg;C / ${wx24} <img src="./${day24String}/${wxValue24}.svg" alt=""></td>
+                                <td>${minT36} ~ ${maxT36} &deg;C / ${wx36} <img src="./${day36String}/${wxValue36}.svg" alt=""></td>
                             </tr>
                         `;
                         
