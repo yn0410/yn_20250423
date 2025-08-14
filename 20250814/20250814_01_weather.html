@@ -80,6 +80,9 @@
                     let data = response.records.location;
                     // console.log('data', data);
                     
+                    let tmpData = data[0].weatherElement[2].time[0].parameter.parameterName; //="嘉義縣" "MinT" 8/14 12.~18. = 30度
+                    console.log('tmpData', tmpData);
+                    
 
                     // let content = ``;
                     let tmpText = ``;
