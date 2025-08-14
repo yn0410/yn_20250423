@@ -4,14 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>氣象API</title>
     <!-- 載入bs5 css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 載入datatables css(= DataTables官網' Manual' Installation' CDN) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
 </head>
 
 <body>
+    <!-- 自己試寫迴圈把22縣市print出來了 -->
+
+    <div class="container">
+        <!-- DataTables官網' Manual' Installation' Comments (1)' code -->
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>縣市</th>
+                    <th>0814 6-18</th>
+                    <th>0814 18-6</th>
+                    <th>0815 6-18</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>嘉義縣</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>新北市</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>嘉義市</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                    <td>26-34</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -24,10 +65,19 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
+    <!-- 載入datatables js (jquery要在這個上面) (= DataTables官網' Manual' Installation' CDN) -->
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+
     <script>
         $(document).ready(function () {
+
+            const myTbody = $("#myTbody");
+            // $('#table_id').DataTable();
+            
+            
             // 
-            let url ='https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-0CF487EE-7711-4038-87B2-6E6974A1CE2C';
+            let id=1;
+            let url =''; //先拿掉
             $.ajax({
                 type: "get",
                 url: url,
@@ -35,7 +85,27 @@
                 dataType: "json",
                 success: function (response) {
                     console.log('response',response);
-                    
+                    // console.log('response.records.location',response.records.location);
+
+                    let content = ``;
+                    $.each(response.records.location, function (key, value) { 
+                        // console.log('id',id);
+                        content += `
+                            <tr>
+                                <td>${id}</td>
+                                <td>${value.locationName}</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                        `;
+                        id++;
+                    });
+
+                    // console.log('content', content);
+
+                    myTbody.append(content);
+                    $('#table_id').DataTable();
                 }
             });
         });
