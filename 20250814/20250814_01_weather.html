@@ -9,51 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- 載入datatables css(= DataTables官網' Manual' Installation' CDN) -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
 </head>
 
 <body>
-    <!-- 自己試寫迴圈把22縣市print出來了 -->
-    <!-- 用DataTable -->
+    <!-- 照老師的code做：用Bootstrap 5 table -->
 
-    <div class="container">
-        <!-- DataTables官網' Manual' Installation' Comments (1)' code -->
-        <table id="table_id" class="display">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>縣市</th>
-                    <th>0814 6-18</th>
-                    <th>0814 18-6</th>
-                    <th>0815 6-18</th>
-                </tr>
-            </thead>
-            <tbody id="myTbody">
-                <!-- <tr>
-                    <td>1</td>
-                    <td>嘉義縣</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>新北市</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>嘉義市</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                    <td>26-34</td>
-                </tr> -->
-            </tbody>
-        </table>
-    </div>
+    
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -66,9 +27,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
-    <!-- 載入datatables js (jquery要在這個上面) (= DataTables官網' Manual' Installation' CDN) -->
-    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
-
     <!-- 載入 氣象API授權碼 -->
     <!-- .gitignore檔中，打"pw/"(=忽略上傳pw資料夾) -->
     <!-- /pw/pw.js檔中，打 let pw = 'your password'; -->
@@ -76,9 +34,6 @@
 
     <script>
         $(document).ready(function () {
-
-            const myTbody = $("#myTbody");
-            // $('#table_id').DataTable();
             
             let pwd = pw; //pw是在沒有上傳的資料夾"pw"中的"pw.js"的變數，存"氣象API授權碼"
             console.log('pwd',pwd);
@@ -112,8 +67,6 @@
 
                     // console.log('content', content);
 
-                    myTbody.append(content);
-                    $('#table_id').DataTable();
                 }
             });
         });
