@@ -68,16 +68,23 @@
     <!-- 載入datatables js (jquery要在這個上面) (= DataTables官網' Manual' Installation' CDN) -->
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
 
+    <!-- 載入 氣象API授權碼 -->
+    <!-- .gitignore檔中，打"pw/"(=忽略上傳pw資料夾) -->
+    <!-- /pw/pw.js檔中，打 let pw = 'your password'; -->
+    <script src="../pw/pw.js"></script>
+
     <script>
         $(document).ready(function () {
 
             const myTbody = $("#myTbody");
             // $('#table_id').DataTable();
             
+            let pwd = pw; //pw是在沒有上傳的資料夾"pw"中的"pw.js"的變數，存"氣象API授權碼"
+            console.log('pwd',pwd);
             
-            // 
+            // 氣象API
             let id=1;
-            let url =''; //先拿掉
+            let url =`https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
             $.ajax({
                 type: "get",
                 url: url,
