@@ -17,11 +17,14 @@
 
     <div class="container mt-3">
         <h2>氣象預報 36 小時資料</h2>
-        <table class="table table-bordered">
+        <table class="table table-bordered text-center">
             <thead>
                 <tr>
                     <th>id</th>
                     <th>縣市</th>
+                    <th>8/14 12.~18.</th>
+                    <th>8/14 18.~ 8/15 6.</th>
+                    <th>8/15 6.~18.</th>
                 </tr>
             </thead>
             <tbody id="myTbody">
@@ -78,16 +81,58 @@
                     console.log('response', response);
                     // console.log('response.records.location',response.records.location);
                     let data = response.records.location;
-                    // console.log('data', data);
+                    console.log('data', data);
                     
-                    let tmpData = data[0].weatherElement[2].time[0].parameter.parameterName; //="嘉義縣" "MinT" 8/14 12.~18. = 30度
-                    console.log('tmpData', tmpData);
+                    // let tmpData = data[0].weatherElement[2].time[0].parameter.parameterName; //="嘉義縣" "MinT" 8/14 12.~18. = 30度
+                    // console.log('tmpData', tmpData);
+
+
+
+                    // 找新北市 的 12, 24, 36小時的 minT - maxT
+                    /* let newTaipei = data[1];
+                    console.log('newTaipei', newTaipei);
+
+                    let newTaipei12min = newTaipei.weatherElement[2].time[0].parameter.parameterName;
+                    console.log('newTaipei12min', newTaipei12min);
+                    let newTaipei12Max = newTaipei.weatherElement[4].time[0].parameter.parameterName;
+                    console.log('newTaipei12Max', newTaipei12Max);
+
+                    let newTaipei24min = newTaipei.weatherElement[2].time[1].parameter.parameterName;
+                    console.log('newTaipei24min', newTaipei24min);
+                    let newTaipei24Max = newTaipei.weatherElement[4].time[1].parameter.parameterName;
+                    console.log('newTaipei24Max', newTaipei24Max);
+
+                    let newTaipei36min = newTaipei.weatherElement[2].time[2].parameter.parameterName;
+                    console.log('newTaipei36min', newTaipei36min);
+                    let newTaipei36Max = newTaipei.weatherElement[4].time[2].parameter.parameterName;
+                    console.log('newTaipei36Max', newTaipei36Max); */
                     
+
+
 
                     // let content = ``;
                     let tmpText = ``;
                     $.each(data, function (key, value) {
+                        // console.log('value', value);
 
+                        // minT
+                        let minT12 = value.weatherElement[2].time[0].parameter.parameterName;
+                        let minT24 = value.weatherElement[2].time[1].parameter.parameterName;
+                        let minT36 = value.weatherElement[2].time[2].parameter.parameterName;
+                        // console.log('minT12', minT12);
+                        // console.log('minT24', minT24);
+                        // console.log('minT36', minT36);
+                        
+
+                        // maxT
+                        let maxT12 = value.weatherElement[4].time[0].parameter.parameterName;
+                        let maxT24 = value.weatherElement[4].time[1].parameter.parameterName;
+                        let maxT36 = value.weatherElement[4].time[2].parameter.parameterName;
+                        // console.log('maxT12', maxT12);
+                        // console.log('maxT24', maxT24);
+                        // console.log('maxT36', maxT36);
+
+                        
                         // 用id
                         /* 
                         console.log('id',id);
@@ -105,6 +150,9 @@
                             <tr>
                                 <td>${key+1}</td>
                                 <td>${value.locationName}</td>
+                                <td>${minT12} ~ ${maxT12}</td>
+                                <td>${minT24} ~ ${maxT24}</td>
+                                <td>${minT36} ~ ${maxT36}</td>
                             </tr>
                         `;
                         
