@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-primary">臺北市</button>
+                <button id="myBtn" type="button" class="btn btn-primary" data-location="臺北市">臺北市</button>
                 <button type="button" class="btn btn-primary">新北市</button>
                 <button type="button" class="btn btn-primary">臺中市</button>
                 <button type="button" class="btn btn-primary">高雄市</button>
@@ -111,8 +111,57 @@
             // console.log('data', data);
             const myTbody = $("#myTbody");
             const myForm = $("#myForm");
+            const myBtn = $('#myBtn');
 
             // 2.action
+            // myBtn click
+            myBtn.click(function (e) {
+                e.preventDefault();
+                console.log('myBtn ok');
+                let getLocation = $(this).attr('data-location');
+                console.log('getLocation', getLocation);
+
+                myTbody.html('');
+                content = ``;
+
+
+                // for
+                // php , js
+                // break 碰到後中斷
+                // continue 跳過當下
+
+                // jquery
+                // return false = break
+                // return true = continue
+
+                // https://chatgpt.com/share/68a425d1-e330-800a-b435-0754cbda824b
+                $.each(data, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+
+                    if (getLocation == value.locationName) {
+                        content += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                        </tr>
+                        `;
+
+                        return false;
+                    }
+
+                });
+
+                myTbody.append(content);
+
+            });
+
+
+
+
             let content = ``;
             $.each(data, function (key, value) {
                 // console.log('key', key);
