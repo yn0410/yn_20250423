@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>氣象API</title>
+    <title>Document</title>
     <!-- 載入bs5 css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
@@ -12,47 +12,27 @@
 </head>
 
 <body>
-    <!-- 自己試著做的：重構資料 & show data -->
-
+    <!-- 老師code：重構資料 & show data -->
     <div class="container mt-3">
-        <h2>氣象預報 36 小時資料</h2>
-        <table class="table table-bordered text-center">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>縣市</th>
-                    <th>
-                        <span id="startTime12Span">8/14 12.~18.</span>
-                    </th>
-                    <th>
-                        <span id="startTime24Span">8/14 18.~ 8/15 6.</span>
-                    </th>
-                    <th>
-                        <span id="startTime36Span">8/15 6.~18.</span>
-                    </th>
+                    <th>name</th>
+                    <th>12</th>
+                    <th>24</th>
+                    <th>36</th>
                 </tr>
             </thead>
             <tbody id="myTbody">
                 <!-- <tr>
                     <td>1</td>
-                    <td>嘉義縣</td>
-                    <td>30-34 <img src="./day/21.svg" alt=""></td>
-                    <td>26-30</td>
-                    <td>26-32</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>新北市</td>
-                    <td>30-34 <img src="./day/21.svg" alt=""></td>
-                    <td>26-30</td>
-                    <td>26-32</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>嘉義市</td>
-                    <td>30-34 <img src="./day/21.svg" alt=""></td>
-                    <td>26-30</td>
-                    <td>26-32</td>
+                    <td>台北市</td>
+                    <td>24-34</td>
+                    <td>25-35</td>
+                    <td>26-36</td>
                 </tr> -->
             </tbody>
         </table>
@@ -69,57 +49,33 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
+    <!-- get data -->
+    <script src="./data/testData_all.js"></script>
+
     <script>
         $(document).ready(function () {
             // 1.bind
-            const myTbody = $("#myTbody");
-            let startTime12Span = $("#startTime12Span");
-            let startTime24Span = $("#startTime24Span");
-            let startTime36Span = $("#startTime36Span");
-
+            let data = testData;
+            const myTbody=$("#myTbody");
+            console.log('data', data);
 
             // 2.action
-            // 氣象API
-            // let id = 1;
-            let url = "./data/newData.json";
-            $.ajax({
-                type: "get",
-                url: url,
-                // data: "data",
-                dataType: "json",
-                success: function (response) {
-                    console.log('response', response);
-                    let data = response;
-                    
-                    // wx startTime
-                    let startTime12 = data[0].time[0].startTime;
-                    console.log('startTime12', startTime12);
-                    let startTime24 = data[0].time[1].startTime;
-                    let startTime36 = data[0].time[2].startTime;
-
-                    // change time word
-                    startTime12Span.text(startTime12);
-                    startTime24Span.text(startTime24);
-                    startTime36Span.text(startTime36);
-
-
-                    
-                    let tmpText = `
-                        <tr>
-                            <td>3</td>
-                            <td>嘉義市</td>
-                            <td>30-34 <img src="./day/21.svg" alt=""></td>
-                            <td>26-30</td>
-                            <td>26-32</td>
-                        </tr>
-                    `;
-
-                    myTbody.append(tmpText);
-
-                   
-
-                }
+            let content = ``;
+            $.each(data, function (key, value) { 
+                console.log('key', key);
+                console.log('value', value);
+                content += `
+                 <tr>
+                    <td>${key + 1}</td>
+                    <td>${value.locationName}</td>
+                    <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                    <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                    <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                 </tr>
+                `;
             });
+
+            myTbody.append(content);
         });
     </script>
 </body>
