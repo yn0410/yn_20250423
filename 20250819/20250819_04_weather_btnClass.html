@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    </style>
+
+</head>
+
+<body>
+    <!-- 完全是老師code... -->
+    <div class="container mt-5">
+        <form id="myForm" action="/action_page.php">
+            <div class="row">
+                <div class="col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="臺北市">
+                        <label class="form-check-label" for="inlineCheckbox2">臺北市</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="新北市">
+                        <label class="form-check-label" for="inlineCheckbox2">新北市</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="臺中市">
+                        <label class="form-check-label" for="inlineCheckbox2">臺中市</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="高雄市">
+                        <label class="form-check-label" for="inlineCheckbox2">高雄市</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="宜蘭縣">
+                        <label class="form-check-label" for="inlineCheckbox2">宜蘭縣</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input my-checkbox" name="my-check[]" type="checkbox" id="" value="全部">
+                        <label class="form-check-label" for="inlineCheckbox2">全部</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button id="myBtn" type="button" class="btn btn-primary btn-class" data-location="臺北市">臺北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="新北市">新北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="臺中市">臺中市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="高雄市">高雄市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="宜蘭縣">宜蘭縣</button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container mt-3">
+        <h2>天氣36小時選擇</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>12</th>
+                    <th>24</th>
+                    <th>36</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>臺北市</td>
+                    <td>24-34</td>
+                    <td>25-35</td>
+                    <td>26-36</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- get data -->
+
+    <!-- load js -->
+    <!--ajax json -->
+    <script src="./data/testData_all.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const data = testData;
+            const myTbody = $('#myTbody');
+            const myForm = $('#myForm');
+            const myBtn = $('#myBtn');
+            const btnClass = $('.btn-class')
+            // console.log('data', data);
+
+
+            // 2.action
+
+            // myBtn click
+            btnClass.click(function (e) {
+                e.preventDefault();
+                // 當我按下btn , checkbox 取消選取
+                // $('input[type=checkbox]').prop("checked", false);
+                $('.my-checkbox').prop("checked", false);
+                
+
+                console.log('myBtn ok');
+                let getLocation = $(this).attr('data-location');
+                console.log('getLocation', getLocation);
+
+                myTbody.html('');
+                content = ``;
+
+
+                // for
+                // php , js
+                // break 碰到後中斷
+                // continue 跳過當下
+
+                // jquery
+                // return false = break
+                // return true = continue
+
+                // data 裡面 有沒有getLocation
+                // let index = data.indexOf(getLocation);
+                // console.log('index', index);
+                // data locationName 是在第二層 所以沒法使用indexOf method
+
+
+                // https://chatgpt.com/share/68a425d1-e330-800a-b435-0754cbda824b
+                $.each(data, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+
+                    if (getLocation == value.locationName) {
+                        content += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                        </tr>
+                        `;
+
+                        return false;
+                    }
+
+                });
+
+                myTbody.append(content);
+
+            });
+
+
+            let content = ``;
+            $.each(data, function (key, value) {
+                // console.log('key', key);
+                // console.log('value', value);
+                content += `
+                 <tr>
+                    <td>${key + 1}</td>
+                    <td>${value.locationName}</td>
+                    <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                    <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                    <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                 </tr>
+                `;
+            });
+
+            myTbody.append(content);
+
+            // form submit
+            myForm.submit(function (e) {
+                e.preventDefault();
+                // get form data
+                let formData = myForm.serializeArray();
+                let locationArr = []; // 我勾選的資料
+                // reset table
+                content = '';
+                myTbody.html('');
+                $.each(formData, function (key, value) {
+                    console.log('value', value);
+                    // array push
+                    locationArr.push(value.value);
+                });
+                console.log('formData', formData);
+                console.log('locationArr', locationArr);
+
+                // show data
+                $.each(data, function (key, value) {
+                    // console.log('key', key);
+                    // console.log('value', value);
+                    // locationArr = ['臺北市','臺中市']
+                    // 判斷locationArr , value.locationName是否有在裡面\
+                    let tmpLocation = value.locationName;
+                    let index = locationArr.indexOf(tmpLocation);
+                    // indefOf method 回傳array key
+                    // 不存在 -1 , ['台北市','台中市'] 台北市 0 , 台中市 1
+                    console.log('tmpLocation', tmpLocation);
+                    console.log('index', index);
+                    if (index !== -1) {
+                        content += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                        </tr>
+                        `;
+                    }
+                });
+
+                console.log('content', content);
+
+                myTbody.append(content);
+                // show data end
+
+
+            });
+
+            // form submit end
+
+
+        });
+    </script>
+</body>
+
+</html>
