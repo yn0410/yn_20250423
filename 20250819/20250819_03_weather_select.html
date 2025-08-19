@@ -131,10 +131,61 @@
                 });
                 console.log("locationArr", locationArr);
                 // console.log("locationArr[0]", locationArr[0]);
-                $.each(locationArr, function (key, value) {
+                /* $.each(locationArr, function (key, value) {
                     console.log("locationArr.value", value);
+                    if (value == '全部') {
+                        content = ``;
+                        $.each(data, function (key, value) {
+                            // console.log('key', key);
+                            // console.log('value', value);
+                            let tmpLocation = value.locationName;
+                            let index = locationArr.indexOf(tmpLocation);
+                            console.log('tmpLocation', tmpLocation);
+                            console.log('index', index);
 
-                });
+                            // 不存在 index=-1 , 存在 index>=0
+
+                            content += `
+                                <tr>
+                                    <td>${key + 1}</td>
+                                    <td>${value.locationName}</td>
+                                    <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                                    <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                                    <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                                </tr>
+                            `;
+
+
+
+                        });
+                    } else {
+                        content = ``;
+                        $.each(data, function (key, value) {
+                            // console.log('key', key);
+                            // console.log('value', value);
+                            let tmpLocation = value.locationName;
+                            let index = locationArr.indexOf(tmpLocation);
+                            console.log('tmpLocation', tmpLocation);
+                            console.log('index', index);
+
+                            // 不存在 index=-1 , 存在 index>=0
+                            if (index >= 0) {
+                                content += `
+                                    <tr>
+                                        <td>${key + 1}</td>
+                                        <td>${value.locationName}</td>
+                                        <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                                        <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                                        <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                                    </tr>
+                                `;
+
+                            }
+
+                        });
+
+                    }
+                }); */
 
                 // show data
                 content = ``;
@@ -147,7 +198,7 @@
                     console.log('index', index);
 
                     // 不存在 index=-1 , 存在 index>=0
-                    if(index>=0){
+                    if (index >= 0) {
                         content += `
                         <tr>
                             <td>${key + 1}</td>
