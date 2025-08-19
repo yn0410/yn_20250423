@@ -9,6 +9,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
         integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* chatGPT幫我美化的 */
+        body {
+            background-color: #fff8f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        h2,
+        h4 {
+            color: #cc7a00;
+        }
+
+        .form-check-input:checked {
+            background-color: #f0a500;
+            border-color: #f0a500;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+        .btn-info {
+            background-color: #f0a500;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-info:hover {
+            background-color: #e68a00;
+        }
+
+        .table {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table th {
+            background-color: #ffe5b4;
+            color: #804000;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #fffaf0;
+            /* 奇數行 */
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #fff1dc;
+            /* 偶數行 */
+        }
+
+        .table tbody tr:hover {
+            background-color: #ffe0b2;
+            /* hover 效果 */
+            transition: background-color 0.3s ease;
+        }
+
+        .form-check {
+            padding: 5px 0;
+        }
+
+        .row.mt-3 {
+            flex-wrap: wrap;
+        }
+
+        .row.mt-3 .col-1 {
+            flex: 0 0 10%;
+            max-width: 10%;
+        }
+
+        @media (max-width: 768px) {
+            .row.mt-3 .col-1 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        hr {
+            border: 1px solid #f0a500;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -174,13 +260,27 @@
                 </tr>
             </thead>
             <tbody id="myTbody">
-                <!-- <tr>
+                <tr>
                     <td>1</td>
                     <td>台北市</td>
                     <td>24-34</td>
                     <td>25-35</td>
                     <td>26-36</td>
-                </tr> -->
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>台北市</td>
+                    <td>24-34</td>
+                    <td>25-35</td>
+                    <td>26-36</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>台北市</td>
+                    <td>24-34</td>
+                    <td>25-35</td>
+                    <td>26-36</td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -227,11 +327,11 @@
                         // console.log('value.sitename',value.sitename);
                         content += `
                             <tr>
-                                <th>${key + 1}</th>
-                                <th>${value.sitename}</th>
-                                <th>${value.county}</th>
-                                <th>${value.aqi}</th>
-                                <th>${value.status}</th>
+                                <td>${key + 1}</td>
+                                <td>${value.sitename}</td>
+                                <td>${value.county}</td>
+                                <td>${value.aqi}</td>
+                                <td>${value.status}</td>
                             </tr>
                         `;
 
@@ -277,11 +377,11 @@
                     if (index >= 0) {
                         content += `
                             <tr>
-                                <th>${key + 1}</th>
-                                <th>${value.sitename}</th>
-                                <th>${value.county}</th>
-                                <th>${value.aqi}</th>
-                                <th>${value.status}</th>
+                                <td>${key + 1}</td>
+                                <td>${value.sitename}</td>
+                                <td>${value.county}</td>
+                                <td>${value.aqi}</td>
+                                <td>${value.status}</td>
                             </tr>
                         `;
                     }
