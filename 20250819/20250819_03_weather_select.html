@@ -14,31 +14,31 @@
 <body>
     <!-- 老師code：重構資料 & show data +篩選 -->
     <div class="container mt-3">
-        <form action="/action_page.php">
+        <form id="myForm">
             <div class="row">
                 <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">台北市</label>
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="臺北市">
+                        <label class="form-check-label" for="inlineCheckbox2">臺北市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="新北市">
                         <label class="form-check-label" for="inlineCheckbox2">新北市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">台中市</label>
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="臺中市">
+                        <label class="form-check-label" for="inlineCheckbox2">臺中市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="高雄市">
                         <label class="form-check-label" for="inlineCheckbox2">高雄市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">宜蘭市</label>
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="宜蘭縣">
+                        <label class="form-check-label" for="inlineCheckbox2">宜蘭縣</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <input class="form-check-input" name="myCheck[]" type="checkbox" id="" value="全部">
                         <label class="form-check-label" for="inlineCheckbox2">全部</label>
                     </div>
                 </div>
@@ -92,14 +92,15 @@
         $(document).ready(function () {
             // 1.bind
             let data = testData;
+            // console.log('data', data);
             const myTbody = $("#myTbody");
-            console.log('data', data);
+            const myForm = $("#myForm");
 
             // 2.action
             let content = ``;
             $.each(data, function (key, value) {
-                console.log('key', key);
-                console.log('value', value);
+                // console.log('key', key);
+                // console.log('value', value);
                 content += `
                  <tr>
                     <td>${key + 1}</td>
@@ -112,6 +113,59 @@
             });
 
             myTbody.append(content);
+
+            myForm.submit(function (e) {
+                e.preventDefault();
+                // 清空table
+                myTbody.html('');
+
+                // 抓form data
+                let formData = myForm.serializeArray();
+                console.log("formData", formData);
+
+                let locationArr = []; // 我勾選的資料
+                $.each(formData, function (key, value) {
+                    console.log("value", value);
+                    locationArr.push(value.value);
+
+                });
+                console.log("locationArr", locationArr);
+                // console.log("locationArr[0]", locationArr[0]);
+                $.each(locationArr, function (key, value) {
+                    console.log("locationArr.value", value);
+
+                });
+
+                // show data
+                content = ``;
+                $.each(data, function (key, value) {
+                    // console.log('key', key);
+                    // console.log('value', value);
+                    let tmpLocation = value.locationName;
+                    let index = locationArr.indexOf(tmpLocation);
+                    console.log('tmpLocation', tmpLocation);
+                    console.log('index', index);
+
+                    // 不存在 index=-1 , 存在 index>=0
+                    if(index>=0){
+                        content += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                        </tr>
+                        `;
+
+                    }
+
+                });
+                myTbody.append(content);
+
+
+
+            });
         });
     </script>
 </body>
