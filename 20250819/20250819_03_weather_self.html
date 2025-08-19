@@ -12,7 +12,31 @@
 </head>
 
 <body>
-    <!-- 要放老師做的：重構資料 & show data -->
+    <!-- 老師code：重構資料 & show data -->
+    <div class="container mt-3">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>12</th>
+                    <th>24</th>
+                    <th>36</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>台北市</td>
+                    <td>24-34</td>
+                    <td>25-35</td>
+                    <td>26-36</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -25,9 +49,33 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
+    <!-- get data -->
+    <script src="./data/testData_all.js"></script>
+
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+            // 1.bind
+            let data = testData;
+            const myTbody=$("#myTbody");
+            console.log('data', data);
+
+            // 2.action
+            let content = ``;
+            $.each(data, function (key, value) { 
+                console.log('key', key);
+                console.log('value', value);
+                content += `
+                 <tr>
+                    <td>${key + 1}</td>
+                    <td>${value.locationName}</td>
+                    <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                    <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                    <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                 </tr>
+                `;
+            });
+
+            myTbody.append(content);
         });
     </script>
 </body>
