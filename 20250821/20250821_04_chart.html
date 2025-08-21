@@ -12,7 +12,20 @@
 </head>
 
 <body>
-    <!-- 看Chart.js官網做 -->
+    <!-- 看Chart.js官網 & 學老師的 做 -->
+    <!-- 按btn，顯示出圖表 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+            <div class="col">
+                <button type="button" id="myBtn" class="btn btn-primary">btn</button>
+            </div>
+        </div>
+    </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -25,9 +38,100 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+
+            // function
+            function chartFun(myDataInput, myLabelsInput) {
+                const ctx = document.getElementById('myChart');
+                // let myData = [100, 200, 300, 400, 250, 300];
+                let myData = myDataInput;
+                // let myLabels = ['1月', '2月', '3月', '4月', '5月', '6月'];
+                let myLabels = myLabelsInput;
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: myLabels,
+                        datasets: [{
+                            label: '# of Votes',
+                            data: myData,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 1. bind
+            const myBtn = $("#myBtn");
+
+            let data = [
+                {
+                    id: 1,
+                    name: '1月',
+                    money: 100
+                },
+                {
+                    id: 2,
+                    name: '2月',
+                    money: 200
+                },
+                {
+                    id: 3,
+                    name: '3月',
+                    money: 300
+                },
+                {
+                    id: 4,
+                    name: '4月',
+                    money: 400
+                },
+                {
+                    id: 5,
+                    name: '5月',
+                    money: 250
+                },
+                {
+                    id: 6,
+                    name: '6月',
+                    money: 300
+                }
+            ];
+
+            // myData
+            let myData = [];
+            $.each(data, function (key, value) {
+                myData.push(value.money);
+            });
+            console.log("myData", myData);
+
+
+            // myLabels
+            let myLabels = [];
+            $.each(data, function (key, value) {
+                myLabels.push(value.name);
+            });
+            console.log("myLabels", myLabels);
+
+
+            // 2. action
+            myBtn.click(function (e) {
+                e.preventDefault();
+
+                chartFun(myData, myLabels);
+
+            });
+
         });
     </script>
 </body>
