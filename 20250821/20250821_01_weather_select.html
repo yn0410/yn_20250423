@@ -73,9 +73,9 @@
             <div class="col">
                 <!-- w3school bs5 forms' bs5 select menus'code -->
                 <label for="sel1" class="form-label">Select list (select one):</label>
-                <select class="form-select" id="sel1" name="sellist1">
-                    <option>新北市</option>
-                    <option>新北市</option>
+                <select class="form-select" id="mySelect" name="sellist1">
+                    <!-- <option>新北市</option>
+                    <option>新北市</option> -->
                 </select>
             </div>
         </div>
@@ -132,7 +132,8 @@
             const myTbody = $('#myTbody');
             const myForm = $('#myForm');
             const myBtn = $('#myBtn');
-            const btnClass = $('.btn-class')
+            const btnClass = $('.btn-class');
+            const mySelect = $('#mySelect');
             // console.log('data', data);
 
 
@@ -195,7 +196,9 @@
             });
 
 
+            // init
             let content = ``;
+            let selectContent = ``;
             $.each(data, function (key, value) {
                 // console.log('key', key);
                 // console.log('value', value);
@@ -208,9 +211,14 @@
                     <td>${value.time[2].minT}-${value.time[2].maxT}</td>
                  </tr>
                 `;
+
+                selectContent += `
+                <option>${value.locationName}</option>
+                `;
             });
 
             myTbody.append(content);
+            mySelect.append(selectContent);
 
             // form submit
             myForm.submit(function (e) {
