@@ -160,16 +160,46 @@
 
             // init select
             let content = ``;
-            $.each(data, function (key, value) { 
+            $.each(data, function (key, value) {
                 // console.log("key", key);
                 // console.log("value", value);
-                
+
                 content += `
-                <option>${value.id}-${value.name}</option>
+                <option value='${value.id}'>${value.id}-${value.name}</option>
                 `;
             });
             // console.log("content", content);
             mySelect.append(content);
+
+            // 當mySelect change，改變mySelectDetail的選項
+            mySelect.change(function (e) {
+                e.preventDefault();
+                let selectValue = $(this).val();
+                console.log("selectValue", selectValue);
+
+                // data' id = key + 1
+                let tmpKey = selectValue - 1;
+                console.log("tmpKey", tmpKey);
+
+                let tmpDataContent = data[tmpKey].content;
+                console.log("tmpDataContent", tmpDataContent);
+                
+                let content = ``;
+                $.each(tmpDataContent, function (key, value) {
+                    content += `
+                    <option value='${value}'>${value}</option>
+                    `;
+                });
+                console.log("content", content);
+                // mySelectDetail.append(content); //用append一開始要先清空
+                mySelectDetail.html(content); //用 html 一開始不需要先清空
+
+            });
+
+
+
+
+
 
             // 老師做的 end
 
