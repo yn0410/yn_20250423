@@ -89,149 +89,182 @@
     <!-- 自己找資料串 -->
     <div class="container mt-3 ">
         <h2 class="text-center">空氣品質指標</h2>
-        <h4>縣市篩選</h4>
-        <form id="myForm">
-            <div class="row mt-3">
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check1" name="myCheck[]" value="基隆市"
-                            checked>
-                        <label class="form-check-label" for="check1">基隆市</label>
+        <!-- checkbox & submit -->
+        <h4>縣市篩選 - 1</h4>
+        <div class="row">
+            <form id="myForm">
+                <div class="row mt-3">
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check1" name="myCheck[]" value="基隆市"
+                                checked>
+                            <label class="form-check-label" for="check1">基隆市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check2" name="myCheck[]" value="新北市">
+                            <label class="form-check-label" for="check2">新北市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check3" name="myCheck[]" value="臺北市">
+                            <label class="form-check-label" for="check3">臺北市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check4" name="myCheck[]" value="桃園市">
+                            <label class="form-check-label" for="check4">桃園市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check5" name="myCheck[]" value="新竹縣">
+                            <label class="form-check-label" for="check5">新竹縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check6" name="myCheck[]" value="新竹市">
+                            <label class="form-check-label" for="check6">新竹市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check7" name="myCheck[]" value="苗栗縣">
+                            <label class="form-check-label" for="check7">苗栗縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check8" name="myCheck[]" value="臺中市">
+                            <label class="form-check-label" for="check8">臺中市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check9" name="myCheck[]" value="彰化縣">
+                            <label class="form-check-label" for="check9">彰化縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check10" name="myCheck[]" value="南投縣">
+                            <label class="form-check-label" for="check10">南投縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check11" name="myCheck[]" value="雲林縣">
+                            <label class="form-check-label" for="check11">雲林縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check12" name="myCheck[]" value="嘉義縣">
+                            <label class="form-check-label" for="check12">嘉義縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check13" name="myCheck[]" value="嘉義市">
+                            <label class="form-check-label" for="check13">嘉義市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check14" name="myCheck[]" value="臺南市">
+                            <label class="form-check-label" for="check14">臺南市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check15" name="myCheck[]" value="高雄市">
+                            <label class="form-check-label" for="check15">高雄市</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check15" name="myCheck[]" value="屏東縣">
+                            <label class="form-check-label" for="check16">屏東縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check17" name="myCheck[]" value="臺東縣">
+                            <label class="form-check-label" for="check17">臺東縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check18" name="myCheck[]" value="花蓮縣">
+                            <label class="form-check-label" for="check18">花蓮縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check19" name="myCheck[]" value="宜蘭縣">
+                            <label class="form-check-label" for="check19">宜蘭縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check20" name="myCheck[]" value="連江縣">
+                            <label class="form-check-label" for="check20">連江縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check21" name="myCheck[]" value="金門縣">
+                            <label class="form-check-label" for="check21">金門縣</label>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="check22" name="myCheck[]" value="澎湖縣">
+                            <label class="form-check-label" for="check22">澎湖縣</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check2" name="myCheck[]" value="新北市">
-                        <label class="form-check-label" for="check2">新北市</label>
+                <div class="row mt-3">
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-info btn-block">篩選</button>
                     </div>
                 </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check3" name="myCheck[]" value="臺北市">
-                        <label class="form-check-label" for="check3">臺北市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check4" name="myCheck[]" value="桃園市">
-                        <label class="form-check-label" for="check4">桃園市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check5" name="myCheck[]" value="新竹縣">
-                        <label class="form-check-label" for="check5">新竹縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check6" name="myCheck[]" value="新竹市">
-                        <label class="form-check-label" for="check6">新竹市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check7" name="myCheck[]" value="苗栗縣">
-                        <label class="form-check-label" for="check7">苗栗縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check8" name="myCheck[]" value="臺中市">
-                        <label class="form-check-label" for="check8">臺中市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check9" name="myCheck[]" value="彰化縣">
-                        <label class="form-check-label" for="check9">彰化縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check10" name="myCheck[]" value="南投縣">
-                        <label class="form-check-label" for="check10">南投縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check11" name="myCheck[]" value="雲林縣">
-                        <label class="form-check-label" for="check11">雲林縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check12" name="myCheck[]" value="嘉義縣">
-                        <label class="form-check-label" for="check12">嘉義縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check13" name="myCheck[]" value="嘉義市">
-                        <label class="form-check-label" for="check13">嘉義市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check14" name="myCheck[]" value="臺南市">
-                        <label class="form-check-label" for="check14">臺南市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check15" name="myCheck[]" value="高雄市">
-                        <label class="form-check-label" for="check15">高雄市</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check15" name="myCheck[]" value="屏東縣">
-                        <label class="form-check-label" for="check16">屏東縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check17" name="myCheck[]" value="臺東縣">
-                        <label class="form-check-label" for="check17">臺東縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check18" name="myCheck[]" value="花蓮縣">
-                        <label class="form-check-label" for="check18">花蓮縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check19" name="myCheck[]" value="宜蘭縣">
-                        <label class="form-check-label" for="check19">宜蘭縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check20" name="myCheck[]" value="連江縣">
-                        <label class="form-check-label" for="check20">連江縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check21" name="myCheck[]" value="金門縣">
-                        <label class="form-check-label" for="check21">金門縣</label>
-                    </div>
-                </div>
-                <div class="col-1">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="check22" name="myCheck[]" value="澎湖縣">
-                        <label class="form-check-label" for="check22">澎湖縣</label>
-                    </div>
-                </div>
+            </form>
+        </div>
+
+        <hr>
+        <!-- btnClass -->
+        <h4>縣市篩選 - 2</h4>
+        <div class="row">
+            <div class="col">
+                <button id="myBtn" type="button" class="btn btn-primary btn-class" data-location="臺北市">臺北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="新北市">新北市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="臺中市">臺中市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="高雄市">高雄市</button>
+                <button type="button" class="btn btn-primary btn-class" data-location="宜蘭縣">宜蘭縣</button>
             </div>
-            <div class="row mt-3">
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-info btn-block">篩選</button>
-                </div>
+        </div>
+
+        <hr>
+        <!-- select -->
+        <h4>縣市篩選 - 3</h4>
+        <div class="row">
+            <div class="col-2">
+                <label for="mySelect" class="form-label">Select list (select one):</label>
             </div>
-        </form>
+            <div class="col-10">
+                <select class="form-select" id="mySelect" name="sellist1">
+                    <option>臺北市</option>
+                    <option>新北市</option>
+                    <option>臺中市</option>
+                    <option>高雄市</option>
+                </select>
+            </div>
+        </div>
     </div>
 
 
@@ -290,7 +323,9 @@
             // 1.bind
             const myTbody = $("#myTbody");
             const myForm = $("#myForm");
-
+            const btnClass = $(".btn-class");
+            const mySelect = $("#mySelect");
+            
 
 
             // 2.action
@@ -331,7 +366,7 @@
             });
 
 
-            // 篩選 start
+            // 篩選-1(checkbox) start
             myForm.submit(function (e) {
                 e.preventDefault();
                 // 清空table
@@ -377,7 +412,32 @@
                 });
                 myTbody.append(content);
             });
-            // 篩選 end
+            // 篩選-1(checkbox) end
+
+
+            // 篩選-2(btnClass) start
+            btnClass.click(function (e) {
+                e.preventDefault();
+                
+                // 清空table
+                myTbody.html('');
+
+                // let getLocation = ;
+
+            });
+            // 篩選-2(btnClass) end
+
+
+            // 篩選-3(select) start
+            mySelect.change(function (e) { 
+                e.preventDefault();
+
+                // 清空table
+                myTbody.html('');
+
+                
+            });
+            // 篩選-3(select) end
         });
     </script>
 </body>
