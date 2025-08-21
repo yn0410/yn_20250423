@@ -42,36 +42,42 @@
     <hr>
 
     <div class="container mt-3">
-        <h4>(老師做的)</h4>
-        <h2>Select Menu</h2>
-        <p>To style a select menu in Bootstrap 5, add the .form-select class to the select element:</p>
-
-        <label for="mySelect" class="form-label">Select list (select one):</label>
-        <select class="form-select" id="mySelect" name="sellist4">
-            <option value="0">0-全部</option>
-        </select>
-        <br>
-        <label for="mySelectDetail" class="form-label">Select list (select one):</label>
-        <select class="form-select" id="mySelectDetail" name="sellist5">
-            <!-- <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>21</option>
-            <option>22</option>
-            <option>23</option>
-            <option>24</option>
-            <option>31</option>
-            <option>32</option>
-            <option>33</option>
-            <option>34</option>
-            <option>41</option>
-            <option>42</option>
-            <option>43</option>
-            <option>44</option> -->
-        </select>
-        <br>
-
+        <div class="row">
+            <div class="col">
+                <h4>(老師做的)</h4>
+                <h2>連動的Select Menu</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- w3school bs5 forms' bs5 select menus'code -->
+                <label for="mySelect" class="form-label">Select list -1 (select one):</label>
+                <select class="form-select" id="mySelect" name="sellist4">
+                    <option value="0">0-全部</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="mySelectDetail" class="form-label">Select list -2 (select one):</label>
+                <select class="form-select" id="mySelectDetail" name="sellist5">
+                    <!-- <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>31</option>
+                    <option>32</option>
+                    <option>33</option>
+                    <option>34</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option> -->
+                </select> 
+            </div>
+        </div>
     </div>
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
