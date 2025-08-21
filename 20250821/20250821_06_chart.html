@@ -16,16 +16,15 @@
     <!-- 04:按btn，顯示出圖表 -->
     <!-- 05:網頁直接顯示出3個圖表，分三個data做 &給提示，讓我們去做做看 -->
     <!-- 06:網頁直接顯示出3個圖表，分三個data做 &老師實際做給我們看 -->
+
+    <!-- 老師code -->
     <div class="container">
-        <div class="row">
-            <div class="col">
+        <div class="row" id="myRow">
+            <!-- <div class="col">
                 <div>
                     <canvas id="myChart"></canvas>
                 </div>
-            </div>
-            <div class="col">
-                <button type="button" id="myBtn" class="btn btn-primary">btn</button>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -45,29 +44,52 @@
 
     <script>
         $(document).ready(function () {
+            // 老師code
 
-            // function
-            function chartFun(myDataInput, myLabelsInput) {
-                const ctx = document.getElementById('myChart');
-                // let myData = [100, 200, 300, 400, 250, 300];
-                let myData = myDataInput;
+            // function 
+            function chartFun(data, myIDInput, nameInput) {
+                // let myData = [100, 200, 300, 400, 250, 300];       
+                let myData = [];
+                $.each(data, function (key, value) {
+                    myData.push(value.money);
+                });
+                console.log('myData', myData);
+
                 // let myLabels = ['1月', '2月', '3月', '4月', '5月', '6月'];
-                let myLabels = myLabelsInput;
+                let myLabels = [];
+                $.each(data, function (key, value) {
+                    myLabels.push(value.name);
+                });
+                console.log('myLabels', myLabels);
+
+                const ctx = document.getElementById(`${myIDInput}`);
 
                 new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: myLabels,
                         datasets: [{
-                            label: '# of Votes',
+                            label: '營業額',
                             data: myData,
                             borderWidth: 1
                         }]
                     },
                     options: {
+                        plugins: {
+                            title: {
+                                display: true,       // 顯示標題
+                                text: `${nameInput}`, // 標題文字
+                                font: {
+                                    size: 24        // 字體大小
+                                },
+                                color: 'lightpink'       // 標題顏色
+                            }
+                        },
                         scales: {
                             y: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                min: 0,
+                                max: 600
                             }
                         }
                     }
@@ -75,9 +97,9 @@
             }
 
             // 1. bind
-            const myBtn = $("#myBtn");
+            const myRow = $('#myRow');
 
-            let data = [
+            let data1 = [
                 {
                     id: 1,
                     name: '1月',
@@ -110,34 +132,101 @@
                 }
             ];
 
-            // myData
-            let myData = [];
-            $.each(data, function (key, value) {
-                myData.push(value.money);
-            });
-            console.log("myData", myData);
+            let data2 = [
+                {
+                    id: 1,
+                    name: '1月',
+                    money: 100
+                },
+                {
+                    id: 2,
+                    name: '2月',
+                    money: 160
+                },
+                {
+                    id: 3,
+                    name: '3月',
+                    money: 250
+                },
+                {
+                    id: 4,
+                    name: '4月',
+                    money: 400
+                },
+                {
+                    id: 5,
+                    name: '5月',
+                    money: 300
+                },
+                {
+                    id: 6,
+                    name: '6月',
+                    money: 400
+                }
+            ];
 
-
-            // myLabels
-            let myLabels = [];
-            $.each(data, function (key, value) {
-                myLabels.push(value.name);
-            });
-            console.log("myLabels", myLabels);
+            let data3 = [
+                {
+                    id: 1,
+                    name: '1月',
+                    money: 250
+                },
+                {
+                    id: 2,
+                    name: '2月',
+                    money: 300
+                },
+                {
+                    id: 3,
+                    name: '3月',
+                    money: 300
+                },
+                {
+                    id: 4,
+                    name: '4月',
+                    money: 400
+                },
+                {
+                    id: 5,
+                    name: '5月',
+                    money: 200
+                },
+                {
+                    id: 6,
+                    name: '6月',
+                    money: 100
+                }
+            ];
 
 
             // 2. action
-            myBtn.click(function (e) {
-                e.preventDefault();
+            // 放入chart js id
+            let tmpChart = `
+                <div class="col">
+                    <div>
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                </div>      
+                 <div class="col">
+                    <div>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>    
+                 <div class="col">
+                    <div>
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>    
+            `;
+            myRow.append(tmpChart);
 
-                chartFun(myData, myLabels);
+            chartFun(data1, 'myChart1','北區');
+            chartFun(data2, 'myChart2','中區');
+            chartFun(data3, 'myChart3','南區');
 
-            });
 
-            // 老師給的提示
-            // chartFun(myData1, myLabels);
-            // chartFun(myData2, myLabels);
-            // chartFun(myData3, myLabels);
+
+
 
         });
     </script>
