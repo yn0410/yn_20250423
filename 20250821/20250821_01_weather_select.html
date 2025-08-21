@@ -272,6 +272,58 @@
 
             // form submit end
 
+            // select start
+            mySelect.change(function (e) { 
+                e.preventDefault();
+                // 第151~194行 複製過來的，就改了getLocation而已
+                let getLocation = $(this).val();
+                console.log('getLocation', getLocation);
+
+                myTbody.html('');
+                content = ``;
+
+
+                // for
+                // php , js
+                // break 碰到後中斷
+                // continue 跳過當下
+
+                // jquery
+                // return false = break
+                // return true = continue
+
+                // data 裡面 有沒有getLocation
+                // let index = data.indexOf(getLocation);
+                // console.log('index', index);
+                // data locationName 是在第二層 所以沒法使用indexOf method
+
+
+                // https://chatgpt.com/share/68a425d1-e330-800a-b435-0754cbda824b
+                $.each(data, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+
+                    if (getLocation == value.locationName) {
+                        content += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
+                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
+                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
+                        </tr>
+                        `;
+
+                        return false;
+                    }
+
+                });
+
+                myTbody.append(content);
+                
+            });
+            // select end
+
 
         });
     </script>
