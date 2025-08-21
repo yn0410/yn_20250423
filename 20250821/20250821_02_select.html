@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- 連動 的 下拉式選單 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>我做的</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- 地區 -->
+                <label for="mySelectA" class="form-label">Select list (select one):</label>
+                <select class="form-select" id="mySelectA" name="sellist2">
+                    <option>北部地區</option>
+                    <option>中部地區</option>
+                </select>
+            </div>
+            <div class="col">
+                <!-- 縣市 -->
+                <label for="mySelectB" class="form-label">Select list (select one):</label>
+                <select class="form-select" id="mySelectB" name="sellist3">
+                    <option>臺北市</option>
+                    <option>新北市</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container mt-3">
+        <h4>(老師做的)</h4>
+        <h2>Select Menu</h2>
+        <p>To style a select menu in Bootstrap 5, add the .form-select class to the select element:</p>
+
+        <label for="sel1" class="form-label">Select list (select one):</label>
+        <select class="form-select" id="sel1" name="sellist1">
+            <option>all</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <br>
+        <label for="sel1" class="form-label">Select list (select one):</label>
+        <select class="form-select" id="sel1" name="sellist1">
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>31</option>
+            <option>32</option>
+            <option>33</option>
+            <option>34</option>
+            <option>41</option>
+            <option>42</option>
+            <option>43</option>
+            <option>44</option>
+        </select>
+        <br>
+
+    </div>
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 我想的 start
+            let regionData = {
+                '北部地區': ["臺北市", "新北市", "基隆市", "新竹市", "桃園市", "新竹縣", "宜蘭縣"],
+                '中部地區': ["臺中市", "苗栗縣", "彰化縣", "南投縣", "雲林縣"],
+                '南部地區': ["高雄市", "臺南市", "嘉義市", "嘉義縣", "屏東縣", "澎湖縣"],
+                '東部地區': ["花蓮縣", "臺東縣"],
+                '外島地區': ["金門縣", "連江縣"]
+            };
+            console.log("regionData", regionData);
+            // 我想的 end
+
+
+
+            // 老師想的 start
+            // data
+            let data = [
+                {
+                    id: 1,
+                    name: '北部地區',
+                    content: ['11', '12', '13', '14']
+                },
+                {
+                    id: 2,
+                    name: '中部地區',
+                    content: ['21', '22', '23', '24']
+                },
+                {
+                    id: 3,
+                    name: '南部地區',
+                    content: ['31', '32', '33', '34']
+                },
+                {
+                    id: 4,
+                    name: '東部地區',
+                    content: ['41', '42', '43', '44']
+                },
+                {
+                    id: 5,
+                    name: '外島地區',
+                    content: ['51', '52', '53', '54']
+                },
+                {
+                    id: 6,
+                    name: '全部',
+                    content: []
+                }
+
+            ]
+            // dataDetail 
+            // let dataDetail = [
+            //     {
+            //         'id' : 1,
+            //         'name' : '11'
+            //     }
+
+            // 老師想的 end
+
+        });
+    </script>
+</body>
+
+</html>
