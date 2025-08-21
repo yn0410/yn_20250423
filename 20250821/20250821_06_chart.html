@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- 看Chart.js官網做 -->
+    <!-- 04:按btn，顯示出圖表 -->
+    <!-- 05:網頁直接顯示出3個圖表，分三個data做 &給提示，讓我們去做做看 -->
+    <!-- 06:網頁直接顯示出3個圖表，分三個data做 &老師實際做給我們看 -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+            <div class="col">
+                <button type="button" id="myBtn" class="btn btn-primary">btn</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // function
+            function chartFun(myDataInput, myLabelsInput) {
+                const ctx = document.getElementById('myChart');
+                // let myData = [100, 200, 300, 400, 250, 300];
+                let myData = myDataInput;
+                // let myLabels = ['1月', '2月', '3月', '4月', '5月', '6月'];
+                let myLabels = myLabelsInput;
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: myLabels,
+                        datasets: [{
+                            label: '# of Votes',
+                            data: myData,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 1. bind
+            const myBtn = $("#myBtn");
+
+            let data = [
+                {
+                    id: 1,
+                    name: '1月',
+                    money: 100
+                },
+                {
+                    id: 2,
+                    name: '2月',
+                    money: 200
+                },
+                {
+                    id: 3,
+                    name: '3月',
+                    money: 300
+                },
+                {
+                    id: 4,
+                    name: '4月',
+                    money: 400
+                },
+                {
+                    id: 5,
+                    name: '5月',
+                    money: 250
+                },
+                {
+                    id: 6,
+                    name: '6月',
+                    money: 300
+                }
+            ];
+
+            // myData
+            let myData = [];
+            $.each(data, function (key, value) {
+                myData.push(value.money);
+            });
+            console.log("myData", myData);
+
+
+            // myLabels
+            let myLabels = [];
+            $.each(data, function (key, value) {
+                myLabels.push(value.name);
+            });
+            console.log("myLabels", myLabels);
+
+
+            // 2. action
+            myBtn.click(function (e) {
+                e.preventDefault();
+
+                chartFun(myData, myLabels);
+
+            });
+
+            // 老師給的提示
+            // chartFun(myData1, myLabels);
+            // chartFun(myData2, myLabels);
+            // chartFun(myData3, myLabels);
+
+        });
+    </script>
+</body>
+
+</html>
