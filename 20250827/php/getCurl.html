@@ -42,8 +42,9 @@
 
             // cors 問題 = 電腦保護機制
             // 要在同一個domain下面，才能呼叫後端
-            let url = './curl.php'; //都能用
+            // let url = './curl.php'; //都能用
             // let url = 'http://localhost/php/curl.php'; //都能用
+            let url = 'http://192.168.211.57/php/curl.php';
             $.ajax({
                 type: "get",
                 url: url,
