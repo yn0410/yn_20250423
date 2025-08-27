@@ -12,6 +12,8 @@ function dd($data)
     echo "</pre>";
 }
 
+header("Access-Control-Allow-Origin: *"); //所有Domain都能用了(用192.168.211.57 || localhost開"getCurl.html"，都能正常使用，不會報錯了)
+
 //init curl
 $ch = curl_init();
 //curl_setopt可以設定curl參數
