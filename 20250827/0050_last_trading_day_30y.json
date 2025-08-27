@@ -1,0 +1,146 @@
+{
+    "data": [
+        {
+            "year": 2005,
+            "date": "2005-11-30",
+            "close": 48.79,
+            "adj_close": null,
+            "return_close": null,
+            "return_adj_close": null
+        },
+        {
+            "year": 2010,
+            "date": "2010-12-31",
+            "close": 61.4,
+            "adj_close": null,
+            "return_close": "25.85%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2011,
+            "date": "2011-12-30",
+            "close": 49.81,
+            "adj_close": null,
+            "return_close": "-18.88%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2012,
+            "date": "2012-12-28",
+            "close": 53.8,
+            "adj_close": null,
+            "return_close": "8.01%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2013,
+            "date": "2013-12-31",
+            "close": 58.7,
+            "adj_close": null,
+            "return_close": "9.11%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2014,
+            "date": "2014-12-31",
+            "close": 66.85,
+            "adj_close": null,
+            "return_close": "13.88%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2015,
+            "date": "2015-12-31",
+            "close": 60.75,
+            "adj_close": null,
+            "return_close": "-9.12%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2016,
+            "date": "2016-12-30",
+            "close": 71.8,
+            "adj_close": null,
+            "return_close": "18.19%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2017,
+            "date": "2017-12-29",
+            "close": 82.15,
+            "adj_close": null,
+            "return_close": "14.42%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2018,
+            "date": "2018-12-28",
+            "close": 75.5,
+            "adj_close": null,
+            "return_close": "-8.09%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2019,
+            "date": "2019-12-31",
+            "close": 96.95,
+            "adj_close": null,
+            "return_close": "28.41%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2020,
+            "date": "2020-12-31",
+            "close": 122.25,
+            "adj_close": null,
+            "return_close": "26.1%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2021,
+            "date": "2021-12-30",
+            "close": 145.5,
+            "adj_close": null,
+            "return_close": "19.02%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2022,
+            "date": "2022-12-30",
+            "close": 110.2,
+            "adj_close": null,
+            "return_close": "-24.26%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2023,
+            "date": "2023-12-29",
+            "close": 135.45,
+            "adj_close": null,
+            "return_close": "22.91%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2024,
+            "date": "2024-12-31",
+            "close": 195.75,
+            "adj_close": null,
+            "return_close": "44.52%",
+            "return_adj_close": null
+        },
+        {
+            "year": 2025,
+            "date": "2025-08-26",
+            "close": 211,
+            "adj_close": null,
+            "return_close": "7.79%",
+            "return_adj_close": null
+        }
+    ],
+    "cagr": {
+        "close": "11.19%",
+        "adj_close": null
+    },
+    "source": "twse",
+    "ticker": "0050.TW"
+}

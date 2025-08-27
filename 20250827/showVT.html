@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h2>投資一定有風險 資料只是參考練習</h2>
+        <p>
+            VT 30年 股票資料
+            平均年化投報率: <span id="roi">100%</span>
+        </p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>年分</th>
+                    <!-- <th>date</th> -->
+                    <th>每年收盤價</th>
+                    <!-- <th>adj_close</th> -->
+                    <th>每年投報率</th>
+                    <!-- <th>return_adj_close</th> -->
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>john@example.com</td>
+                    <td>john@example.com</td>
+                    <td>john@example.com</td>
+                    <td>john@example.com</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <img src="./vt_last_trading_day_30y.json" alt="" srcset=""> -->
+
+    <!-- 載入bs5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myTbody = $('#myTbody');
+            const roi = $('#roi');
+
+            // 2.action
+            let url = './vt_last_trading_day_30y.json';
+            $.ajax({
+                type: "get",
+                url: url,
+                // data: "data",
+                dataType: "json",
+                success: function (response) {
+                    // console.log('response', response);
+                    let data = response.data;
+                    console.log('data', data);
+
+                    let roiData = response.cagr.close;
+                    console.log('roiData', roiData);
+                    roi.text(roiData);
+
+
+                    // foreach text append
+
+                    // year
+                    // date
+                    // close
+                    // adj_close
+                    // return_close
+                    // return_adj_close
+                    let tmpText = ``;
+                    $.each(data, function (key, value) {
+                        console.log('value', value);
+
+                        tmpText += `
+                        <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.year}</td>
+                            <td>${value.close}</td>
+                            <td>${value.return_close}</td>
+                        </tr>
+                        `;
+
+                    });
+
+                    console.log('tmpText', tmpText);
+
+                    myTbody.append(tmpText);
+
+
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>
