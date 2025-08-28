@@ -51,12 +51,21 @@ function dd($data){
 
 // dd($data);
 
-$data = [
-    'num1'=>100,
-    'num2'=>50,
-    'sum'=>150
-];
 
+
+// 測試抓form送出的資料
+// $data = $_GET;
+// dd($data);
+
+$input = $_GET;
+$sum = $input['num1'] + $input['num2'];
+
+$data = [
+    'num1'=>$input['num1'],
+    'num2'=>$input['num2'],
+    'sum'=>$sum
+];
+dd($data);
 
 echo json_encode($data);
 
