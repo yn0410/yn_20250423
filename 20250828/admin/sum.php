@@ -34,7 +34,7 @@ function dd($data){
 // dd("test ok");
 
 // 假資料 輸出測試
-$data = [
+/* $data = [
     [
         'id'=>1,
         'name'=>'amy'
@@ -47,9 +47,15 @@ $data = [
         'id'=>3,
         'name'=>'cat'
     ]
-];
+]; */
 
 // dd($data);
+
+$data = [
+    'num1'=>100,
+    'num2'=>50,
+    'sum'=>150
+];
 
 
 echo json_encode($data);
