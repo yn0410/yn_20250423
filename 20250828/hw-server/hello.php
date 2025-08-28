@@ -18,3 +18,4 @@ $data = [
 // dd($data);
 
 echo json_encode($data, JSON_UNESCAPED_UNICODE); //JSON_UNESCAPED_UNICODE =顯示中文
+?>
