@@ -57,7 +57,7 @@ function dd($data){
 // $data = $_GET;
 // dd($data);
 
-$input = $_GET;
+$input = $_POST;
 $sum = $input['num1'] + $input['num2'];
 
 $data = [
@@ -65,7 +65,7 @@ $data = [
     'num2'=>$input['num2'],
     'sum'=>$sum
 ];
-dd($data);
+// dd($data);
 
 echo json_encode($data);
 

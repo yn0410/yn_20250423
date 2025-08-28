@@ -15,7 +15,8 @@
     <!-- 前台畫面 -->
     <div class="container mt-3">
         <h2>數字加總計算機</h2>
-        <form action="../admin/sum.php" id="myForm" method="get">
+        <h3>(看console log)</h3>
+        <form action="../admin/sum.php" id="myForm" method="post">
             <div class="mb-3 mt-3">
                 <label for="num1">Num1:</label>
                 <input type="text" class="form-control" id="num1" placeholder="Enter num1" name="num1">
@@ -65,31 +66,33 @@
 
             // 2.action
             let url = "http://localhost/20250828/admin/sum.php";
-            // let formData = myForm.serializeArray();
-            // console.log("formData",formData);
+            
+            myForm.submit(function (e) { 
+                e.preventDefault();
+                console.log("sumbnit ok");
+                
+                // let formData = myForm.serialize();
+                let formData = myForm.serializeArray();
+                console.log("formData",formData);
 
-            // myForm.submit(function (e) { 
-            //     e.preventDefault();
-            //     console.log("sumbnit ok");
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: formData,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("response",response);
+                        
+                    },
+                    error:function (response) { //看錯誤回報(?)，不能有html(註解)
+                        console.log("response",response);
+                        
+                    }
+                });
                 
-                
-            // });
+            });
             
 
-            // $.ajax({
-            //     type: "get",
-            //     url: url,
-            //     // data: "data",
-            //     dataType: "json",
-            //     success: function (response) {
-            //         console.log("response",response);
-                    
-            //     },
-            //     error:function (response) { //看錯誤回報(?)，不能有html(註解)
-            //         console.log("response",response);
-                    
-            //     }
-            // });
         });
     </script>
 </body>
