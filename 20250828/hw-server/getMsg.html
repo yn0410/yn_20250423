@@ -46,12 +46,47 @@
 
     <script>
         $(document).ready(function () {
-            // 1.bind
+            let result = [];
+            function getDataFun($tmpIP) {
+                let tmpUrl = `http://${tmpIP}/hello.php`;
+                console.log("url", tmpUrl);
+
+                $.ajax({
+                    type: "post",
+                    url: tmpUrl,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("response", response);
+
+                        /* if (!response.length) {
+                            let tmpData = {
+                                id: Number(response.id),
+                                name: response.name,
+                                msg: response.msg
+                            }
+                            result.push(tmpData);
+                        } */
+                    }
+
+                });
+
+            }
+            for (let index = 52; index <= 73; index++) {
+                tmpIP = `192.168.211.${index}`;
+                getDataFun(tmpIP);
+
+            }
+
+            /* setTimeout(() => {
+                result.sort((a, b) => a.id - b.id);
+                console.log('result', result);
+            }, 3000); */
 
 
 
-            // 2.action
-            let url = "http://192.168.211.57/hello.php";
+
+            /* let url = "http://192.168.211.57/hello.php";
             $.ajax({
                 type: "post",
                 url: url,
@@ -65,7 +100,7 @@
                         console.log("error response",response);
                         
                     }
-            });
+            }); */
         });
     </script>
 </body>
