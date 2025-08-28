@@ -69,7 +69,7 @@
             
             myForm.submit(function (e) { 
                 e.preventDefault();
-                console.log("sumbnit ok");
+                console.log("sumbmit ok");
                 
                 // let formData = myForm.serialize();
                 let formData = myForm.serializeArray();
@@ -78,7 +78,7 @@
                 $.ajax({
                     type: "post",
                     url: url,
-                    data: formData,
+                    data: formData, //表示要把 formData 這筆資料傳給伺服器
                     dataType: "json",
                     success: function (response) {
                         console.log("response",response);
