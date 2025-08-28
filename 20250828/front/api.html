@@ -12,6 +12,23 @@
 </head>
 
 <body>
+    <!-- 前台畫面 -->
+    <div class="container mt-3">
+        <h2>數字加總計算機</h2>
+        <form action="http://localhost/20250828/admin/sum.php">
+            <div class="mb-3 mt-3">
+                <label for="num1">Num1:</label>
+                <input type="text" class="form-control" id="num1" placeholder="Enter num1" name="num1">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="num2">Num2:</label>
+                <input type="text" class="form-control" id="num2" placeholder="Enter num2" name="num2">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
 
     <!-- 載入bs5 bundle js (有bundle才是完整版) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
@@ -26,7 +43,19 @@
 
     <script>
         $(document).ready(function () {
-            // jQuery methods go here...
+            // (目錄)
+            // 前台
+            // 1.點菜(麵線 甜不辣) / num1 num2
+            // 2.點餐 麵線 甜不辣(訂單) / form
+            // 3.服務生 上菜 / ajax
+
+            // 前台
+            // 1.點菜(麵線 甜不辣)
+            // code
+            // 2.點餐 麵線 甜不辣(訂單)
+            // code
+            // 3.服務生 上菜
+            // code
         });
     </script>
 </body>
