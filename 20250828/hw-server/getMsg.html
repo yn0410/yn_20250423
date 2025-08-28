@@ -13,22 +13,21 @@
 
 <body>
     <div class="container mt-3">
-        <h2>Bordered Table</h2>
-        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <h2>串班上所有人的"佳句"</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
+                    <th>id</th>
+                    <th>姓名</th>
+                    <th>佳句</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="myTbody">
+                <!-- <tr>
                     <td>John</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
@@ -46,6 +45,10 @@
 
     <script>
         $(document).ready(function () {
+            // 1.bind
+            const myTbody = $("#myTbody");
+
+            // 2.action
             let result = [];
             function getDataFun(tmpIP) {
                 let tmpUrl = `http://${tmpIP}/hello.php`;
@@ -59,32 +62,41 @@
                     success: function (response) {
                         console.log("response", response);
 
-                        /* if (!response.length) {
+                        if (!response.length) {
                             let tmpData = {
                                 id: Number(response.id),
                                 name: response.name,
                                 msg: response.msg
                             }
                             result.push(tmpData);
-                        } */
+                        }
                     }
-
                 });
-
             }
+
             for (let index = 52; index <= 73; index++) {
                 tmpIP = `192.168.211.${index}`;
                 getDataFun(tmpIP);
-
             }
 
-            /* setTimeout(() => {
+            setTimeout(() => {
                 result.sort((a, b) => a.id - b.id);
                 console.log('result', result);
-            }, 3000); */
 
+                let content = ``;
+                $.each(result, function (key, value) { 
+                    content += `
+                    <tr>
+                        <td>${value.id}</td>
+                        <td>${value.name}</td>
+                        <td>${value.msg}</td>
+                    </tr>
+                    `;
+                });
+                myTbody.append(content);
+            }, 3000);
 
-
+            
 
             /* let url = "http://192.168.211.57/hello.php";
             $.ajax({
