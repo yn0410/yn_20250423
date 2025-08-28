@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入bs5 css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css"
+        integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 載入bs5 bundle js (有bundle才是完整版) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.bundle.min.js"
+        integrity="sha512-Tc0i+vRogmX4NN7tuLbQfBxa8JkfUSAxSFVzmU31nVdHyiHElPPy2cWfFacmCJKw0VqovrzKhdd2TSTMdAxp2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+
+
+
+            // 2.action
+            let url = "http://192.168.211.57/hello.php";
+            $.ajax({
+                type: "post",
+                url: url,
+                // data: "data",
+                dataType: "json",
+                success: function (response) {
+                    console.log("response", response);
+                    
+                },
+                error:function (response) { //看錯誤回報(?)，不能有html(註解)
+                        console.log("error response",response);
+                        
+                    }
+            });
+        });
+    </script>
+</body>
+
+</html>
